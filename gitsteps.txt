@@ -1,0 +1,49 @@
+go to the folder you will store our project into
+e.g cd e:/project/git-project
+now we start with git configuration 
+
+1. git config --global user.name "viraj10"
+
+2. git config --global user.email "viraj10@gmail.com"
+
+3. ssh-keygen -t rsa -C "virajplace@gmail.com"
+if it asks a file name jus press enter and if it asks a password enter one from git
+
+4. ssh-add ~.ssh/id_rsa
+its ok if this wasnt successful
+
+5. clip < ~/.ssh/id_rsa.pub
+copys ssh key
+
+6. now goto github.com and click top-right corner for account setting
+Now click ssh keys in left bar.  add ssh key . input a sample title and PASTE your key in key box.
+Click Addkey
+
+7. back to bash execute below:
+ssh -T git@github.com
+dont bother much on git reply
+
+you hav added key for ref goto  https://help.github.com/articles/generating-ssh-keys 
+
+Now the real use of git. Hope your in same folder where you want to store your project
+8. mkdir project0.1
+
+9. cd project 0.1/
+
+10. git init
+
+11. touch README
+
+12. git add README
+
+13. git commit -m "first commit"
+
+14. git remote add origin https://github.com/viraj10/project0.1.git
+
+15. git push origin master
+if it fails because you are back then do.
+
+16. git pull origin master
+
+For ref you can visit this https://help.github.com/articles/create-a-repo also remember to replace my emailid name withy yours.. :)
+
