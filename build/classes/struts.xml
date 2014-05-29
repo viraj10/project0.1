@@ -13,7 +13,9 @@
 	<package name="default" extends="struts-default" namespace="/">
 		<action name="login" class="com.devmanuals.LoginAction">
 			<result name="success">Welcome.jsp</result>
-			<result name="error">Login.jsp</result>
+			<result name="error">login.html</result>
+		</action>
+		<action name="getCaptcha" class="com.devmanuals.CaptchaGenerator">
 		</action>
 	</package>
 </struts>

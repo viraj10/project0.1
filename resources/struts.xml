@@ -15,5 +15,7 @@
 			<result name="success">Welcome.jsp</result>
 			<result name="error">login.html</result>
 		</action>
+		<action name="getCaptcha" class="com.devmanuals.CaptchaGenerator">
+		</action>
 	</package>
 </struts>
