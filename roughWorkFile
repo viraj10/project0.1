@@ -95,4 +95,4 @@ public class CaptchaServlet extends HttpServlet {
   }
 }
 
-/*<img src="CaptchaServlet">  will get the image*/
+/*<img src="CaptchaServlet">  will get the image http://www.mkyong.com/struts2/struts-2-dynamic-image-example/*/
