@@ -11,11 +11,19 @@
 		value="ApplicationResources" />
 
 	<package name="default" extends="struts-default" namespace="/">
+		<result-types>
+			<result-type name="imageResult"
+				class="com.devmanuals.resultTypes.CustomImageBytesResult" />
+		</result-types>
+	
+	
 		<action name="login" class="com.devmanuals.LoginAction">
 			<result name="success">Welcome.jsp</result>
 			<result name="error">login.html</result>
 		</action>
 		<action name="getCaptcha" class="com.devmanuals.CaptchaGenerator">
+			<result name="success" type="imageResult">
+			</result>
 		</action>
 	</package>
 </struts>
