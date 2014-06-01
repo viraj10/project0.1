@@ -25,5 +25,9 @@
 			<result name="success" type="imageResult">
 			</result>
 		</action>
+		<action name="saveNewUser" class="com.devmanuals.action.SaveUserDetailAction" method="addUser">
+			<result name="success">login.jsp</result>
+			<result name="error">display.jsp</result>
+		</action>
 	</package>
 </struts>

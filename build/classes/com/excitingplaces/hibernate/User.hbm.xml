@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.devmanuals.model.User" 
+	table="user" catalog="excitingplaces">
+ 
+        <id name="userId" type="java.lang.Long">
+            <column name="USERID" />
+            <generator class="identity" />
+        </id>
+        <property name="userName" type="string">
+            <column name="USERNAME" length="50" not-null="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="PASSWORD" length="100" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="EMAIL" length="320" not-null="true" />
+        </property>
+        <property name="phone" type="long">
+            <column name="PHONE" length="14" not-null="true" />
+        </property>
+        <property name="address" type="string">
+            <column name="ADDRESS" length="50"  not-null="true" />
+        </property>
+        <property name="city" type="string">
+            <column name="city" length="50"  not-null="true" />
+        </property>
+        <property name="postalCode" type="long">
+            <column name="POSTALCODE" length="10" not-null="true" />
+        </property>
+        <property name="creationDate" type="timestamp">
+            <column name="CREATIONDATE"  not-null="false" />
+        </property>
+    </class>
+</hibernate-mapping>
