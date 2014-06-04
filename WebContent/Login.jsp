@@ -108,42 +108,42 @@
 
 
 </div>
-
 <div class="span6">
 	
 <div class="box">
 <h4 class="notice-title">Registration for New Member</h4>
 <div class="notice">
-<form class="form-horizontal" id="registrationForm" action="" method="post">
+
+<form class="form-horizontal" id="registrationForm" action="saveNewUser.action" method="post">
 	   <div class="control-group">
 		<label class="control-label required" for="regName">Name</label>
 		<div class="controls">
-		  <input type="text" name="regName" id="regName" placeholder="Name" class="validate['required']"/>
+		  <input type="text" name="userbean.userName" id="regName" placeholder="Name" class="validate['required']"/>
 		</div>
 	  </div>
 	  <div class="control-group">
 		<label class="control-label required" for="regUserPhone">Phone</label>
 		<div class="controls">
-		  <input type="text" name="regUserPhone" id="regUserPhone" placeholder="Phone" class="validate['required']"/>
+		  <input type="text" name="userbean.phone" id="regUserPhone" placeholder="Phone" class="validate['required']"/>
 		</div>
 	  </div>
 	  <div class="control-group">
 		<label class="control-label" for="regInputAddress">Address</label>
 		<div class="controls">
-		  <textarea name="regInputAddress" id="regInputAddress"> </textarea>
+		  <textarea name="userbean.address" id="regInputAddress"> </textarea>
 		</div>
 	  </div>
 	   <div class="control-group">
 		<label class="control-label required" for="regInputPostcode">Postcode</label>
 		<div class="controls">
-		  <input type="text" name="regInputPostcode" id="regInputPostcode" placeholder="Postcode" value="">	  
+		  <input type="text" name="userbean.postalCode" id="regInputPostcode" placeholder="Postcode" value="">	  
 		<span id="postcodestatus"></span>	
 		</div>
 	  </div>
 	   <div class="control-group">
 		<label class="control-label required" for="regInputCity">City</label>
 		<div class="controls">
-		  <input type="text" name="regInputCity" id="regInputCity" placeholder="City" class="validate['required']"/>
+		  <input type="text" name="userbean.city" id="regInputCity" placeholder="City" class="validate['required']"/>
 		</div>
 	  </div>
 
@@ -151,13 +151,13 @@
 	  <div class="control-group">
 		<label class="control-label required" for="regInputEmail">Email</label>
 		<div class="controls">
-		  <input type="text" name="regInputEmail" id="regInputEmail" placeholder="Email" class="validate['required','email']"/>
+		  <input type="text" name="userbean.email" id="regInputEmail" placeholder="Email" class="validate['required','email']"/>
 		</div>
 	  </div>
 	  <div class="control-group">
 		<label class="control-label required" for="regInputPassword">Password</label>
 		<div class="controls">
-		  <input type="password" name="regInputPassword" id="regInputPassword" placeholder="Password" class="validate['required']"/>
+		  <input type="password" name="userbean.password" id="regInputPassword" placeholder="Password" class="validate['required']"/>
 		  <input type="hidden" name="reg" value="1">
 		</div>
 	  </div>

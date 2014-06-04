@@ -10,7 +10,7 @@
 	<constant name="struts.custom.i18n.resources"
 		value="ApplicationResources" />
 
-	<package name="default" extends="struts-default" namespace="/">
+	<package name="default" extends="struts-default">
 		<result-types>
 			<result-type name="imageResult"
 				class="com.devmanuals.resultTypes.CustomImageBytesResult" />
@@ -26,8 +26,8 @@
 			</result>
 		</action>
 		<action name="saveNewUser" class="com.devmanuals.action.SaveUserDetailAction" method="addUser">
-			<result name="success">login.jsp</result>
-			<result name="error">display.jsp</result>
+			<result name="success">Welcome.jsp</result>
+			<result name="error">Login.jsp</result>
 		</action>
 	</package>
 </struts>

@@ -17,10 +17,18 @@ import com.opensymphony.xwork2.ModelDriven;
 public class SaveUserDetailAction  extends ActionSupport 
 implements ModelDriven {
 
-	User user = new User();
+	User userbean = new User();
+
+	public User getUserbean() {
+		return userbean;
+	}
+
+	public void setUserbean(User userbean) {
+		this.userbean = userbean;
+	}
 
 	public Object getModel() {
-		return user;
+		return userbean;
 	}
 	
 	public String execute() throws Exception{
@@ -43,9 +51,9 @@ implements ModelDriven {
 		user.setPhone(89898989L);
 		user.setPostalCode(411006L);
 		user.setUserName("user name");*/
-		
+		userbean.setCreationDate(new Date());
 		session.beginTransaction();
-		session.save(user);
+		session.save(userbean);
 		session.getTransaction().commit();
 		
 		return SUCCESS;
