@@ -96,3 +96,22 @@ public class CaptchaServlet extends HttpServlet {
 }
 
 /*<img src="CaptchaServlet">  will get the image http://www.mkyong.com/struts2/struts-2-dynamic-image-example/*/
+
+=======================
+public class EncryptData 
+{
+    public static void main(String[] args)throws Exception
+    {
+        Long a =12345L;
+        Long b=(a*5)-250;
+        String topass=b.toString();
+        System.out.println(b);
+        String pass=topass.substring(0, 3) + (int)(Math.random() * 100) + topass.substring(3, topass.length())+(int)(Math.random() * 100);
+        System.out.println("pass "+pass);
+        String recov=pass.substring(0, 3)+pass.substring(5, pass.length()-2);
+        System.out.println("recov "+recov);
+        Long c=(Long.parseLong(recov)+250)/5;
+        System.out.println(c);
+       
+    }
+}
