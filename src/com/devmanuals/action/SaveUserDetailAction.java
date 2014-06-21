@@ -18,6 +18,16 @@ public class SaveUserDetailAction  extends ActionSupport
 implements ModelDriven {
 
 	User userbean = new User();
+	
+	String emailIdToCheck;
+
+	public String getEmailIdToCheck() {
+		return emailIdToCheck;
+	}
+
+	public void setEmailIdToCheck(String emailIdToCheck) {
+		this.emailIdToCheck = emailIdToCheck;
+	}
 
 	public User getUserbean() {
 		return userbean;
@@ -55,6 +65,19 @@ implements ModelDriven {
 		session.beginTransaction();
 		session.save(userbean);
 		session.getTransaction().commit();
+		
+		return SUCCESS;
+	}
+	
+	public String checkExistingEmail() throws Exception{
+		userbean.setEmail(emailIdToCheck);
+		/*SessionFactory sessionFactory=(SessionFactory) ServletActionContext.getServletContext().getAttribute(HibernateListener.KEY_NAME);
+		
+		Session session=sessionFactory.openSession();
+		
+		session.beginTransaction();
+		session.get(userbean);*/
+		
 		
 		return SUCCESS;
 	}

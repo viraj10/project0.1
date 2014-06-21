@@ -337,7 +337,21 @@
                   
                 },
                 submitHandler: function(form) {
-                    form.submit();
+                	
+                	
+                	var emailIdEntered=$("#regInputEmail").val();
+                	$.ajax({
+                		  url: "checkIfEmailExist",
+                		  type: "POST",
+                		  data: { emailIdToCheck : emailIdEntered },
+                		  success:function(response){
+                			  alert(response);
+                			  form.submit();
+                		  }
+                	
+                	}
+                	
+                    
                 }
             });
         }
