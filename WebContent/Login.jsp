@@ -118,32 +118,32 @@
 	   <div class="control-group">
 		<label class="control-label required" for="regName">Name</label>
 		<div class="controls">
-		  <input type="text" name="userbean.userName" id="regName" placeholder="Name" class="validate['required']"/>
+		  <input type="text" name="regName" id="regName" placeholder="Name" class="validate['required']"/>
 		</div>
 	  </div>
 	  <div class="control-group">
 		<label class="control-label required" for="regUserPhone">Phone</label>
 		<div class="controls">
-		  <input type="text" name="userbean.phone" id="regUserPhone" placeholder="Phone" class="validate['required']"/>
+		  <input type="text" name="regUserPhone" id="regUserPhone" placeholder="Phone" class="validate['required']"/>
 		</div>
 	  </div>
 	  <div class="control-group">
-		<label class="control-label" for="regInputAddress">Address</label>
+		<label class="control-label required" for="regInputAddress">Address</label>
 		<div class="controls">
-		  <textarea name="userbean.address" id="regInputAddress"> </textarea>
+		  <textarea name="regInputAddress" id="regInputAddress" class="validate['required']"> </textarea>
 		</div>
 	  </div>
 	   <div class="control-group">
 		<label class="control-label required" for="regInputPostcode">Postcode</label>
 		<div class="controls">
-		  <input type="text" name="userbean.postalCode" id="regInputPostcode" placeholder="Postcode" value="">	  
+		  <input type="text" name="regInputPostcode" id="regInputPostcode" placeholder="Postcode" value="">	  
 		<span id="postcodestatus"></span>	
 		</div>
 	  </div>
 	   <div class="control-group">
 		<label class="control-label required" for="regInputCity">City</label>
 		<div class="controls">
-		  <input type="text" name="userbean.city" id="regInputCity" placeholder="City" class="validate['required']"/>
+		  <input type="text" name="regInputCity" id="regInputCity" placeholder="City" class="validate['required']"/>
 		</div>
 	  </div>
 
@@ -151,13 +151,13 @@
 	  <div class="control-group">
 		<label class="control-label required" for="regInputEmail">Email</label>
 		<div class="controls">
-		  <input type="text" name="userbean.email" id="regInputEmail" placeholder="Email" class="validate['required','email']"/>
+		  <input type="text" name="regInputEmail" id="regInputEmail" placeholder="Email" class="validate['required','email']"/>
 		</div>
 	  </div>
 	  <div class="control-group">
 		<label class="control-label required" for="regInputPassword">Password</label>
 		<div class="controls">
-		  <input type="password" name="userbean.password" id="regInputPassword" placeholder="Password" class="validate['required']"/>
+		  <input type="password" name="regInputPassword" id="regInputPassword" placeholder="Password" class="validate['required']"/>
 		  <input type="hidden" name="reg" value="1">
 		</div>
 	  </div>
@@ -242,41 +242,7 @@
 </body>
 </html>
 <script type="text/javascript">
-function ajaxcall(){
-	
-	
-	/*$.ajax({
-		  url: "checkEmail.action",
-		  type: "POST",
-		  data: { emailIdToCheck : emailIdEntered },
-		  success:function(response){
-			  alert(response);
-			  
-		  }
-	
-	});
-	*/
-/*	$.getJSON('ajaxAction.action', {emailIdToCheck : emailIdEntered}, function(jsonResponse) {console.log(jsonResponse)
-        alert(jsonResponse);
-        
-      });*/
-	var emailIdEntered=$("#regInputEmail").val();
-	var existingemail="null";
-	$.ajax({url:'ajaxAction.action',
-			type:'POST',
-			async:false, 
-			data:{emailIdToCheck : emailIdEntered}, 
-			success:function(jsonResponse) {
-        		
-    			
-				existingemail= jsonResponse;
-    			
-    
- 				}
-		});
-	console.log("existingemail "+existingemail);
-	return existingemail;
-}
+
 
 (function($,W,D)
 {
@@ -311,27 +277,27 @@ function ajaxcall(){
                     form.submit();
                 }
             });
-			
-            jQuery.validator.addMethod("checkEmail",function(value) {
-            	
+            
+            jQuery.validator.addMethod("checkEmail", function(value, element) {
+            	  
             	var emailIdEntered=$("#regInputEmail").val();
-            	var existingemail="null";
+            	var existingemail;
             	$.ajax({url:'ajaxAction.action',
             			type:'POST',
             			async:false, 
             			data:{emailIdToCheck : emailIdEntered}, 
-            			success:function(jsonResponse) {
-                    		
-                			
-            				existingemail= jsonResponse;
-                			
-                
+            			success:function(jsonResponse) {                			
+            				 
+            				if(jsonResponse=="true")
+            					existingemail=true;
+            				else
+            					existingemail=false
              				}
             		});
-            	console.log("existingemail "+existingemail);
-            	return existingemail;
             	
-            }, "Email id already in use.");
+            	return existingemail;
+            }, "This email id is already in use.");
+			
             
 			$("#registrationForm").validate({
                 rules: {	
@@ -356,23 +322,10 @@ function ajaxcall(){
 					required:true,
 					equalTo:'#regInputPassword'
 					}
-					/*username: {
-						required:true,
-						email:true
-					},
-                    password: {
-                        required: true,
-                        minlength: 5
-                    }*/
                 },
 				
                 messages: {
-                    /*username: "Please enter a valid email address",
-                    password: {
-                        required: "Please provide a password",
-                        minlength: "Your password must be at least 5 characters long"
-                    },*/
-					
+                    
 					regName: "Please provide a name.",
 					regUserPhone: {
 						required:"Please provide a phone.",
@@ -384,14 +337,15 @@ function ajaxcall(){
 					regInputEmail:{
 						required: "Please provide a email.",
 						email: "Please provide valid email."
+			
 					},
 					regInputPassword:{
 						required: "Please provide a password.",
-                        minlength: "Minimum length of password is 6.",
+                        minlength: "Minimum length of password is 6."
 					},
 					regInputConfirmPassword:{
 						required: "Please provide a password.",
-						equalTo: "Please enter text same as password.",
+						equalTo: "Please enter text same as password."
 					}
                   
                 },

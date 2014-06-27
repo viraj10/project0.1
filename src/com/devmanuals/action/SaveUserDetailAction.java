@@ -14,33 +14,24 @@ import com.devmanuals.listener.HibernateListener;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
-public class SaveUserDetailAction  extends ActionSupport 
-implements ModelDriven {
+public class SaveUserDetailAction  extends ActionSupport {
 
-	User userbean = new User();
 	
-	String emailIdToCheck;
-
-	public String getEmailIdToCheck() {
-		return emailIdToCheck;
-	}
-
-	public void setEmailIdToCheck(String emailIdToCheck) {
-		this.emailIdToCheck = emailIdToCheck;
-	}
-
-	public User getUserbean() {
-		return userbean;
-	}
-
-	public void setUserbean(User userbean) {
-		this.userbean = userbean;
-	}
-
-	public Object getModel() {
-		return userbean;
-	}
 	
+	Long userId;
+	String regName;
+	String regInputPassword;
+	String regInputEmail;
+	String regInputAddress;
+	String regInputCity;
+	Long regUserPhone;
+	Long regInputPostcode;
+	
+
+	
+
+	
+		
 	public String execute() throws Exception{
 		System.out.print("SaveUserDetailAction");
 		return SUCCESS;
@@ -61,6 +52,14 @@ implements ModelDriven {
 		user.setPhone(89898989L);
 		user.setPostalCode(411006L);
 		user.setUserName("user name");*/
+		User userbean = new User();
+		userbean.setPhone(regUserPhone);
+		userbean.setPostalCode(regInputPostcode);
+		userbean.setPassword(regInputPassword);
+		userbean.setEmail(regInputEmail);
+		userbean.setCity(regInputCity);
+		userbean.setUserName(regName);
+		userbean.setAddress(regInputAddress);
 		userbean.setCreationDate(new Date());
 		session.beginTransaction();
 		session.save(userbean);
@@ -68,18 +67,71 @@ implements ModelDriven {
 		
 		return SUCCESS;
 	}
-	
-	public String checkExistingEmail() throws Exception{
-		userbean.setEmail(emailIdToCheck);
-		/*SessionFactory sessionFactory=(SessionFactory) ServletActionContext.getServletContext().getAttribute(HibernateListener.KEY_NAME);
-		
-		Session session=sessionFactory.openSession();
-		
-		session.beginTransaction();
-		session.get(userbean);*/
-		
-		
-		return SUCCESS;
+
+	public Long getUserId() {
+		return userId;
 	}
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
+
+	public String getRegName() {
+		return regName;
+	}
+
+	public void setRegName(String regName) {
+		this.regName = regName;
+	}
+
+	public String getRegInputPassword() {
+		return regInputPassword;
+	}
+
+	public void setRegInputPassword(String regInputPassword) {
+		this.regInputPassword = regInputPassword;
+	}
+
+	public String getRegInputEmail() {
+		return regInputEmail;
+	}
+
+	public void setRegInputEmail(String regInputEmail) {
+		this.regInputEmail = regInputEmail;
+	}
+
+	public String getRegInputAddress() {
+		return regInputAddress;
+	}
+
+	public void setRegInputAddress(String regInputAddress) {
+		this.regInputAddress = regInputAddress;
+	}
+
+	public String getRegInputCity() {
+		return regInputCity;
+	}
+
+	public void setRegInputCity(String regInputCity) {
+		this.regInputCity = regInputCity;
+	}
+
+	public Long getRegUserPhone() {
+		return regUserPhone;
+	}
+
+	public void setRegUserPhone(Long regUserPhone) {
+		this.regUserPhone = regUserPhone;
+	}
+
+	public Long getRegInputPostcode() {
+		return regInputPostcode;
+	}
+
+	public void setRegInputPostcode(Long regInputPostcode) {
+		this.regInputPostcode = regInputPostcode;
+	}
+	
+	
 	
 }
