@@ -1,28 +1,47 @@
 package com.devmanuals.model;
 
+//including hib annotation as suggested by kapil
+
 import java.util.Date;
-//
 
 
-
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
+@Table(name="user")
 public class User implements java.io.Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="userid")
 	private Long userId;
+	
+	@Column(name="username", length=50)
 	private String userName;
+	
+	@Column(name="password")
 	private String password;
+	
+	@Column(name="email", length=320, unique=true)
 	private String email;
+	
+	@Column(name="address")
 	private String address;
+	
+	@Column(name="city")
 	private String city;
+	
+	@Column(name="creationdate")
 	private Date creationDate;
+	
+	@Column(name="phone", length=14)
 	private Long phone;
+	
+	@Column(name="postalCode", length=10)
 	private Long postalCode;
 	
 	public User() {

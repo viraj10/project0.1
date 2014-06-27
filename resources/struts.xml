@@ -25,9 +25,15 @@
 			<result name="success" type="imageResult">
 			</result>
 		</action>
+		
+		<action name="ajaxAction" class="com.devmanuals.action.CheckUserEmail">
+        	
+  		</action>
+		
 		<action name="saveNewUser" class="com.devmanuals.action.SaveUserDetailAction" method="addUser">
+			<exception-mapping exception="java.lang.Exception"  result="error" />
 			<result name="success">Welcome.jsp</result>
-			<result name="error">Login.jsp</result>
+			<result name="error">error.jsp</result>
 		</action>
 	</package>
 </struts>

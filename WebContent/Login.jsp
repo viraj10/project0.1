@@ -177,6 +177,7 @@
 	  <div class="control-group">
 		<div class="controls">
 				  <button type="submit" class="btn btn-success">Register</button>
+				  <button onclick="ajaxcall()">ajaxcall</button>
 		</div>
 	  </div>
 	  <div class="" style="text-align:center;">Your email id will be used as username.</div>
@@ -241,6 +242,42 @@
 </body>
 </html>
 <script type="text/javascript">
+function ajaxcall(){
+	
+	
+	/*$.ajax({
+		  url: "checkEmail.action",
+		  type: "POST",
+		  data: { emailIdToCheck : emailIdEntered },
+		  success:function(response){
+			  alert(response);
+			  
+		  }
+	
+	});
+	*/
+/*	$.getJSON('ajaxAction.action', {emailIdToCheck : emailIdEntered}, function(jsonResponse) {console.log(jsonResponse)
+        alert(jsonResponse);
+        
+      });*/
+	var emailIdEntered=$("#regInputEmail").val();
+	var existingemail="null";
+	$.ajax({url:'ajaxAction.action',
+			type:'POST',
+			async:false, 
+			data:{emailIdToCheck : emailIdEntered}, 
+			success:function(jsonResponse) {
+        		
+    			
+				existingemail= jsonResponse;
+    			
+    
+ 				}
+		});
+	console.log("existingemail "+existingemail);
+	return existingemail;
+}
+
 (function($,W,D)
 {
     var JQUERY4U = {};
@@ -275,6 +312,27 @@
                 }
             });
 			
+            jQuery.validator.addMethod("checkEmail",function(value) {
+            	
+            	var emailIdEntered=$("#regInputEmail").val();
+            	var existingemail="null";
+            	$.ajax({url:'ajaxAction.action',
+            			type:'POST',
+            			async:false, 
+            			data:{emailIdToCheck : emailIdEntered}, 
+            			success:function(jsonResponse) {
+                    		
+                			
+            				existingemail= jsonResponse;
+                			
+                
+             				}
+            		});
+            	console.log("existingemail "+existingemail);
+            	return existingemail;
+            	
+            }, "Email id already in use.");
+            
 			$("#registrationForm").validate({
                 rules: {	
 					regName:{required:true},
@@ -287,7 +345,8 @@
 					regInputCity:{required:true},
 					regInputEmail:{
 						required:true,
-						email:true
+						email:true,
+						checkEmail:true
 					},
 					regInputPassword:{
 						required: true,
@@ -338,19 +397,7 @@
                 },
                 submitHandler: function(form) {
                 	
-                	
-                	var emailIdEntered=$("#regInputEmail").val();
-                	$.ajax({
-                		  url: "checkIfEmailExist",
-                		  type: "POST",
-                		  data: { emailIdToCheck : emailIdEntered },
-                		  success:function(response){
-                			  alert(response);
-                			  form.submit();
-                		  }
-                	
-                	}
-                	
+                	form.submit();	
                     
                 }
             });

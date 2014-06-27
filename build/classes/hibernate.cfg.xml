@@ -16,6 +16,15 @@
     <!-- Names the annotated entity class -->
     <mapping class="com.devmanuals.model.User"/>
     
+    
+    <!-- using hibernates c3p0 pool provider  -->
+    <!-- property name="hibernate.c3p0.min_size">7</property>
+    <property name="hibernate.c3p0.max_size">30</property>
+    <property name="hibernate.c3p0.timeout">300</property>
+    <property name="hibernate.c3p0.max_statements">70</property>
+    <property name="hibernate.c3p0.idle_test_period">3000</property-->
+    
+    
     <!--no more mapping resource use
     <mapping resource="com/excitingplaces/hibernate/User.hbm.xml" /-->
     
