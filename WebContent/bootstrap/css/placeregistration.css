@@ -1,0 +1,13 @@
+@CHARSET "ISO-8859-1";
+
+@media (max-width: 979px) and (min-width: 768px){
+.maincontainerspan {
+width: 600px !important;
+}
+}
+@media (min-width: 1000px){
+.maincontainerspan {
+margin-left:10%
+
+}
+}
