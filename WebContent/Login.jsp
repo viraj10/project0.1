@@ -299,12 +299,19 @@
             }, "This email id is already in use.");
 			
             
-			$("#registrationForm").validate({
+            
+            jQuery.validator.addMethod("allowOnlyNumbers", function(value, element) {
+          	  
+            	return /[0-9\.]/.test(value);
+            }, "This field can contain only number(s).");
+		
+            $("#registrationForm").validate({
                 rules: {	
 					regName:{required:true},
 					regUserPhone:{
 						required:true,
-						minlength: 10
+						minlength: 10,
+						allowOnlyNumbers:true
 					},
 					regInputAddress:{required:true},
 					regInputPostcode:{required:true},

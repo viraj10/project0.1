@@ -24,16 +24,7 @@
     <link rel="shortcut icon" href="favicon.ico">
   </head>
 <body>
-<script type="text/javascript">
-/*   var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-40557475-1']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })(); */
-</script><div class="navbar navbar-fixed-top">
+<div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
           <div class="nav-collapse collapse">
@@ -84,7 +75,7 @@
 <h4 class="notice-title">Registration for your beautiful place</h4>
 <div class="notice">
 
-<form class="form-horizontal" id="registrationForm" action="saveNewUser.action" method="post">
+<form class="form-horizontal" id="registrationPlaceForm" action="saveNewPlace.action" method="post">
 	   <div class="control-group">
 		<label class="control-label required" for="regPlaceName">Name</label>
 		<div class="controls">
@@ -189,9 +180,9 @@
 	  </div>
 	  
 	  <div class="control-group">
-		<label class="control-label required" for="regPlaceBathRestRooms">Inbuilt RestRooms(in numbers)</label>
+		<label class="control-label required" for="regPlaceRestRooms">Inbuilt RestRooms(in numbers)</label>
 		<div class="controls">
-		  <input type="text" name="regPlaceBathRestRooms" id="regPlaceBathRestRooms" placeholder="Enter number" class="validate['required']"/>
+		  <input type="text" name="regPlaceRestRooms" id="regPlaceRestRooms" placeholder="Enter number" class="validate['required']"/>
 		</div>
 	  </div>
 	  
@@ -215,7 +206,7 @@
 	  
 	  
 	  <div class="control-group">
-		<label class="control-label required" for="regPlaceBathrooms">Main Image Path</label>
+		<label class="control-label required" for="regPlaceIndexImg">Main Image Path</label>
 		<div class="controls">
 		 	<input type="file" data-filename-placement="inside" name="regPlaceIndexImg" id="regPlaceIndexImg"  class="validate['required']"/>
 		 </div>
@@ -345,9 +336,29 @@
         setupFormValidation: function()
         {
             //form validation rules
+            
+            jQuery.validator.addMethod("allowOnlyNumbers", function(value, element) {
+            	  
+            	return /[0-9\.]/.test(value)
+            }, "This field can contain only number(s).");
+			
+            
                       
-			$("#registrationForm").validate({
+			$("#registrationPlaceForm").validate({
                 rules: {	
+                	regPlaceName:{required:true} ,
+                	regPlacePhone:{required:true,allowOnlyNumbers:true,minlength: 10} , 
+                	regPlacePostcode:{required:true} , 
+                	regPlaceAddress:{required:true} ,
+                	regPlaceLocality:{required:true} ,
+                	regPlaceCapacity:{required:true,allowOnlyNumbers:true,maxlength: 5} ,
+                	regPlaceDinning:{required:true,allowOnlyNumbers:true,maxlength: 4} ,
+                	regPlaceArea:{required:true,allowOnlyNumbers:true,maxlength: 5} , 
+                	regPlaceWater:{required:true,allowOnlyNumbers:true,maxlength: 5} ,
+                	regPlaceParking:{required:true,allowOnlyNumbers:true,maxlength: 4} ,
+                	regPlaceRestRooms:{required:true,allowOnlyNumbers:true,maxlength: 3},
+                	regPlaceBathrooms:{required:true,allowOnlyNumbers:true,maxlength: 3},
+                	regPlaceIndexImg:{required:true}
 					
                 },				
                 messages: {
