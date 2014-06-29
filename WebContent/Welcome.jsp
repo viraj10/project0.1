@@ -63,21 +63,38 @@
 </div>	
 </header>
 <div id="bodySection">
-<div class="container"><div class="row">
-<div class="span12">
-<h2>&nbsp;</h2>
+<div class="container">
+
+<div id="myCarousel" class="carousel slide">
+   <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1" class=""></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol>
+  <!-- Carousel items -->
+  <div class="carousel-inner">
+    <div class="item active"><p><img src="places/pune/beautifulplace/1.png" alt="bootstrappage"></p></div>
+    <div class="item"><p><img src="places/pune/beautifulplace/2.png" alt="bootstrappage"></p></div>
+  	<div class="item"><p><img src="places/pune/beautifulplace/3.jpg" alt="bootstrappage"></p></div>
+  
+  </div>
+  <!-- Carousel nav -->
+  <a class="carousel-control left" href="#myCarousel" data-slide="prev">‹</a>
+  <a class="carousel-control right" href="#myCarousel" data-slide="next">›</a>
 </div>
 
-
-	<h2>HELLO !! <font color=blue><s:property value="username" /> </font>!</h2>
-	<h2><font color=red>WELCOME </font></h2>
-
-
-
-	
-</div>	
-
-
+	<form action="distance.php" method="post" style="margin-bottom:0">
+									
+		<h2 id="postCodeWrapper">
+			<div id="postCodeInner">
+				<span class="wTxt">Search Place: </span>
+				<input class="span3" id="postcode" name="postcode" type="text" placeholder="eg. W6 0SP">
+				<input class="span3" id="postcode" name="postcode" type="text" placeholder="eg. W6 0SP">
+				<input class="span3" id="postcode" name="postcode" type="text" placeholder="eg. W6 0SP">
+				<button class="btn btn-large btn-success" type="submit">CHECK SERVICES</button>
+			</div>
+		</h2>
+	</form>
 </div><!-- /container -->
 </div>
  <!-- Button to trigger modal -->
