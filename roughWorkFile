@@ -115,3 +115,37 @@ public class EncryptData
        
     }
 }
+
+=================================
+1 / 7 /2014
+
+
+
+<c:choose>
+				    <c:when test="${sessionScope.currentUser != null && sessionScope.currentUser.userId > 0 }">
+				        <li><a href="placeregistration.jsp">Register my place</a></li>
+				    </c:when>
+				    <c:otherwise>
+				        <li><a href="#">Log in </a> </li>
+				    </c:otherwise>
+				</c:choose>
+				
+				
+				
+SaveUserDetailAction  extends ActionSupport implements SessionAware
+Map<String, Object> sessionMap;
+	 
+	@Override
+	 public void setSession(Map session) {
+	    this.sessionMap = session;
+	  }
+	  
+	  sessionMap.put("currentUser", userbean);
+	  
+	  
+	  
+	  <action name="checkLogin" class="com.devmanuals.action.LoginAction">
+			<exception-mapping exception="java.lang.Exception"  result="error" />
+			<result name="success">Welcome.jsp</result>
+			<result name="error">Login.jsp</result>
+		</action>
