@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.SessionAware;
 import org.hibernate.Session;
@@ -19,6 +20,8 @@ import com.opensymphony.xwork2.ModelDriven;
 public class SaveUserDetailAction  extends ActionSupport implements SessionAware{
 	
 	private static final long serialVersionUID = 6565789123L;
+	
+	static final Logger LOGGER = Logger.getLogger(SaveUserDetailAction.class);
 	
 	Map<String, Object> sessionMap;
 	@Override
@@ -48,6 +51,9 @@ public class SaveUserDetailAction  extends ActionSupport implements SessionAware
 	}
 	
 	public String addUser() throws Exception{
+		
+		LOGGER.info("This is a debug log message from Struts2");
+        
 		
 		SessionFactory sessionFactory=(SessionFactory) ServletActionContext.getServletContext().getAttribute(HibernateListener.KEY_NAME);
 		
