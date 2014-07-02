@@ -15,6 +15,8 @@
     <property name="use_sql_comments">false</property>
     <!-- Names the annotated entity class -->
     <mapping class="com.devmanuals.model.User"/>
+    <mapping class="com.devmanuals.model.Place"/>
+    <mapping class="com.devmanuals.model.Attribute"/>
     
     
     <!-- using hibernates c3p0 pool provider  -->

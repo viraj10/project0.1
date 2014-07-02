@@ -261,7 +261,8 @@
 		 </div>
 	  </div>
 	  
-	  
+	  <input name="regPlaceMinPrice" id="regPlaceMinPrice" type="hidden"/>
+	  <input name="regPlaceMaxPrice" id="regPlaceMaxPrice" type="hidden"/>
 	  <div class="control-group">
 		<div class="controls">
 				  <button type="submit" class="btn btn-success">Register</button>
@@ -372,7 +373,9 @@
                  
                 },
                 submitHandler: function(form) {
-                	
+                	var priceArray=$(".bootstrapslider").data('slider').getValue();
+                	$("#regPlaceMinPrice").val(priceArray[0]);
+                	$("#regPlaceMaxPrice").val(priceArray[1]);
                 	form.submit();	
                     
                 }
