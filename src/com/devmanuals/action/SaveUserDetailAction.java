@@ -4,8 +4,10 @@ package com.devmanuals.action;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.struts2.ServletActionContext;
+import org.apache.struts2.interceptor.SessionAware;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
@@ -14,9 +16,17 @@ import com.devmanuals.listener.HibernateListener;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
-public class SaveUserDetailAction  extends ActionSupport {
-
+public class SaveUserDetailAction  extends ActionSupport implements SessionAware{
 	
+	private static final long serialVersionUID = 6565789123L;
+	
+	Map<String, Object> sessionMap;
+	@Override
+	 public void setSession(Map session) {
+	    this.sessionMap = session;
+	  }
+	  
+	  
 	
 	Long userId;
 	String regName;
@@ -63,6 +73,7 @@ public class SaveUserDetailAction  extends ActionSupport {
 		userbean.setCreationDate(new Date());
 		session.beginTransaction();
 		session.save(userbean);
+		sessionMap.put("currentUser", userbean);
 		session.getTransaction().commit();
 		
 		return SUCCESS;

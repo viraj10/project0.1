@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -34,8 +35,14 @@
 			
             <ul class="nav pull-right">
 				<!--li><a href="#" style="padding:0 14px; "><span class="btn btn-warning">Menu</span></a></li-->
-				<li><a href="#">Register my place</a></li>
-				<li><a href="#">Log in </a> </li>	
+				<c:choose>
+					<c:when test="${sessionScope.currentUser!=null && sessionScope.currentUser.userId>0}">
+						<li><a href="#">Register my place</a></li>
+					</c:when>
+					<c:otherwise>
+						<li><a href="#">Log in </a> </li>	
+					</c:otherwise>              
+				</c:choose>	
 				<li><a href="#" style="padding:0 14px; " title="Know the most booked places here.">
 					<span class="btn btn-success"><i class="icon-shopping-cart"></i> Top places </span> 
 				</a></li>	

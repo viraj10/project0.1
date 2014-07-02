@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -41,8 +42,14 @@
 			
             <ul class="nav pull-right">
 				<!--li><a href="#" style="padding:0 14px; "><span class="btn btn-warning">Menu</span></a></li-->
-				<li><a href="#">Register my place</a></li>
-				<li><a href="#">Log in </a> </li>	
+				<c:choose>
+					<c:when test="${sessionScope.currentUser!=null && sessionScope.currentUser.userId>0}">
+						<li><a href="#">Register my place</a></li>
+					</c:when>
+					<c:otherwise>
+						<li><a href="#">Log in </a> </li>	
+					</c:otherwise>              
+				</c:choose>	
 				<li><a href="#" style="padding:0 14px; " title="Know the most booked places here.">
 					<span class="btn btn-success"><i class="icon-shopping-cart"></i> Top places </span> 
 				</a></li>	
@@ -80,19 +87,19 @@
 <h4 class="notice-title">Existing Member</h4>
 <div class="notice">
 <div class="alert alert-danger" id="result1" style="display:none"><span id="result"></span></div>
-<form name="loginfrm" class="form-horizontal" id="loginfrm" enctype="" action="" method="post">
+<form name="loginfrm" class="form-horizontal" id="loginfrm" enctype="" action="checkLogin.action" method="post">
 		<div class="control-group">
-			<label class="control-label" for="email">Email<span style="color: #c30">*</span></label>
+			<label class="control-label" for="userEmail">Email<span style="color: #c30">*</span></label>
 			<div class="controls">
-			  <input type="email" name="username" id="username" class="span3 validate['required','email']" value="" title="Email address"/>
+			  <input type="email" name="userEmail" id="userEmail" class="span3 validate['required','email']" value="" title="Email address"/>
 			  <input name="action" id="action" value="login" type="hidden"/>
 			</div>
 		</div>
 	  
 	   <div class="control-group">
-			<label class="control-label" for="password">Password<span style="color: #c30">*</span></label>
+			<label class="control-label" for="userPassword">Password<span style="color: #c30">*</span></label>
 			<div class="controls">
-			  <input type="password" name="password" id="password" class="span3 validate['required']" title="Password"/>
+			  <input type="password" name="userPassword" id="userPassword" class="span3 validate['required']" title="Password"/>
 			</div>
 		</div>
 
@@ -255,11 +262,11 @@
             //form validation rules
             $("#loginfrm").validate({
                 rules: {				
-					username: {
+                	userEmail: {
 						required:true,
 						email:true
 					},
-                    password: {
+					userPassword: {
                         required: true,
                         minlength: 5
                     }
