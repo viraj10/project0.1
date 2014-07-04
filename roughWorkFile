@@ -149,3 +149,159 @@ Map<String, Object> sessionMap;
 			<result name="success">Welcome.jsp</result>
 			<result name="error">Login.jsp</result>
 		</action>
+
+
+
+
+
+=================================
+
+C3p0 change the order in hib.cfg.xml:
+
+<!-- using hibernates c3p0 pool provider  -->
+    <property name="hibernate.c3p0.min_size">7</property>
+    <property name="hibernate.c3p0.max_size">30</property>
+    <property name="hibernate.c3p0.timeout">300</property>
+    <property name="hibernate.c3p0.max_statements">70</property>
+    <property name="hibernate.c3p0.idle_test_period">3000</property>
+    
+    <!-- Names the annotated entity class -->
+    <mapping class="com.devmanuals.model.User"/>
+	
+
+File upload:
+
+struts.xml
+<action name="userImage" class="com.devmanuals.action.FileUploadAction">
+	    <interceptor-ref name="fileUpload">
+         <param name="maximumSize">2097152</param>
+         <param name="allowedTypes">
+             image/png,image/gif,image/jpeg,image/pjpeg
+         </param>
+       </interceptor-ref>
+	    <interceptor-ref name="defaultStack"></interceptor-ref>
+	    <result name="success">success.jsp</result>
+	    <result name="input">index.jsp</result>
+	    <result name="error">error.jsp</result>
+	</action>
+	
+FileUploadAction.java	
+package com.devmanuals.action;
+
+import java.io.File;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.commons.io.FileUtils;
+import org.apache.struts2.interceptor.ServletRequestAware;
+
+import com.opensymphony.xwork2.ActionSupport;
+
+public class FileUploadAction extends ActionSupport implements ServletRequestAware {
+ private static final long serialVersionUID = 1L;
+ private File userImage;
+ private String userImageContentType;
+ private String userImageFileName;
+ 
+ private HttpServletRequest servletRequest;
+ 
+ public String execute() {
+  try {
+      String filePath = servletRequest.getSession().getServletContext().getRealPath("/");
+      System.out.println("Server path:" + filePath);
+      new File(filePath+"\\\\location\\\\placename").mkdirs();
+      filePath+="\\\\places\\\\pune\\\\beautifulplace\\\\";
+      File fileToCreate = new File(filePath, this.userImageFileName);
+  
+      FileUtils.copyFile(this.userImage, fileToCreate);
+  } catch (Exception e) {
+      e.printStackTrace();
+      addActionError(e.getMessage());
+ 
+      return INPUT;
+  }
+  return SUCCESS;
+ }
+ 
+ public File getUserImage() {
+  return userImage;
+ }
+ 
+ public void setUserImage(File userImage) {
+  this.userImage = userImage;
+ }
+ 
+ public String getUserImageContentType() {
+  return userImageContentType;
+ }
+ 
+ public void setUserImageContentType(String userImageContentType) {
+  this.userImageContentType = userImageContentType;
+ }
+ 
+ public String getUserImageFileName() {
+  return userImageFileName;
+ }
+ 
+ public void setUserImageFileName(String userImageFileName) {
+  this.userImageFileName = userImageFileName;
+ }
+ 
+ @Override
+ public void setServletRequest(HttpServletRequest servletRequest) {
+  this.servletRequest = servletRequest;
+ }
+}
+
+index.jsp
+<%@ page contentType="text/html; charset=UTF-8"%>  
+<%@ taglib prefix="s" uri="/struts-tags"%>  
+<html>  
+<head>  
+<title>Upload User Image</title>  
+</head>  
+   
+<body>  
+<h2>Struts2 File Upload & Save Example</h2>  
+<s:actionerror />  
+<s:form action="userImage" method="post" enctype="multipart/form-data">  
+    <s:file name="userImage" label="User Image" size="10"/>  
+    <s:submit value="Upload" align="center" />  
+</s:form>  
+</body>  
+</html>  
+
+Success.jsp
+<%@ page contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<html>
+<head>
+<title>Success: Upload User Image</title>
+</head>
+<body>
+    <h2>Struts2 File Upload Example</h2>
+    User Image: <s:property value="userImage"/>
+    
+
+    Content Type: <s:property value="userImageContentType"/>
+    
+
+    File Name: <s:property value="userImageFileName"/>
+    
+
+    Uploaded Image:
+    
+
+    <img src="<s:property value="userImageFileName"/>"/>
+</body>
+</html>
+
+add jars:
+commons-io
+commons-fileupload from struts lib
+
+helplink
+http://www.dineshonjava.com/2013/07/struts-2-file-upload-example.html#.U7YtYvmSxHs
+
+
+=================================
