@@ -124,30 +124,30 @@
 	  </div>
 	  
 	  <div class="control-group">
-		<label class="control-label required" for="regPlaceAC">Air Conditioned</label>
+		<label class="control-label required" for="regPlaceACVis">Air Conditioned</label>
 		<div class="controls">
-			<input type="checkbox" name="regPlaceAC" id="regPlaceAC"  class="validate['required']" style="width:20px;height:15px;"/>
+			<input type="checkbox" name="regPlaceACVis" id="regPlaceACVis"  class="validate['required']" style="width:20px;height:15px;"/>
 		</div>
 	  </div>
 	  
 	  <div class="control-group">
-		<label class="control-label required" for="regPlacePower">Power Backup</label>
+		<label class="control-label required" for="regPlacePowerVis">Power Backup</label>
 		<div class="controls">
-			<input type="checkbox" name="regPlacePower" id="regPlacePower"  class="validate['required']" style="width:20px;height:15px;"/>
+			<input type="checkbox" name="regPlacePowerVis" id="regPlacePowerVis"  class="validate['required']" style="width:20px;height:15px;"/>
 		</div>
 	  </div>
 	  
 	  <div class="control-group">
-		<label class="control-label required" for="regPlaceMusic">Music allowed</label>
+		<label class="control-label required" for="regPlaceMusicVis">Music allowed</label>
 		<div class="controls">
-			<input type="checkbox" name="regPlaceMusic" id="regPlaceMusic"  class="validate['required']" style="width:20px;height:15px;"/>
+			<input type="checkbox" name="regPlaceMusicVis" id="regPlaceMusicVis"  class="validate['required']" style="width:20px;height:15px;"/>
 		</div>
 	  </div>
 	  
 	  <div class="control-group">
-		<label class="control-label required" for="regPlaceVegetarian">Only vegetarian</label>
+		<label class="control-label required" for="regPlaceVegetarianVis">Only vegetarian</label>
 		<div class="controls">
-			<input type="checkbox" name="regPlaceVegetarian" id="regPlaceVegetarian"  class="validate['required']" style="width:20px;height:15px;"/>
+			<input type="checkbox" name="regPlaceVegetarianVis" id="regPlaceVegetarianVis"  class="validate['required']" style="width:20px;height:15px;"/>
 		</div>
 	  </div>
 	  
@@ -203,11 +203,11 @@
 	  <div class="control-group">
 		<label class="control-label required" for="regPlaceType">Place Type</label>
 		<div class="controls">
-		  <input type="checkbox" name="regPlaceMarriage" id="regPlaceMarriage"  class="validate['required']" style="width:20px;height:15px;"/>Marriage Hall
-		  <input type="checkbox" name="regPlaceConference" id="regPlaceConference"  class="validate['required']" style="width:20px;height:15px;"/>Conference Hall
-		  <input type="checkbox" name="regPlacepartyHall" id="regPlacepartyHall"  class="validate['required']" style="width:20px;height:15px;"/>Party Place
-		  <input type="checkbox" name="regPlaceHotel" id="regPlaceHotel"  class="validate['required']" style="width:20px;height:15px;"/>Hotel
-		  <input type="checkbox" name="regPlaceOpenHouse" id="regPlaceOpenHouse"  class="validate['required']" style="width:20px;height:15px;"/>Open House
+		  <input type="checkbox" name="regPlaceMarriageVis" id="regPlaceMarriageVis"  class="validate['required']" style="width:20px;height:15px;"/>Marriage Hall
+		  <input type="checkbox" name="regPlaceConferenceVis" id="regPlaceConferenceVis"  class="validate['required']" style="width:20px;height:15px;"/>Conference Hall
+		  <input type="checkbox" name="regPlacepartyHallVis" id="regPlacepartyHallVis"  class="validate['required']" style="width:20px;height:15px;"/>Party Place
+		  <input type="checkbox" name="regPlaceHotelVis" id="regPlaceHotelVis"  class="validate['required']" style="width:20px;height:15px;"/>Hotel
+		  <input type="checkbox" name="regPlaceOpenHouseVis" id="regPlaceOpenHouseVis"  class="validate['required']" style="width:20px;height:15px;"/>Open House
 		</div>
 	  </div>
 	  
@@ -215,47 +215,47 @@
 	  <div class="control-group">
 		<label class="control-label required" for="regPlaceIndexImg">Main Image Path</label>
 		<div class="controls">
-		 	<input type="file" data-filename-placement="inside" name="regPlaceIndexImg" id="regPlaceIndexImg"  class="validate['required']"/>
+		 	<input type="file" data-filename-placement="inside" name="regPlaceIndexImg" id="regPlaceIndexImg"  class=""/>
 		 </div>
 	  </div>
 	  
 	  <div class="control-group">
-		<label class="control-label required" for="regPlaceImage1">Additional Image 1</label>
+		<label class="control-label" for="regPlaceImage1">Additional Image 1</label>
 		<div class="controls">
 		 	<input type="file" data-filename-placement="inside" name="regPlaceImage1" id="regPlaceImage1"/>
 		 </div>
 	  </div>
 	  
 	  <div class="control-group">
-		<label class="control-label required" for="regPlaceImage2">Additional Image 2</label>
+		<label class="control-label" for="regPlaceImage2">Additional Image 2</label>
 		<div class="controls">
 		 	<input type="file" data-filename-placement="inside" name="regPlaceImage2" id="regPlaceImage2" />
 		 </div>
 	  </div>
 	  
 	  <div class="control-group">
-		<label class="control-label required" for="regPlaceImage3">Additional Image 3</label>
+		<label class="control-label" for="regPlaceImage3">Additional Image 3</label>
 		<div class="controls">
 		 	<input type="file" data-filename-placement="inside" name="regPlaceImage3" id="regPlaceImage3"/>
 		 </div>
 	  </div>
 	  
 	  <div class="control-group">
-		<label class="control-label required" for="regPlaceImage4">Additional Image 4</label>
+		<label class="control-label" for="regPlaceImage4">Additional Image 4</label>
 		<div class="controls">
 		 	<input type="file" data-filename-placement="inside" name="regPlaceImage4" id="regPlaceImage4"/>
 		 </div>
 	  </div>
 	  
 	  <div class="control-group">
-		<label class="control-label required" for="regPlaceDocument">Place Document</label>
+		<label class="control-label" for="regPlaceDocument">Place Document</label>
 		<div class="controls">
 		 	<input type="file" data-filename-placement="inside" name="regPlaceDocument" id="regPlaceDocument"/>
 		 </div>
 	  </div>
 	  
 	  <div class="control-group">
-		<label class="control-label required" for="regPlaceMap">Google Map Link</label>
+		<label class="control-label" for="regPlaceMap">Google Map Link</label>
 		<div class="controls">
 		 	<input type="text" placeholder="Enter URL" name="regPlaceMap" id="regPlaceMap"/>
 		 </div>
@@ -263,6 +263,18 @@
 	  
 	  <input name="regPlaceMinPrice" id="regPlaceMinPrice" type="hidden"/>
 	  <input name="regPlaceMaxPrice" id="regPlaceMaxPrice" type="hidden"/>
+	  
+	  <input name="regPlacePower" id="regPlacePower" type="hidden"/>
+	  <input name="regPlaceMusic" id="regPlaceMusic" type="hidden"/>
+	  <input name="regPlaceVegetarian" id="regPlaceVegetarian" type="hidden"/>
+	  <input name="regPlaceAC" id="regPlaceAC" type="hidden"/>
+	  
+	  <input name="regPlaceMarriage" id="regPlaceMarriage" type="hidden"/>
+	  <input name="regPlaceConference" id="regPlaceConference" type="hidden"/>
+	  <input name="regPlacepartyHall" id="regPlacepartyHall" type="hidden"/>
+	  <input name="regPlaceHotel" id="regPlaceHotel" type="hidden"/>
+	  <input name="regPlaceOpenHouse" id="regPlaceOpenHouse" type="hidden"/>
+	  
 	  <div class="control-group">
 		<div class="controls">
 				  <button type="submit" class="btn btn-success">Register</button>
@@ -366,7 +378,7 @@
                 	regPlaceParking:{required:true,allowOnlyNumbers:true,maxlength: 4} ,
                 	regPlaceRestRooms:{required:true,allowOnlyNumbers:true,maxlength: 3},
                 	regPlaceBathrooms:{required:true,allowOnlyNumbers:true,maxlength: 3},
-                	regPlaceIndexImg:{required:true}
+                	regPlaceIndexImg:{required:false}
 					
                 },				
                 messages: {
@@ -376,6 +388,20 @@
                 	var priceArray=$(".bootstrapslider").data('slider').getValue();
                 	$("#regPlaceMinPrice").val(priceArray[0]);
                 	$("#regPlaceMaxPrice").val(priceArray[1]);
+                	
+                	$("#regPlacePower").val($("#regPlacePowerVis").prop('checked'));
+	              	$("#regPlaceMusic").val($("#regPlaceMusicVis").prop('checked'));
+	              	$("#regPlaceVegetarian").val($("#regPlaceVegetarianVis").prop('checked'));
+	              	$("#regPlaceAC").val($("#regPlaceACVis").prop('checked'));
+	              	$("#regPlaceMarriage").val($("#regPlaceMarriageVis").prop('checked'));
+	              	$("#regPlaceConference").val($("#regPlaceConferenceVis").prop('checked'));
+	              	$("#regPlacepartyHall").val($("#regPlacepartyHallVis").prop('checked'));
+	              	$("#regPlaceHotel").val($("#regPlaceHotelVis").prop('checked'));
+	              	$("#regPlaceOpenHouse").val($("#regPlaceOpenHouseVis").prop('checked'));
+                	              	  
+	              
+              	
+                	
                 	form.submit();	
                     
                 }
