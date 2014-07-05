@@ -13,18 +13,18 @@
     <property name="show_sql">true</property>
     <property name="format_sql">true</property>
     <property name="use_sql_comments">false</property>
+    
+    <!-- using hibernates c3p0 pool provider  -->
+    <property name="hibernate.c3p0.min_size">7</property>
+    <property name="hibernate.c3p0.max_size">30</property>
+    <property name="hibernate.c3p0.timeout">300</property>
+    <property name="hibernate.c3p0.max_statements">70</property>
+    <property name="hibernate.c3p0.idle_test_period">3000</property>
+    
     <!-- Names the annotated entity class -->
     <mapping class="com.devmanuals.model.User"/>
     <mapping class="com.devmanuals.model.Place"/>
     <mapping class="com.devmanuals.model.Attribute"/>
-    
-    
-    <!-- using hibernates c3p0 pool provider  -->
-    <!-- property name="hibernate.c3p0.min_size">7</property>
-    <property name="hibernate.c3p0.max_size">30</property>
-    <property name="hibernate.c3p0.timeout">300</property>
-    <property name="hibernate.c3p0.max_statements">70</property>
-    <property name="hibernate.c3p0.idle_test_period">3000</property-->
     
     
     <!--no more mapping resource use
