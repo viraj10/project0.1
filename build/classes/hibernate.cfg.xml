@@ -25,6 +25,7 @@
     <mapping class="com.devmanuals.model.User"/>
     <mapping class="com.devmanuals.model.Place"/>
     <mapping class="com.devmanuals.model.Attribute"/>
+    <mapping class="com.devmanuals.model.Admin"/>
     
     
     <!--no more mapping resource use

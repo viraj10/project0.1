@@ -31,6 +31,7 @@
   		</action>
   		
   		<action name="saveNewPlace" class="com.devmanuals.action.PlaceDAO" method="addPlace">
+	  		
   			<exception-mapping exception="java.lang.Exception" result="error" />
   			<result name="success">Welcome.jsp</result>
 			<result name="login">Login.jsp</result>
@@ -48,5 +49,12 @@
 			<result name="success">Welcome.jsp</result>
 			<result name="error">error.jsp</result>
 		</action>
+		
+		
+		<action name="adminLoginAction" class="com.devmanuals.action.AdminLogin">
+			<result name="success">Welcome.jsp</result>
+			<result name="error">getbestplaceadminlogin.jsp</result>
+		</action>
+		
 	</package>
 </struts>

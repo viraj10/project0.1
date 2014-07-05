@@ -378,7 +378,7 @@
                 	regPlaceParking:{required:true,allowOnlyNumbers:true,maxlength: 4} ,
                 	regPlaceRestRooms:{required:true,allowOnlyNumbers:true,maxlength: 3},
                 	regPlaceBathrooms:{required:true,allowOnlyNumbers:true,maxlength: 3},
-                	regPlaceIndexImg:{required:false}
+                	regPlaceIndexImg:{required:true}
 					
                 },				
                 messages: {

@@ -3,8 +3,11 @@ package com.devmanuals.action;
 
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.log4j.Logger;
 import org.apache.struts2.ServletActionContext;
+import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -14,9 +17,8 @@ import com.devmanuals.model.Place;
 import com.devmanuals.model.User;
 import com.devmanuals.listener.HibernateListener;
 import com.opensymphony.xwork2.ActionSupport;
-import com.opensymphony.xwork2.ModelDriven;
 
-public class PlaceDAO  extends ActionSupport  implements  SessionAware{
+public class PlaceDAO  extends ActionSupport  implements  SessionAware,ServletRequestAware{
 
 	/**
 	 * 
@@ -24,27 +26,24 @@ public class PlaceDAO  extends ActionSupport  implements  SessionAware{
 	static final Logger LOGGER = Logger.getLogger(PlaceDAO.class);
 	
 	Map<String, Object> sessionMap;
+	private HttpServletRequest servletRequest;
+	 
 	@Override
 	 public void setSession(Map session) {
 	    this.sessionMap = session;
 	  }
 	
+	@Override
+	 public void setServletRequest(HttpServletRequest servletRequest) {
+	  this.servletRequest = servletRequest;
+	 }
+	
 	private static final long serialVersionUID = 6427837709720937902L;
-//	Place placeBean= new Place();
-//
-//	public Place getPlaceBean() {
-//		return placeBean;
-//	}
-//
-//	public void setPlaceBean(Place placeBean) {
-//		this.placeBean = placeBean;
-//	}
-//
-//	public Place getModel() {
-//		return placeBean;
-//	}
 	
 	
+//	private File regPlaceIndexImg;
+	
+		 
 	public String addPlace() throws Exception{
 		
 		User userObj;
@@ -90,13 +89,34 @@ public class PlaceDAO  extends ActionSupport  implements  SessionAware{
 		Attribute attributePower=getAttribute("Power",regPlacePower,placeBean);
 		Attribute attributeMusic=getAttribute("Music",regPlaceMusic,placeBean);
 		
-
-		
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		String pathIndex="";
+		/*try {
+		      String filePath = servletRequest.getSession().getServletContext().getRealPath("/");
+		      LOGGER.info("Server path: " + filePath);
+		      filePath+="\\\\places\\\\"+placeBean.getCity()+"\\\\"+placeBean.getLocality()+"\\\\"+placeBean.getName();
+		      new File(filePath).mkdirs();
+		      LOGGER.info("sath to "+filePath);
+		      File fileToCreate = new File(filePath, "index");
+		      pathIndex=fileToCreate.getPath();
+		      LOGGER.info("still ok to "+pathIndex);
+		      FileUtils.copyFile(this.regPlaceIndexImg, fileToCreate);
+		  } catch (Exception e) {
+		      e.printStackTrace();
+		      LOGGER.info("fail "+e.getMessage());
+		      addActionError(e.getMessage());
+		 
+		      return "error";
+		  }*/
+////////////////////////////////////////////////////////////////////////////////////////////////////////////		
+		//Attribute attributeIndexImage=getAttribute("indexImg",pathIndex,placeBean);
+		LOGGER.info("done");
 		session.beginTransaction();
 		
 		session.save(placeBean);
 		
 		session.save(attributeParking);
+		//session.save(attributeIndexImage);
 		session.save(attributeRestRooms);
 		session.save(attributeBathRooms);
 		
@@ -143,6 +163,8 @@ public class PlaceDAO  extends ActionSupport  implements  SessionAware{
 		return tempAttr;
 		
 	}
+	
+	
 	
 	long  regPlacePhone ,regPlacePostcode ;
 
@@ -354,6 +376,14 @@ public class PlaceDAO  extends ActionSupport  implements  SessionAware{
 	public void setRegPlaceVegetarian(String regPlaceVegetarian) {
 		this.regPlaceVegetarian = regPlaceVegetarian;
 	}
+
+//	public File getRegPlaceIndexImg() {
+//		return regPlaceIndexImg;
+//	}
+//
+//	public void setRegPlaceIndexImg(File regPlaceIndexImg) {
+//		this.regPlaceIndexImg = regPlaceIndexImg;
+//	}
 
 	
 }
