@@ -10,6 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
 @Entity
 @Table(name = "placedetails")
 public class Place implements java.io.Serializable{
@@ -32,6 +35,9 @@ public class Place implements java.io.Serializable{
 	 @Column(name = "OWNERID")
 	 private Long ownerId;
 	 
+	 @Column(name = "NAME")
+	 private String name;
+	 
 	 @Column(name = "ADDRESS")
 	 private String address;
 	 
@@ -44,7 +50,8 @@ public class Place implements java.io.Serializable{
 	 @Column(name = "POSTALCODE")
 	 private Long postalCode;
 
-	 @OneToMany(mappedBy = "place")  
+	 @OneToMany(mappedBy = "place")
+	 @Cascade(CascadeType.SAVE_UPDATE)
 	 private Set<Attribute> attributes; 
 	 
 	 public Set<Attribute> getAttributes() {
@@ -101,6 +108,14 @@ public class Place implements java.io.Serializable{
 
 	public void setPostalCode(Long postalCode) {
 		this.postalCode = postalCode;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 	
 	

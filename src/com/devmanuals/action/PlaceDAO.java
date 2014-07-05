@@ -64,39 +64,99 @@ public class PlaceDAO  extends ActionSupport  implements  SessionAware{
 		
 		Place placeBean =new Place();
 		placeBean.setAddress(regPlaceAddress);
+		placeBean.setName(regPlaceName);
 		placeBean.setCity("pune");
 		placeBean.setLocality(regPlaceLocality);
 		placeBean.setPostalCode(regPlacePostcode);
 		placeBean.setOwnerId(userObj.getUserId());
 		
-		Attribute attributeMap=new Attribute();
-		attributeMap.setAttributeName("map");
-		attributeMap.setStringValue(regPlaceMap);
+		Attribute attributeMap=getAttribute("map",regPlaceMap,placeBean);
+		Attribute attributeVeg=getAttribute("vegetarian",regPlaceVegetarian,placeBean);
+		Attribute attributeMinPrice=getAttribute("MinimumPrice",regPlaceMinPrice,placeBean);
+		Attribute attributeMaxPrice=getAttribute("MaximumPrice",regPlaceMaxPrice,placeBean);
+		Attribute attributeCapacity=getAttribute("Capacity",regPlaceCapacity,placeBean);
+		Attribute attributeDinning=getAttribute("Dinning",regPlaceDinning,placeBean);
+		Attribute attributeArea=getAttribute("Area",regPlaceArea,placeBean);
+		Attribute attributeWater=getAttribute("Water",regPlaceWater,placeBean);
+		Attribute attributeParking=getAttribute("Parking",regPlaceParking,placeBean);
+		Attribute attributeRestRooms=getAttribute("RestRooms",regPlaceRestRooms,placeBean);
+		Attribute attributeBathRooms=getAttribute("BathRooms",regPlaceBathrooms,placeBean);
+		Attribute attributeMarriage=getAttribute("Marriage",regPlaceMarriage,placeBean);
+		Attribute attributeConference=getAttribute("Conference",regPlaceConference,placeBean);
+		Attribute attributeParty=getAttribute("Party",regPlacepartyHall,placeBean);
+		Attribute attributeHotel=getAttribute("Hotel",regPlaceHotel,placeBean);
+		Attribute attributeOpenHouse=getAttribute("OpenHouse",regPlaceOpenHouse,placeBean);
+		Attribute attributeAC=getAttribute("AC",regPlaceAC,placeBean);
+		Attribute attributePower=getAttribute("Power",regPlacePower,placeBean);
+		Attribute attributeMusic=getAttribute("Music",regPlaceMusic,placeBean);
 		
-		Attribute attributeVeg=new Attribute();
-		attributeVeg.setAttributeName("vegetarian");
-		attributeVeg.setStringValue(regPlaceVegetarian);
+
 		
-		attributeMap.setPlace(placeBean);
-		attributeVeg.setPlace(placeBean);
 		session.beginTransaction();
+		
 		session.save(placeBean);
+		
+		session.save(attributeParking);
+		session.save(attributeRestRooms);
+		session.save(attributeBathRooms);
+		
+		session.save(attributeCapacity);
+		session.save(attributeDinning);
+		session.save(attributeArea);
+		session.save(attributeWater);
+		
 		session.save(attributeMap);
 		session.save(attributeVeg);
+		session.save(attributeMinPrice);
+		session.save(attributeMaxPrice);
+		
+		session.save(attributeMusic);
+		session.save(attributePower);
+		session.save(attributeAC);
+		session.save(attributeOpenHouse);
+		
+		session.save(attributeHotel);
+		session.save(attributeParty);
+		session.save(attributeConference);
+		session.save(attributeMarriage);
+		
 		
 		session.getTransaction().commit();
 //		
 		return SUCCESS;
 	}
 	
-	long regPlaceMinPrice ,regPlaceMaxPrice ,regPlacePhone ,regPlacePostcode ;
+	public Attribute getAttribute(String attrName, Object value,Place place){
+		
+		Attribute tempAttr=new Attribute();
+		tempAttr.setAttributeName(attrName);
+		if(value instanceof String){
+			tempAttr.setStringValue((String)value);
+		}
+		else if(value instanceof Long){
+			tempAttr.setIntValue((Long)value);
+			
+		}else if(value instanceof Double){
+			tempAttr.setDoubleValue((Double)value);
+		}
+		tempAttr.setPlace(place);
+		return tempAttr;
+		
+	}
+	
+	long  regPlacePhone ,regPlacePostcode ;
 
-
-	int regPlaceCapacity ,regPlaceDinning ,regPlaceArea ,regPlaceWater ,regPlaceParking ,regPlaceRestRooms, regPlaceBathrooms; 
+	long regPlaceMinPrice,regPlaceMaxPrice;
+	long regPlaceCapacity ,regPlaceDinning ,regPlaceArea ,regPlaceWater ,regPlaceParking ,regPlaceRestRooms, regPlaceBathrooms; 
 	String regPlaceMarriage,	regPlaceConference,	regPlacepartyHall,	regPlaceHotel,	regPlaceOpenHouse ,regPlaceAC;	
 	String regPlacePower ,regPlaceMusic,regPlaceVegetarian;
 	String regPlaceName , regPlaceAddress , regPlaceLocality, regPlacecity,regPlaceMap;
 	
+
+	public long getRegPlacePhone() {
+		return regPlacePhone;
+	}
+
 	public long getRegPlaceMinPrice() {
 		return regPlaceMinPrice;
 	}
@@ -113,10 +173,6 @@ public class PlaceDAO  extends ActionSupport  implements  SessionAware{
 		this.regPlaceMaxPrice = regPlaceMaxPrice;
 	}
 
-	public long getRegPlacePhone() {
-		return regPlacePhone;
-	}
-
 	public void setRegPlacePhone(long regPlacePhone) {
 		this.regPlacePhone = regPlacePhone;
 	}
@@ -129,59 +185,59 @@ public class PlaceDAO  extends ActionSupport  implements  SessionAware{
 		this.regPlacePostcode = regPlacePostcode;
 	}
 
-	public int getRegPlaceCapacity() {
+	public long getRegPlaceCapacity() {
 		return regPlaceCapacity;
 	}
 
-	public void setRegPlaceCapacity(int regPlaceCapacity) {
+	public void setRegPlaceCapacity(long regPlaceCapacity) {
 		this.regPlaceCapacity = regPlaceCapacity;
 	}
 
-	public int getRegPlaceDinning() {
+	public long getRegPlaceDinning() {
 		return regPlaceDinning;
 	}
 
-	public void setRegPlaceDinning(int regPlaceDinning) {
+	public void setRegPlaceDinning(long regPlaceDinning) {
 		this.regPlaceDinning = regPlaceDinning;
 	}
 
-	public int getRegPlaceArea() {
+	public long getRegPlaceArea() {
 		return regPlaceArea;
 	}
 
-	public void setRegPlaceArea(int regPlaceArea) {
+	public void setRegPlaceArea(long regPlaceArea) {
 		this.regPlaceArea = regPlaceArea;
 	}
 
-	public int getRegPlaceWater() {
+	public long getRegPlaceWater() {
 		return regPlaceWater;
 	}
 
-	public void setRegPlaceWater(int regPlaceWater) {
+	public void setRegPlaceWater(long regPlaceWater) {
 		this.regPlaceWater = regPlaceWater;
 	}
 
-	public int getRegPlaceParking() {
+	public long getRegPlaceParking() {
 		return regPlaceParking;
 	}
 
-	public void setRegPlaceParking(int regPlaceParking) {
+	public void setRegPlaceParking(long regPlaceParking) {
 		this.regPlaceParking = regPlaceParking;
 	}
 
-	public int getRegPlaceRestRooms() {
+	public long getRegPlaceRestRooms() {
 		return regPlaceRestRooms;
 	}
 
-	public void setRegPlaceRestRooms(int regPlaceRestRooms) {
+	public void setRegPlaceRestRooms(long regPlaceRestRooms) {
 		this.regPlaceRestRooms = regPlaceRestRooms;
 	}
 
-	public int getRegPlaceBathrooms() {
+	public long getRegPlaceBathrooms() {
 		return regPlaceBathrooms;
 	}
 
-	public void setRegPlaceBathrooms(int regPlaceBathrooms) {
+	public void setRegPlaceBathrooms(long regPlaceBathrooms) {
 		this.regPlaceBathrooms = regPlaceBathrooms;
 	}
 

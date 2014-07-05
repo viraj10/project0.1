@@ -34,6 +34,7 @@
   			<exception-mapping exception="java.lang.Exception" result="error" />
   			<result name="success">Welcome.jsp</result>
 			<result name="login">Login.jsp</result>
+			<result name="error">error.jsp</result>
   		</action>
   		
   		<action name="checkLogin" class="com.devmanuals.action.LoginAction">

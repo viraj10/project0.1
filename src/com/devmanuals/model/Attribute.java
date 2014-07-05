@@ -30,13 +30,30 @@ public class Attribute implements java.io.Serializable{
 	 private String stringValue;
 	 
 	 @Column(name = "INTVALUE")
-	 private String intValue;
+	 private long intValue;
 	 
-	 @Column(name = "DOUBLEVALUE")
-	 private String doubleValue;
+	 	@Column(name = "DOUBLEVALUE")
+	 private Double doubleValue;
 	 
+	 	public long getIntValue() {
+			return intValue;
+		}
 
-	public Place getPlace() {
+		public void setIntValue(long intValue) {
+			this.intValue = intValue;
+		}
+
+		public Double getDoubleValue() {
+			return doubleValue;
+		}
+
+		public void setDoubleValue(Double doubleValue) {
+			this.doubleValue = doubleValue;
+		}
+
+
+	 	
+		public Place getPlace() {
 			return place;
 		}
 
@@ -60,21 +77,7 @@ public class Attribute implements java.io.Serializable{
 			this.stringValue = stringValue;
 		}
 
-		public String getIntValue() {
-			return intValue;
-		}
 
-		public void setIntValue(String intValue) {
-			this.intValue = intValue;
-		}
-
-		public String getDoubleValue() {
-			return doubleValue;
-		}
-
-		public void setDoubleValue(String doubleValue) {
-			this.doubleValue = doubleValue;
-		}
 
 
 	
