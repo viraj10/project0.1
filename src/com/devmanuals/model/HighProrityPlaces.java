@@ -13,7 +13,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Table
-@Entity(name="HIGHPRORITYPLACES")
+@Entity(name="highprorityplaces")
 public class HighProrityPlaces {
 	
 	private static final long serialVersionUID = -123457984112L;
@@ -25,8 +25,9 @@ public class HighProrityPlaces {
 	@Column(name="STATUS")
 	long status;
 	
-	@OneToOne(fetch=FetchType.LAZY)
-	@PrimaryKeyJoinColumn(name="PLACE_ID")
+	
+	@OneToOne  
+	@JoinColumn(name = "PLACE_ID") 
 	Place place;
 
 	public long getId() {

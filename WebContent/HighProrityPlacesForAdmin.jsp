@@ -87,19 +87,19 @@
 <h4 class="notice-title">Admin Member</h4>
 <div class="notice">
 <div class="alert alert-danger" id="result1" style="display:none"><span id="result"></span></div>
-<form name="loginfrm" class="form-horizontal" id="loginfrm" enctype="" action="adminLoginAction.action" method="post">
+<form name="loginfrm" class="form-horizontal" id="loginfrm" enctype="" action="addHighPriorityPlace.action" method="post">
 		<div class="control-group">
-			<label class="control-label" for="adminUserName">Username<span style="color: #c30">*</span></label>
+			<label class="control-label" for="placeid">Place id<span style="color: #c30">*</span></label>
 			<div class="controls">
-			  <input type="text" name="adminUserName" id="adminUserName" class="span3 validate['required']" value="" title="Email address"/>
+			  <input type="text" name="placeid" id="placeid" class="span3 validate['required']" value="" title="placeid"/>
 			  <input name="action" id="action" value="login" type="hidden"/>
 			</div>
 		</div>
 	  
 	   <div class="control-group">
-			<label class="control-label" for="adminPassword">Password<span style="color: #c30">*</span></label>
+			<label class="control-label" for="status">Status<span style="color: #c30">*</span></label>
 			<div class="controls">
-			  <input type="password" name="adminPassword" id="adminPassword" class="span3 validate['required']" title="Password"/>
+			  <input type="text" name="status" id="status" class="span3 validate['required']" title="status"/>
 			</div>
 		</div>
 
@@ -185,20 +185,18 @@
             //form validation rules
             $("#loginfrm").validate({
                 rules: {				
-                	adminUserName: {
+                	placeid: {
 						required:true
 					},
-					adminPassword: {
-                        required: true,
-                        minlength: 5
+					status: {
+                        required: true
                     }
                 },
 				
                 messages: {
-                	adminUserName: "Please enter a valid username",
-                	adminPassword: {
-                        required: "Please provide a password",
-                        minlength: "Your password must be at least 5 characters long"
+                	placeid: "Please enter a valid id"
+                	status: {
+                        required: "Please provide a status"
                     },
                   
                 },

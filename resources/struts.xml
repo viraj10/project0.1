@@ -21,17 +21,16 @@
 			<result name="success">Welcome.jsp</result>
 			<result name="error">login.html</result>
 		</action>
+		
 		<action name="getCaptcha" class="com.devmanuals.CaptchaGenerator">
 			<result name="success" type="imageResult">
 			</result>
 		</action>
 		
-		<action name="ajaxAction" class="com.devmanuals.action.CheckUserEmail">
-        	
+		<action name="ajaxAction" class="com.devmanuals.action.CheckUserEmail">	
   		</action>
   		
   		<action name="saveNewPlace" class="com.devmanuals.action.PlaceDAO" method="addPlace">
-	  		
   			<exception-mapping exception="java.lang.Exception" result="error" />
   			<result name="success">Welcome.jsp</result>
 			<result name="login">Login.jsp</result>
@@ -54,6 +53,12 @@
 		<action name="adminLoginAction" class="com.devmanuals.action.AdminLogin">
 			<result name="success">Welcome.jsp</result>
 			<result name="error">getbestplaceadminlogin.jsp</result>
+		</action>
+		
+		<action name="addHighPriorityPlace" class="com.devmanuals.action.HighPriorityPlacesAction" method="addHighPriorityPlace">
+			<result name="success">Welcome.jsp</result>
+			<result name="login">getbestplaceadminlogin.jsp</result>
+			<result name="error">error.jsp</result>
 		</action>
 		
 	</package>

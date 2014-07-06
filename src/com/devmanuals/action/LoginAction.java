@@ -55,9 +55,11 @@ public class LoginAction extends ActionSupport implements SessionAware{
 		if(userList.size()>0){
 			System.out.print("success***********");
 			sessionMap.put("currentUser",userList.get(0));
+			session.close();
 			return SUCCESS;
 		}else{
 			System.out.print("error!!!!!!!!!!!!!!!");
+			session.close();
 			return ERROR;
 		}
 		
