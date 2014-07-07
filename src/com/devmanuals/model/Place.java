@@ -49,6 +49,9 @@ public class Place implements java.io.Serializable{
 	 
 	 @Column(name = "POSTALCODE")
 	 private Long postalCode;
+	 
+	 @Column(name = "PHONE")
+	 private Long phone;
 
 	 @OneToMany(mappedBy = "place")
 	 @Cascade(CascadeType.SAVE_UPDATE)
@@ -116,6 +119,14 @@ public class Place implements java.io.Serializable{
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public Long getPhone() {
+		return phone;
+	}
+
+	public void setPhone(Long phone) {
+		this.phone = phone;
 	}
 	
 	

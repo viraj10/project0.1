@@ -68,6 +68,8 @@ public class PlaceDAO  extends ActionSupport  implements  SessionAware,ServletRe
 		placeBean.setLocality(regPlaceLocality);
 		placeBean.setPostalCode(regPlacePostcode);
 		placeBean.setOwnerId(userObj.getUserId());
+		placeBean.setPhone(regPlacePhone);
+		
 		
 		Attribute attributeMap=getAttribute("map",regPlaceMap,placeBean);
 		Attribute attributeVeg=getAttribute("vegetarian",regPlaceVegetarian,placeBean);
