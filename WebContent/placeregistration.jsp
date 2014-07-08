@@ -82,7 +82,7 @@
 <h4 class="notice-title">Registration for your beautiful place</h4>
 <div class="notice">
 
-<form class="form-horizontal" id="registrationPlaceForm" action="saveNewPlace.action" method="post">
+<form class="form-horizontal" id="registrationPlaceForm" action="saveNewPlace.action" method="post" enctype="multipart/form-data">
 	   <div class="control-group">
 		<label class="control-label required" for="regPlaceName">Name</label>
 		<div class="controls">
@@ -216,7 +216,7 @@
 		<label class="control-label required" for="regPlaceIndexImg">Main Image Path</label>
 		<div class="controls">
 		 	<!-- input type="file" data-filename-placement="inside" name="regPlaceIndexImg" id="regPlaceIndexImg"  class=""/-->
-		 	<s:file name="regPlaceIndexImg" size="10"/>
+		 	<s:file name="file" size="10"/>
 		 </div>
 		 
 	  </div>
@@ -279,7 +279,8 @@
 	  
 	  <div class="control-group">
 		<div class="controls">
-				  <button type="submit" class="btn btn-success">Register</button>
+				  
+				   <s:submit value="Upload" align="center" />
 		</div>
 	  </div>
 	  <div class="" style="text-align:center;">When you login with your email id and password you can modify details entered.</div>
