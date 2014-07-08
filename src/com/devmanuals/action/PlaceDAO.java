@@ -40,9 +40,6 @@ public class PlaceDAO  extends ActionSupport  implements  SessionAware,ServletRe
 	
 	private static final long serialVersionUID = 6427837709720937902L;
 	
-	
-//	private File regPlaceIndexImg;
-	
 		 
 	public String addPlace() throws Exception{
 		
@@ -54,10 +51,6 @@ public class PlaceDAO  extends ActionSupport  implements  SessionAware,ServletRe
 			return "login";
 		}
 		LOGGER.info("This is a userObj id"+userObj.getUserId());
-//		LOGGER.info("This is a long values "+regPlaceMinPrice +" "+regPlaceMaxPrice +" "+regPlacePhone +" "+regPlacePostcode);
-//		LOGGER.info("STRING VALUES "+regPlaceName +" "+ regPlaceAddress +" "+ regPlaceLocality+" "+ regPlacecity+" "+regPlaceMap);
-//		LOGGER.info("boolean values "+regPlacePower  +" "+ regPlaceMusic +" "+ regPlaceVegetarian);
-//		LOGGER.info("boolean values "+regPlaceMarriage+" "+	regPlaceConference+" "+	regPlacepartyHall+" "+	regPlaceHotel+" "+	regPlaceOpenHouse +" "+regPlaceAC);
 		SessionFactory sessionFactory=(SessionFactory) ServletActionContext.getServletContext().getAttribute(HibernateListener.KEY_NAME);
 		Session session=sessionFactory.openSession();
 		
@@ -91,27 +84,6 @@ public class PlaceDAO  extends ActionSupport  implements  SessionAware,ServletRe
 		Attribute attributePower=getAttribute("Power",regPlacePower,placeBean);
 		Attribute attributeMusic=getAttribute("Music",regPlaceMusic,placeBean);
 		
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		String pathIndex="";
-		/*try {
-		      String filePath = servletRequest.getSession().getServletContext().getRealPath("/");
-		      LOGGER.info("Server path: " + filePath);
-		      filePath+="\\\\places\\\\"+placeBean.getCity()+"\\\\"+placeBean.getLocality()+"\\\\"+placeBean.getName();
-		      new File(filePath).mkdirs();
-		      LOGGER.info("sath to "+filePath);
-		      File fileToCreate = new File(filePath, "index");
-		      pathIndex=fileToCreate.getPath();
-		      LOGGER.info("still ok to "+pathIndex);
-		      FileUtils.copyFile(this.regPlaceIndexImg, fileToCreate);
-		  } catch (Exception e) {
-		      e.printStackTrace();
-		      LOGGER.info("fail "+e.getMessage());
-		      addActionError(e.getMessage());
-		 
-		      return "error";
-		  }*/
-////////////////////////////////////////////////////////////////////////////////////////////////////////////		
-		//Attribute attributeIndexImage=getAttribute("indexImg",pathIndex,placeBean);
 		LOGGER.info("done");
 		session.beginTransaction();
 		
@@ -379,14 +351,5 @@ public class PlaceDAO  extends ActionSupport  implements  SessionAware,ServletRe
 		this.regPlaceVegetarian = regPlaceVegetarian;
 	}
 
-//	public File getRegPlaceIndexImg() {
-//		return regPlaceIndexImg;
-//	}
-//
-//	public void setRegPlaceIndexImg(File regPlaceIndexImg) {
-//		this.regPlaceIndexImg = regPlaceIndexImg;
-//	}
-
-	
 }
 
