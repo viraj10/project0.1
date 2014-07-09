@@ -38,7 +38,7 @@
 			<result name="error">error.jsp</result>
 			<interceptor-ref name="defaultStack">
                 <param name="fileUpload.maximumSize">10485760</param>
-                <param name="fileUpload.allowedTypes">text/plain,image/jpeg,image/jpg</param>
+                <param name="fileUpload.allowedTypes">text/plain,application/pdf,application/word,application/msword,application/vnd.ms-excel,image/png,image/gif,image/jpeg,image/jpg</param>
             </interceptor-ref>
   		</action>
   		

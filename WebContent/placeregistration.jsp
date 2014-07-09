@@ -216,7 +216,7 @@
 		<label class="control-label required" for="regPlaceIndexImg">Main Image Path</label>
 		<div class="controls">
 		 	<!-- input type="file" data-filename-placement="inside" name="regPlaceIndexImg" id="regPlaceIndexImg"  class=""/-->
-		 	<s:file name="file" size="10"/>
+		 	<s:file name="indexFile" size="10"/>
 		 </div>
 		 
 	  </div>

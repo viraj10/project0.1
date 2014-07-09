@@ -21,10 +21,14 @@ import com.opensymphony.xwork2.ActionSupport;
 import java.io.File;
 import java.io.IOException;
  
+import java.nio.file.Files;
+
 import javax.servlet.ServletContext;
  
+
 import org.apache.struts2.util.ServletContextAware;
  
+
 import com.devmanuals.util.FilesUtil;
 
 public class PlaceDAO  extends ActionSupport  implements  SessionAware,ServletRequestAware,ServletContextAware{
@@ -36,34 +40,34 @@ public class PlaceDAO  extends ActionSupport  implements  SessionAware,ServletRe
 	
 	
 	
-	private File file;
-    private String fileContentType;
-    private String fileFileName;
+	private File indexFile;
+    private String indexFileContentType;
+    private String indexFileFileName;
     private String filesPath;
     private ServletContext context;
  
-    public File getFile() {
-        return file;
+    public File getIndexFile() {
+        return indexFile;
     }
  
-    public void setFile(File file) {
-        this.file = file;
+    public void setIndexFile(File indexFile) {
+        this.indexFile = indexFile;
     }
  
-    public String getFileContentType() {
-        return fileContentType;
+    public String getIndexFileContentType() {
+        return indexFileContentType;
     }
  
-    public void setFileContentType(String fileContentType) {
-        this.fileContentType = fileContentType;
+    public void setIndexFileContentType(String indexFileContentType) {
+        this.indexFileContentType = indexFileContentType;
     }
  
-    public String getFileFileName() {
-        return fileFileName;
+    public String getIndexFileFileName() {
+        return indexFileFileName;
     }
  
-    public void setFileFileName(String fileFileName) {
-        this.fileFileName = fileFileName;
+    public void setIndexFileFileName(String indexFileFileName) {
+        this.indexFileFileName = indexFileFileName;
     }
  
     public void setFilesPath(String filesPath) {
@@ -135,19 +139,19 @@ public class PlaceDAO  extends ActionSupport  implements  SessionAware,ServletRe
 		Attribute attributeMusic=getAttribute("Music",regPlaceMusic,placeBean);
 		
 		String completeFilePath="";
-		LOGGER.info("File Name is:"+getFileFileName());
-		LOGGER.info("File ContentType is:"+filesPath);
+		LOGGER.info("File Name is:"+getIndexFileFileName());
+		LOGGER.info("File ContentType is:"+getIndexFileContentType());
 		LOGGER.info("Files Directory is:"+servletRequest.getContextPath());
         try {
         	
             String additionalFilePath="\\"+placeBean.getCity()+"\\"+placeBean.getLocality()+"\\"+placeBean.getName()+"\\";
             completeFilePath=filesPath+additionalFilePath;
-            FilesUtil.saveFile(getFile(), getFileFileName(), context.getRealPath("") + File.separator + completeFilePath);
+            FilesUtil.saveFile(getIndexFile(), getIndexFileFileName(), context.getRealPath("") + File.separator + completeFilePath);
         } catch (IOException e) {
             e.printStackTrace();
             return INPUT;
         }
-        Attribute attributeIndexFileLoc=getAttribute("Index",(completeFilePath.replace("\\", "/")+getFileFileName()),placeBean);
+        Attribute attributeIndexFileLoc=getAttribute("Index",(completeFilePath.replace("\\", "/")+getIndexFileFileName()),placeBean);
 		LOGGER.info("done");
 		session.beginTransaction();
 		

@@ -1,13 +1,18 @@
 package com.devmanuals.util;
 
-
+import org.apache.commons.io.FileUtils;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+import org.apache.log4j.Logger;
+
 public class FilesUtil {
 
+	static final Logger LOGGER = Logger.getLogger(FilesUtil.class);
+	
+	
    public static void saveFile(File file, String fileName, String filesDirectory) throws IOException{
        FileInputStream in = null;
        FileOutputStream out = null;
@@ -17,17 +22,19 @@ public class FilesUtil {
           dir.mkdirs();
         
        String targetPath =  dir.getPath() + File.separator + fileName;
-       System.out.println("source file path ::"+file.getAbsolutePath());
-       System.out.println("saving file to ::" + targetPath);
+       LOGGER.info("source file path ::"+file.getAbsolutePath());
+       LOGGER.info("saving file to ::" + targetPath);
        File destinationFile = new File ( targetPath);
        try {
-           in = new FileInputStream( file );
+           /*in = new FileInputStream( file );
            out = new FileOutputStream( destinationFile );
            int c;
 
            while ((c = in.read()) != -1) {
                out.write(c);
-           }
+           }*/
+    	   
+    	   FileUtils.copyFile(file, destinationFile);
 
        }finally {
            if (in != null) {
