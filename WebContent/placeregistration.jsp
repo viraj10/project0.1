@@ -224,35 +224,35 @@
 	  <div class="control-group">
 		<label class="control-label" for="regPlaceImage1">Additional Image 1</label>
 		<div class="controls">
-		 	<input type="file" data-filename-placement="inside" name="regPlaceImage1" id="regPlaceImage1"/>
+		 	<s:file name="add1File" size="10"/>
 		 </div>
 	  </div>
 	  
 	  <div class="control-group">
 		<label class="control-label" for="regPlaceImage2">Additional Image 2</label>
 		<div class="controls">
-		 	<input type="file" data-filename-placement="inside" name="regPlaceImage2" id="regPlaceImage2" />
-		 </div>
+			<s:file name="add2File" size="10"/>
+		</div>
 	  </div>
 	  
 	  <div class="control-group">
 		<label class="control-label" for="regPlaceImage3">Additional Image 3</label>
 		<div class="controls">
-		 	<input type="file" data-filename-placement="inside" name="regPlaceImage3" id="regPlaceImage3"/>
-		 </div>
+			<s:file name="add3File" size="10"/>
+		</div>
 	  </div>
 	  
 	  <div class="control-group">
 		<label class="control-label" for="regPlaceImage4">Additional Image 4</label>
 		<div class="controls">
-		 	<input type="file" data-filename-placement="inside" name="regPlaceImage4" id="regPlaceImage4"/>
+		 	<s:file name="add4File" size="10"/>
 		 </div>
 	  </div>
 	  
 	  <div class="control-group">
 		<label class="control-label" for="regPlaceDocument">Place Document</label>
 		<div class="controls">
-		 	<input type="file" data-filename-placement="inside" name="regPlaceDocument" id="regPlaceDocument"/>
+		 	<s:file name="packageFile" size="10"/>
 		 </div>
 	  </div>
 	  

@@ -44,6 +44,27 @@ public class PlaceDAO  extends ActionSupport  implements  SessionAware,ServletRe
     private String indexFileContentType;
     private String indexFileFileName;
     private String filesPath;
+    
+    private File add1File;
+    private String add1FileContentType;
+    private String add1FileFileName;
+    
+    private File add2File;
+    private String add2FileContentType;
+    private String add2FileFileName;
+    
+    private File add3File;
+    private String add3FileContentType;
+    private String add3FileFileName;
+    
+    private File add4File;
+    private String add4FileContentType;
+    private String add4FileFileName;
+    
+    private File packageFile;
+    private String packageFileContentType;
+    private String packageFileFileName;
+    
     private ServletContext context;
  
     public File getIndexFile() {
@@ -74,6 +95,128 @@ public class PlaceDAO  extends ActionSupport  implements  SessionAware,ServletRe
         this.filesPath = filesPath;
     }
  
+    public File getAdd1File() {
+		return add1File;
+	}
+
+	public void setAdd1File(File add1File) {
+		this.add1File = add1File;
+	}
+
+	public String getAdd1FileContentType() {
+		return add1FileContentType;
+	}
+
+	public void setAdd1FileContentType(String add1FileContentType) {
+		this.add1FileContentType = add1FileContentType;
+	}
+
+	public String getAdd1FileFileName() {
+		return add1FileFileName;
+	}
+
+	public void setAdd1FileFileName(String add1FileFileName) {
+		this.add1FileFileName = add1FileFileName;
+	}
+
+	public File getAdd2File() {
+		return add2File;
+	}
+
+	public void setAdd2File(File add2File) {
+		this.add2File = add2File;
+	}
+
+	public String getAdd2FileContentType() {
+		return add2FileContentType;
+	}
+
+	public void setAdd2FileContentType(String add2FileContentType) {
+		this.add2FileContentType = add2FileContentType;
+	}
+
+	public String getAdd2FileFileName() {
+		return add2FileFileName;
+	}
+
+	public void setAdd2FileFileName(String add2FileFileName) {
+		this.add2FileFileName = add2FileFileName;
+	}
+
+	public File getAdd3File() {
+		return add3File;
+	}
+
+	public void setAdd3File(File add3File) {
+		this.add3File = add3File;
+	}
+
+	public String getAdd3FileContentType() {
+		return add3FileContentType;
+	}
+
+	public void setAdd3FileContentType(String add3FileContentType) {
+		this.add3FileContentType = add3FileContentType;
+	}
+
+	public String getAdd3FileFileName() {
+		return add3FileFileName;
+	}
+
+	public void setAdd3FileFileName(String add3FileFileName) {
+		this.add3FileFileName = add3FileFileName;
+	}
+
+	public File getAdd4File() {
+		return add4File;
+	}
+
+	public void setAdd4File(File add4File) {
+		this.add4File = add4File;
+	}
+
+	public String getAdd4FileContentType() {
+		return add4FileContentType;
+	}
+
+	public void setAdd4FileContentType(String add4FileContentType) {
+		this.add4FileContentType = add4FileContentType;
+	}
+
+	public String getAdd4FileFileName() {
+		return add4FileFileName;
+	}
+
+	public void setAdd4FileFileName(String add4FileFileName) {
+		this.add4FileFileName = add4FileFileName;
+	}
+
+	
+    public File getPackageFile() {
+		return packageFile;
+	}
+
+	public void setPackageFile(File packageFile) {
+		this.packageFile = packageFile;
+	}
+
+	public String getPackageFileContentType() {
+		return packageFileContentType;
+	}
+
+	public void setPackageFileContentType(String packageFileContentType) {
+		this.packageFileContentType = packageFileContentType;
+	}
+
+	public String getPackageFileFileName() {
+		return packageFileFileName;
+	}
+
+	public void setPackageFileFileName(String packageFileFileName) {
+		this.packageFileFileName = packageFileFileName;
+	}
+
+	
     @Override
     public void setServletContext(ServletContext ctx) {
         this.context=ctx;
@@ -96,6 +239,8 @@ public class PlaceDAO  extends ActionSupport  implements  SessionAware,ServletRe
 	
 		 
 	public String addPlace() throws Exception{
+		
+		/*check files format and return input if they dont match*/
 		
 		User userObj;
 		userObj=(User)this.sessionMap.get("currentUser");
@@ -141,12 +286,27 @@ public class PlaceDAO  extends ActionSupport  implements  SessionAware,ServletRe
 		String completeFilePath="";
 		LOGGER.info("File Name is:"+getIndexFileFileName());
 		LOGGER.info("File ContentType is:"+getIndexFileContentType());
+		LOGGER.info("add 1 Name is:"+getAdd1FileFileName());
+		LOGGER.info("add 1 ContentType is:"+getAdd1FileFileName());
+		LOGGER.info("add 2 Name is:"+getAdd2FileFileName());
+		LOGGER.info("add 2 ContentType is:"+getAdd2FileFileName());
+		LOGGER.info("add 3 Name is:"+getAdd3FileFileName());
+		LOGGER.info("add 3 ContentType is:"+getAdd3FileFileName());
+		LOGGER.info("add 4 Name is:"+getAdd4FileFileName());
+		LOGGER.info("add 4 ContentType is:"+getAdd4FileFileName());
+		LOGGER.info("package Name is:"+getPackageFileFileName());
+		LOGGER.info("package ContentType is:"+getPackageFileContentType());
 		LOGGER.info("Files Directory is:"+servletRequest.getContextPath());
         try {
         	
             String additionalFilePath="\\"+placeBean.getCity()+"\\"+placeBean.getLocality()+"\\"+placeBean.getName()+"\\";
             completeFilePath=filesPath+additionalFilePath;
             FilesUtil.saveFile(getIndexFile(), getIndexFileFileName(), context.getRealPath("") + File.separator + completeFilePath);
+            FilesUtil.saveFile(getAdd1File(), getAdd1FileFileName(), context.getRealPath("") + File.separator + completeFilePath);
+            FilesUtil.saveFile(getAdd2File(), getAdd2FileFileName(), context.getRealPath("") + File.separator + completeFilePath);
+            FilesUtil.saveFile(getAdd3File(), getAdd3FileFileName(), context.getRealPath("") + File.separator + completeFilePath);
+            FilesUtil.saveFile(getAdd4File(), getAdd4FileFileName(), context.getRealPath("") + File.separator + completeFilePath);
+            FilesUtil.saveFile(getPackageFile(), getPackageFileFileName(), context.getRealPath("") + File.separator + completeFilePath);
         } catch (IOException e) {
             e.printStackTrace();
             return INPUT;
