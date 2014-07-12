@@ -110,8 +110,8 @@ public class HighPriorityPlacesAction extends ActionSupport implements SessionAw
 		SessionFactory sessionFactory=(SessionFactory) ServletActionContext.getServletContext().getAttribute(HibernateListener.KEY_NAME);
 		
 		Session session=sessionFactory.openSession();
-		Query query=session.createQuery("from HighProrityPlaces h where placeid=:placeid ");
-		query.setParameter("placeid", placeid);
+		Query query=session.createQuery("from HighProrityPlaces h where place.id=:placeid");
+		query.setParameter("placeid",placeid);
 		List hplaceList=query.list();
 		if(hplaceList.size()==0 || hplaceList.size()>1)
 			return ERROR;
@@ -122,8 +122,7 @@ public class HighPriorityPlacesAction extends ActionSupport implements SessionAw
 		
 		session.beginTransaction();
 		session.delete(hplace);
-		Long a=(Long)session.save(hplace);
-		LOGGER.info("place selected "+a);
+		LOGGER.info("place selected ");
 		session.getTransaction().commit();
 		session.close();
 		
