@@ -194,10 +194,10 @@
                 },
 				
                 messages: {
-                	placeid: "Please enter a valid id"
+                	placeid: "Please enter a valid id",
                 	status: {
                         required: "Please provide a status"
-                    },
+                    }
                   
                 },
                 submitHandler: function(form) {

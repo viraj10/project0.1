@@ -12,8 +12,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
-@Table
-@Entity(name="highprorityplaces")
+@Entity
+@Table(name="highprorityplaces")
 public class HighProrityPlaces {
 	
 	private static final long serialVersionUID = -123457984112L;

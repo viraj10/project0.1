@@ -162,6 +162,20 @@
 <script type="text/javascript">
 
 
+$( document ).ready(function() {
+	
+	$.ajax({
+		url:'getHighPriorityPlace.action',
+		type:'POST',
+		async:false, 
+		success:function(jsonResponse) {                			
+			 
+			console.log(jsonResponse);
+		}
+	});
+	
+});
+
 (function($,W,D)
 {
     var JQUERY4U = {};

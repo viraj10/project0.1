@@ -67,5 +67,8 @@
 			<result name="error">error.jsp</result>
 		</action>
 		
+		<action name="getHighPriorityPlace" class="com.devmanuals.action.HighPriorityPlacesAction" method="getHighPriorityPlace">
+		</action>
+		
 	</package>
 </struts>
