@@ -20,6 +20,7 @@ import com.devmanuals.model.Place;
 import com.devmanuals.model.User;
 import com.devmanuals.listener.HibernateListener;
 import com.devmanuals.model.HighProrityPlaces;
+import com.devmanuals.util.JsonUtils;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class HighPriorityPlacesAction extends ActionSupport implements SessionAware,ServletResponseAware{
@@ -130,7 +131,7 @@ public class HighPriorityPlacesAction extends ActionSupport implements SessionAw
 		
 	}
 	
-	public String getHighPriorityPlace() throws IOException{
+	public String getHighPriorityPlace() throws Exception{
 		
 		SessionFactory sessionFactory=(SessionFactory) ServletActionContext.getServletContext().getAttribute(HibernateListener.KEY_NAME);
 		
@@ -140,31 +141,16 @@ public class HighPriorityPlacesAction extends ActionSupport implements SessionAw
 		query.setParameter("status", 10L);
 		List<HighProrityPlaces> hplaceList=query.list();
 			
-		Iterator<HighProrityPlaces> itr=hplaceList.iterator();
-		
-		while(itr.hasNext())
-		{
-			HighProrityPlaces hpp=(HighProrityPlaces)itr.next();
-			Place place=hpp.getPlace();
-			LOGGER.info("place selected "+place.getName());
-		}
 		
 		query.setParameter("status", 5L);
 		List<HighProrityPlaces> mplaceList=query.list();
-			
-		Iterator<HighProrityPlaces> mItr=hplaceList.iterator();
 		
-		while(mItr.hasNext())
-		{
-			HighProrityPlaces mpp=(HighProrityPlaces)mItr.next();
-			Place place=mpp.getPlace();
-			LOGGER.info("medium place selected "+place.getName());
-		}
-		
-		
-		response.getWriter().write(hplaceList.toString());
-		response.getWriter().flush();
+		String jsonResponse=JsonUtils.getJsonFromList(hplaceList,mplaceList);
 		session.close();
+		
+		response.getWriter().write(jsonResponse);
+		response.getWriter().flush();
+		
 		
 		return NONE;
 	}
