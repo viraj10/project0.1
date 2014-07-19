@@ -298,8 +298,9 @@ public class PlaceDAO  extends ActionSupport  implements  SessionAware,ServletRe
 		LOGGER.info("package ContentType is:"+getPackageFileContentType());
 		LOGGER.info("Files Directory is:"+servletRequest.getContextPath());
         try {
+        	/*avoid spacing by using .replaceAll("\\s","")*/
         	
-            String additionalFilePath="\\"+placeBean.getCity()+"\\"+placeBean.getLocality()+"\\"+placeBean.getName()+"\\";
+            String additionalFilePath="\\"+placeBean.getCity().replaceAll("\\s","")+"\\"+placeBean.getLocality().replaceAll("\\s","")+"\\"+placeBean.getName().replaceAll("\\s","")+"\\";
             completeFilePath=filesPath+additionalFilePath;
             FilesUtil.saveFile(getIndexFile(), getIndexFileFileName(), context.getRealPath("") + File.separator + completeFilePath);
             LOGGER.info("file name "+getAdd1FileFileName());
@@ -317,6 +318,7 @@ public class PlaceDAO  extends ActionSupport  implements  SessionAware,ServletRe
             
             if(getPackageFileFileName()!=null)
             	FilesUtil.saveFile(getPackageFile(), getPackageFileFileName(), context.getRealPath("") + File.separator + completeFilePath);
+        
         } catch (IOException e) {
             e.printStackTrace();
             return INPUT;

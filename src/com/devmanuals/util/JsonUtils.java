@@ -41,7 +41,7 @@ public class JsonUtils {
         while(mitr.hasNext()){
         	HighProrityPlaces hpp=mitr.next();
         	JSONObject node=new JSONObject();
-        	node.putOnce("name", hpp.getPlace().getName());
+        	node.put("name", hpp.getPlace().getName());
         	mediumPlaceArray.put(node);
         }
         completeResp.put("mplace", mediumPlaceArray);
@@ -50,6 +50,23 @@ public class JsonUtils {
         return completeResp.toString();
 
     }
-
+    
+    /*{"locality":[{name:"loc1"},{name:"loc2"}]}*/
+    public static String getLocality(List<String> locList) throws Exception{
+    	
+    	JSONArray loclistArray=new JSONArray();
+        
+        Iterator<String> locListItr=locList.iterator();
+        while(locListItr.hasNext()){
+        	JSONObject node=new JSONObject();
+        	node.put("name",locListItr.next());
+        	loclistArray.put(node);
+        }
+        JSONObject completeResponse=new JSONObject();
+        
+        completeResponse.putOnce("locality", loclistArray);
+        
+    	return completeResponse.toString();
+    }
     
 }

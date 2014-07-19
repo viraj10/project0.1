@@ -48,7 +48,9 @@
 	  <div class="control-group">
 		<label class="control-label required" for="regPlaceLocality">Locality</label>
 		<div class="controls">
-		  <input type="text" name="regPlaceLocality" id="regPlaceLocality" placeholder="Locality" class="validate['required']"/>
+		  <input type="hidden" name="regPlaceLocality" id="regPlaceLocality" class="validate['required']"/>
+		  <select id="localityList"></select>		
+		
 		</div>
 	  </div>
 	  
@@ -307,6 +309,26 @@
     //when the dom has loaded setup form validation rules
     $(D).ready(function($) {
         JQUERY4U.UTIL.setupFormValidation();
+        
+        
+        $.ajax({
+    		url:'getLocality.action',
+    		type:'POST',
+    		data:{citySelected : 'pune'}, 
+    		success:function(jsonResponse) {   
+    			var resp=jQuery.parseJSON(jsonResponse)
+    			for(var itr in resp.locality){
+    				var temp=resp.locality[itr].name;
+    				$("#localityList").append('<option value="'+temp+'">'+temp+'</option>');
+    			}
+    			
+    		}
+    	});
+        
+        $("#localityList").change(function() {
+        	  $("#regPlaceLocality").val($("#localityList").val());
+        });
+        
     });
 
 })(jQuery, window, document);

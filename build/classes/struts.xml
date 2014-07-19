@@ -30,6 +30,9 @@
 		<action name="ajaxAction" class="com.devmanuals.action.CheckUserEmail">	
   		</action>
   		
+  		<action name="getLocality" class="com.devmanuals.action.GetLocalityList" method="getLocalityInCity">	
+  		</action>
+  		
   		<action name="saveNewPlace" class="com.devmanuals.action.PlaceDAO" method="addPlace">
   			<param name="filesPath">places</param>
   			<exception-mapping exception="java.lang.Exception" result="error" />
