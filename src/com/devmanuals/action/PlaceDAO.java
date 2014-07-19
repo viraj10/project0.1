@@ -302,11 +302,21 @@ public class PlaceDAO  extends ActionSupport  implements  SessionAware,ServletRe
             String additionalFilePath="\\"+placeBean.getCity()+"\\"+placeBean.getLocality()+"\\"+placeBean.getName()+"\\";
             completeFilePath=filesPath+additionalFilePath;
             FilesUtil.saveFile(getIndexFile(), getIndexFileFileName(), context.getRealPath("") + File.separator + completeFilePath);
-            FilesUtil.saveFile(getAdd1File(), getAdd1FileFileName(), context.getRealPath("") + File.separator + completeFilePath);
-            FilesUtil.saveFile(getAdd2File(), getAdd2FileFileName(), context.getRealPath("") + File.separator + completeFilePath);
-            FilesUtil.saveFile(getAdd3File(), getAdd3FileFileName(), context.getRealPath("") + File.separator + completeFilePath);
-            FilesUtil.saveFile(getAdd4File(), getAdd4FileFileName(), context.getRealPath("") + File.separator + completeFilePath);
-            FilesUtil.saveFile(getPackageFile(), getPackageFileFileName(), context.getRealPath("") + File.separator + completeFilePath);
+            LOGGER.info("file name "+getAdd1FileFileName());
+            if(getAdd1FileFileName()!=null)
+            	FilesUtil.saveFile(getAdd1File(), getAdd1FileFileName(), context.getRealPath("") + File.separator + completeFilePath);
+            
+            if(getAdd2FileFileName()!=null)
+            	FilesUtil.saveFile(getAdd2File(), getAdd2FileFileName(), context.getRealPath("") + File.separator + completeFilePath);
+            
+            if(getAdd3FileFileName()!=null)
+            	FilesUtil.saveFile(getAdd3File(), getAdd3FileFileName(), context.getRealPath("") + File.separator + completeFilePath);
+            
+            if(getAdd4FileFileName()!=null)
+            	FilesUtil.saveFile(getAdd4File(), getAdd4FileFileName(), context.getRealPath("") + File.separator + completeFilePath);
+            
+            if(getPackageFileFileName()!=null)
+            	FilesUtil.saveFile(getPackageFile(), getPackageFileFileName(), context.getRealPath("") + File.separator + completeFilePath);
         } catch (IOException e) {
             e.printStackTrace();
             return INPUT;
