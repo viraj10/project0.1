@@ -14,6 +14,7 @@ import org.hibernate.SessionFactory;
 
 import com.devmanuals.model.User;
 import com.devmanuals.listener.HibernateListener;
+import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -39,7 +40,7 @@ public class SaveUserDetailAction  extends ActionSupport implements SessionAware
 	String regInputCity;
 	Long regUserPhone;
 	Long regInputPostcode;
-	
+	private String regInputCaptcha;
 
 	
 
@@ -54,6 +55,13 @@ public class SaveUserDetailAction  extends ActionSupport implements SessionAware
 		
 		LOGGER.info("This is a debug log message from Struts2");
         
+		String captcha=(String)this.sessionMap.get("captchaValue");
+		LOGGER.info(getRegInputCaptcha()+"==="+captcha+" "+regInputCaptcha.equalsIgnoreCase(captcha));
+		if(captcha==null || !regInputCaptcha.equalsIgnoreCase(captcha))
+		{
+			return "login";
+		}
+		
 		
 		SessionFactory sessionFactory=(SessionFactory) ServletActionContext.getServletContext().getAttribute(HibernateListener.KEY_NAME);
 		
@@ -147,6 +155,14 @@ public class SaveUserDetailAction  extends ActionSupport implements SessionAware
 
 	public void setRegInputPostcode(Long regInputPostcode) {
 		this.regInputPostcode = regInputPostcode;
+	}
+
+	public String getRegInputCaptcha() {
+		return regInputCaptcha;
+	}
+
+	public void setRegInputCaptcha(String regInputCaptcha) {
+		this.regInputCaptcha = regInputCaptcha;
 	}
 	
 	

@@ -16,8 +16,9 @@ import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.net.*;
-
+import java.util.Map;
 import java.util.Random;
+
 import javax.imageio.ImageIO;
 
 import java.io.ByteArrayOutputStream;
@@ -25,16 +26,32 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
+
+import org.apache.log4j.Logger;
 import org.apache.struts2.interceptor.ServletRequestAware;
+import org.apache.struts2.interceptor.SessionAware;
+
 import com.opensymphony.xwork2.ActionSupport;
 
 
-public class CaptchaGenerator extends ActionSupport implements ServletRequestAware {
+public class CaptchaGenerator extends ActionSupport implements ServletRequestAware,SessionAware {
 
-	static final long serialVersionUID=1L;
+
+	static final Logger LOGGER = Logger.getLogger(CaptchaGenerator.class);
+	
+	
+	Map<String, Object> sessionMap;
+	@Override
+	 public void setSession(Map session) {
+	    this.sessionMap = session;
+	  }
+	
+	static final long serialVersionUID=19720L;
 	
 	byte[] imageInByte = null;
 	String imageId;
+	String captchaValue;
+	
  
 	private HttpServletRequest servletRequest;
  
@@ -70,7 +87,14 @@ public class CaptchaGenerator extends ActionSupport implements ServletRequestAwa
 		        { 'l', 'i', 'a', 'u', 'x' },
 		        { 'v', 'r', 'p', 'j', 'b', 's', 'd' },
 		        { 'u', 'a', 'i', 'n', 't', 'u' },
-		        { 'j', 'j', 'l' }
+		        { 'j', 'j', 'l' },
+		        { 'b', 'm', 'o', 'p', 'o' },
+		        { 'j', 'a', 'l', 'o', 'i' },
+		        { 'a', 'q', 'y', 't' },
+		        { 's', 'j', 'n', 'o' },
+		        { 'j', 'j', 'l', '1' },
+		        { 'q', 'c', 'l' , '9'},
+		        { '8', '7', '8', 'h', 'u' },
 		    };
 
 
@@ -100,14 +124,21 @@ public class CaptchaGenerator extends ActionSupport implements ServletRequestAwa
 		    g2d.setColor(new Color(255, 153, 0));
 
 		    Random r = new Random();
-		    int index = Math.abs(r.nextInt()) % 5;
+		    int index = Math.abs(r.nextInt()) % data.length;
 
 		    String captcha = String.copyValueOf(data[index]);
 		    
 
 		    int x = 0; 
 		    int y = 0;
-
+		    
+		    
+		    this.captchaValue=String.valueOf(data[index]);
+		    LOGGER.info("captchaValue "+this.captchaValue);
+			sessionMap.put("captchaValue", this.captchaValue);
+			
+		    
+		    
 		    for (int i=0; i<data[index].length; i++) {
 		        x += 10 + (Math.abs(r.nextInt()) % 15);
 		        y = 20 + Math.abs(r.nextInt()) % 20;
