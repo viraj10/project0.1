@@ -300,7 +300,7 @@ public class PlaceDAO  extends ActionSupport  implements  SessionAware,ServletRe
         try {
         	/*avoid spacing by using .replaceAll("\\s","")*/
         	
-            String additionalFilePath="\\"+placeBean.getCity().replaceAll("\\s","")+"\\"+placeBean.getLocality().replaceAll("\\s","")+"\\"+placeBean.getName().replaceAll("\\s","")+"\\";
+            String additionalFilePath=File.separator +placeBean.getCity().replaceAll("\\s","")+File.separator+placeBean.getLocality().replaceAll("\\s","")+File.separator+placeBean.getName().replaceAll("\\s","")+File.separator;
             completeFilePath=filesPath+additionalFilePath;
             FilesUtil.saveFile(getIndexFile(), getIndexFileFileName(), context.getRealPath("") + File.separator + completeFilePath);
             LOGGER.info("file name "+getAdd1FileFileName());

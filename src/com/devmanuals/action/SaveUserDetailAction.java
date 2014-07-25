@@ -59,9 +59,10 @@ public class SaveUserDetailAction  extends ActionSupport implements SessionAware
 		LOGGER.info(getRegInputCaptcha()+"==="+captcha+" "+regInputCaptcha.equalsIgnoreCase(captcha));
 		if(captcha==null || !regInputCaptcha.equalsIgnoreCase(captcha))
 		{
+			sessionMap.remove("captchaValue");
 			return "login";
 		}
-		
+		sessionMap.remove("captchaValue");
 		
 		SessionFactory sessionFactory=(SessionFactory) ServletActionContext.getServletContext().getAttribute(HibernateListener.KEY_NAME);
 		

@@ -325,6 +325,8 @@
     		}
     	});
         
+        $("#regPlaceLocality").val($("#localityList").val()); // on page load value needs to be transferred or bug if 1st selected.
+        
         $("#localityList").change(function() {
         	  $("#regPlaceLocality").val($("#localityList").val());
         });
