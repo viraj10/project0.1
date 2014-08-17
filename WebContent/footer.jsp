@@ -12,11 +12,11 @@
 		<li><a class="dribble qtip" href="https://plus.google.com/" title="Google plus" target="_blank"></a></li>
 	</ul>
 	<div id="footerMenu">
-		<a href="#"> HOME</a> | 
+		<a href="Welcome.jsp"> HOME</a> | 
 		<a href="#">TOP PLACES</a> | 
-		<a href="#">LOGIN </a> | 	
-		<a href="#">REGISTER PACE </a> |  
-		<a href="#"> ABOUT US</a>
+		<a href="Login.jsp">LOGIN </a> | 	
+		<a href="placeregistration.jsp">REGISTER PACE </a> |  
+		<a href="Welcome.jsp"> ABOUT US</a>
 	</div>
 		
 		<div>
