@@ -10,6 +10,8 @@
 	<constant name="struts.custom.i18n.resources"
 		value="ApplicationResources" />
 
+	
+
 	<package name="default" extends="struts-default">
 		<result-types>
 			<result-type name="imageResult"

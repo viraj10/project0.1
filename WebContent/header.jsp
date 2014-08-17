@@ -6,7 +6,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>The Bombay Tiffin Club - Fine Indina food takeaway</title>
+    <title>GetBestPlace - Find places for any event.</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	 <meta name="keywords" content="book hall, party place,organize event">
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
