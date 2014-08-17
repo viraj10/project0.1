@@ -10,8 +10,9 @@
 	<constant name="struts.custom.i18n.resources"
 		value="ApplicationResources" />
 
+	<constant name="struts.multipart.saveDir" value="places" />
+	<constant name="struts.multipart.maxSize" value="3000000" />
 	
-
 	<package name="default" extends="struts-default">
 		<result-types>
 			<result-type name="imageResult"
