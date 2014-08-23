@@ -316,9 +316,10 @@
     		type:'POST',
     		data:{citySelected : 'pune'}, 
     		success:function(jsonResponse) {   
-    			var resp=jQuery.parseJSON(jsonResponse)
-    			for(var itr in resp.locality){
-    				var temp=resp.locality[itr].name;
+    			var resp=jQuery.parseJSON(jsonResponse);
+    			var objectArray=resp.list.localities;
+    			for(var itr in objectArray){
+    				var temp=objectArray[itr].locality;
     				$("#localityList").append('<option value="'+temp+'">'+temp+'</option>');
     			}
     			

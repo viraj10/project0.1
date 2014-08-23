@@ -17,7 +17,7 @@
     <!-- using hibernates c3p0 pool provider  -->
     <property name="hibernate.c3p0.min_size">7</property>
     <property name="hibernate.c3p0.max_size">30</property>
-    <property name="hibernate.c3p0.timeout">300</property>
+    <property name="hibernate.c3p0.timeout">3500</property>
     <property name="hibernate.c3p0.max_statements">70</property>
     <property name="hibernate.c3p0.idle_test_period">3000</property>
     
