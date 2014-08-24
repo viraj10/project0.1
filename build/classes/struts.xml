@@ -4,6 +4,9 @@
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
+
+	
+
 	<constant name="struts.enable.DynamicMethodInvocation"
 		value="false" />
 	<constant name="struts.devMode" value="false" />
@@ -14,12 +17,22 @@
 	<constant name="struts.multipart.maxSize" value="3000000" />
 	
 	<package name="default" extends="struts-default">
+		
+		
 		<result-types>
 			<result-type name="imageResult"
 				class="com.devmanuals.resultTypes.CustomImageBytesResult" />
 			<result-type name="customJSON" class="com.devmanuals.resultTypes.JSONResult" />
 		</result-types>
 	
+		<global-results>
+     		<result name="login">Login.jsp</result>
+ 			<result name="error">error.jsp</result>
+		</global-results>
+		
+		<global-exception-mappings>
+ 			<exception-mapping exception="java.lang.Exception" result="error" />
+		</global-exception-mappings>
 	
 		<action name="login" class="com.devmanuals.LoginAction">
 			<result name="success">Welcome.jsp</result>
@@ -40,11 +53,9 @@
   		
   		<action name="saveNewPlace" class="com.devmanuals.action.PlaceDAO" method="addPlace">
   			<param name="filesPath">places</param>
-  			<exception-mapping exception="java.lang.Exception" result="error" />
   			<result name="success">Welcome.jsp</result>
 			<result name="login">Login.jsp</result>
 			<result name="input">placeregistration.jsp</result>
-			<result name="error">error.jsp</result>
 			<interceptor-ref name="defaultStack">
                 <param name="fileUpload.maximumSize">10485760</param>
                 <param name="fileUpload.allowedTypes">text/plain,application/pdf,application/word,application/msword,application/vnd.ms-excel,image/png,image/gif,image/jpeg,image/jpg</param>

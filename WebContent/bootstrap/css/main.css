@@ -114,7 +114,7 @@ em.brandClr{font-size:11px}
 
 #featuredProduct .simpleCart_shelfItem:hover .itemInfoSlide {}
 .itemInfoSlide { overflow:hidden;border-radius:2px;position: absolute;text-align: center; height: 100%; width: 100%; top:0; margin: 0; padding: 0;left: 0;font-size:21px;background: #d75e19;display: none;color: #fff;vertical-align: middle;}
-#postCodeInner {padding: 8px 18px;background: url(../img/postcodebg.png) repeat 0 0 rgb(240, 102, 11);display: block;margin: 0 -9px -19px;border-radius: 0;}
+#postCodeInner {padding: 8px 18px;background: rgb(240, 102, 11);display: block;margin: 0 -9px -19px;border-radius: 0;}
 #postCodeInner{
 -webkit-box-shadow: 0px 1px 1px rgba(0,0,0,.15), 0px 2px 3px rgba(0,0,0,.50), 0px 3px 1px rgba(0,0,0,.05);
 -moz-box-shadow: 0px 1px 1px rgba(0,0,0,.15), 0px 2px 3px rgba(0,0,0,.50), 0px 3px 1px rgba(0,0,0,.05);

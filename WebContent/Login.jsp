@@ -177,6 +177,7 @@
             	  
             	var emailIdEntered=$("#regInputEmail").val();
             	var existingemail;
+            	
             	$.ajax({url:'ajaxAction.action',
             			type:'POST',
             			async:false, 
@@ -190,6 +191,7 @@
              				}
             		});
             	
+            	
             	return existingemail;
             }, "This email id is already in use.");
 			
@@ -201,7 +203,8 @@
             }, "This field can contain only number(s).");
 		
             $("#registrationForm").validate({
-                rules: {	
+            	onkeyup: false,
+            	rules: {	
 					regName:{required:true},
 					regUserPhone:{
 						required:true,

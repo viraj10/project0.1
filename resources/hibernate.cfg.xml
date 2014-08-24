@@ -15,11 +15,11 @@
     <property name="use_sql_comments">false</property>
     
     <!-- using hibernates c3p0 pool provider  -->
-    <property name="hibernate.c3p0.min_size">7</property>
-    <property name="hibernate.c3p0.max_size">30</property>
-    <property name="hibernate.c3p0.timeout">3500</property>
+    <property name="hibernate.c3p0.min_size">10</property>
+    <property name="hibernate.c3p0.max_size">50</property>
+    <property name="hibernate.c3p0.timeout">300000</property>
     <property name="hibernate.c3p0.max_statements">70</property>
-    <property name="hibernate.c3p0.idle_test_period">3000</property>
+    <property name="hibernate.c3p0.idle_test_period">300000</property>
     
     <!-- Names the annotated entity class -->
     <mapping class="com.devmanuals.model.User"/>
