@@ -16,6 +16,9 @@
 	
 <div class="box">
 <h4>We are sorry, something went wrong.</h4>
+<h6>Message:<s:property value="%{exception.message}"/></h6>
+
+Stack:<s:property value="%{exceptionStack}"/> 
 </div>	
 </div>	
 </div>	
@@ -23,13 +26,6 @@
 
 </div><!-- /container -->
 </div>
- <!-- Button to trigger modal -->
-<!--div id="cartInfo">
-	<a href="check_out.php" class="btn btn-success" >[ <span class="simpleCart_quantity"></span> ] Items</a>
-	<a class="btn" href="menu.php">Menu</a>
-	<a class="btn btn-warning" href="check_out.php">Checkout <span class="simpleCart_grandTotal">0</span></a>
-</div-->
-
 
 </div><!-- /wrapper -->
 <s:include value="footer.jsp"/>

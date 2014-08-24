@@ -6,7 +6,7 @@
         <div class="container">
           <div class="nav-collapse collapse">
 		   <ul class="nav">
-				<li><a href="index.php"> <i class="icon-home"></i> Home </a></li>
+				<li><a href="Welcome.jsp"> <i class="icon-home"></i> Home </a></li>
 			</ul>
 			
             <ul class="nav pull-right">

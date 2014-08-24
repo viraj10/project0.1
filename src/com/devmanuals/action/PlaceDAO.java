@@ -356,6 +356,7 @@ public class PlaceDAO  extends ActionSupport  implements  SessionAware,ServletRe
 		
 		
 		session.getTransaction().commit();
+		session.close();
 //		
 		return SUCCESS;
 	}

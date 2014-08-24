@@ -74,8 +74,10 @@ public class HighPriorityPlacesAction extends ActionSupport implements SessionAw
 		query.setParameter("placeid", placeid);
 		List hplaceList=query.list();
 		HighProrityPlaces hplace;
-		if(place==null)
+		if(place==null){
+			session.close();
 			return ERROR;
+		}
 		session.beginTransaction();
 		if(hplaceList.size()==0)
 		{	

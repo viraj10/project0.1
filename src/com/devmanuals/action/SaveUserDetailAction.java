@@ -90,7 +90,7 @@ public class SaveUserDetailAction  extends ActionSupport implements SessionAware
 		session.save(userbean);
 		sessionMap.put("currentUser", userbean);
 		session.getTransaction().commit();
-		
+		session.close();
 		return SUCCESS;
 	}
 

@@ -56,9 +56,11 @@ public class AdminLogin extends ActionSupport implements SessionAware{
 		if(admin.size()>0){
 			System.out.print("success admin***********");
 			sessionMap.put("admin",admin.get(0));
+			session.close();
 			return SUCCESS;
 		}else{
 			System.out.print("error admin!!!!!!!!!!!!!!!");
+			session.close();
 			return ERROR;
 		}
 		
