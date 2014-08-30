@@ -25,7 +25,7 @@
   <a class="carousel-control right" href="#myCarousel" data-slide="next">›</a>
 </div>
 
-	<form action="distance.php" method="post" style="margin-bottom:0">
+	<form action="" method="post" style="margin-bottom:0">
 									
 		<h2 id="postCodeWrapper">
 			<div id="postCodeInner">
@@ -62,6 +62,10 @@ $( document ).ready(function() {
 			 
 			console.log(jsonResponse);
 		}
+	});
+	
+	$('.carousel').carousel({
+		interval: 3000
 	});
 	
 });
