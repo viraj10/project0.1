@@ -283,6 +283,8 @@ public class PlaceDAO  extends ActionSupport  implements  SessionAware,ServletRe
 		Attribute attributePower=getAttribute("Power",regPlacePower,placeBean);
 		Attribute attributeMusic=getAttribute("Music",regPlaceMusic,placeBean);
 		
+		Attribute add1FilePath,add2FilePath,add3FilePath,add4FilePath,packageFilePath;
+		
 		String completeFilePath="";
 		LOGGER.info("File Name is:"+getIndexFileFileName());
 		LOGGER.info("File ContentType is:"+getIndexFileContentType());
@@ -304,23 +306,29 @@ public class PlaceDAO  extends ActionSupport  implements  SessionAware,ServletRe
             completeFilePath=filesPath+additionalFilePath;
             FilesUtil.saveFile(getIndexFile(), getIndexFileFileName(), context.getRealPath("") + File.separator + completeFilePath);
             LOGGER.info("file name "+getAdd1FileFileName());
-            if(getAdd1FileFileName()!=null)
+            if(getAdd1FileFileName()!=null){
+            	add1FilePath=getAttribute("add1",(completeFilePath.replace("\\", "/")+getAdd1FileFileName()),placeBean);
             	FilesUtil.saveFile(getAdd1File(), getAdd1FileFileName(), context.getRealPath("") + File.separator + completeFilePath);
-            
-            if(getAdd2FileFileName()!=null)
+            }
+            if(getAdd2FileFileName()!=null){
+            	add2FilePath=getAttribute("add2",(completeFilePath.replace("\\", "/")+getAdd2FileFileName()),placeBean);
             	FilesUtil.saveFile(getAdd2File(), getAdd2FileFileName(), context.getRealPath("") + File.separator + completeFilePath);
-            
-            if(getAdd3FileFileName()!=null)
+            }
+            if(getAdd3FileFileName()!=null){
+            	add3FilePath=getAttribute("add3",(completeFilePath.replace("\\", "/")+getAdd3FileFileName()),placeBean);
             	FilesUtil.saveFile(getAdd3File(), getAdd3FileFileName(), context.getRealPath("") + File.separator + completeFilePath);
-            
-            if(getAdd4FileFileName()!=null)
+            }
+            if(getAdd4FileFileName()!=null){
+            	add4FilePath=getAttribute("add4",(completeFilePath.replace("\\", "/")+getAdd4FileFileName()),placeBean);
             	FilesUtil.saveFile(getAdd4File(), getAdd4FileFileName(), context.getRealPath("") + File.separator + completeFilePath);
-            
-            if(getPackageFileFileName()!=null)
+        	}
+            if(getPackageFileFileName()!=null){
+            	packageFilePath=getAttribute("package",(completeFilePath.replace("\\", "/")+getPackageFileFileName()),placeBean);
             	FilesUtil.saveFile(getPackageFile(), getPackageFileFileName(), context.getRealPath("") + File.separator + completeFilePath);
-        
+            }
         } catch (IOException e) {
             e.printStackTrace();
+            session.close();
             return INPUT;
         }
         Attribute attributeIndexFileLoc=getAttribute("Index",(completeFilePath.replace("\\", "/")+getIndexFileFileName()),placeBean);

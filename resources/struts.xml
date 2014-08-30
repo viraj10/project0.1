@@ -14,7 +14,7 @@
 		value="ApplicationResources" />
 
 	<constant name="struts.multipart.saveDir" value="places" />
-	<constant name="struts.multipart.maxSize" value="3000000" />
+	<constant name="struts.multipart.maxSize" value="9000000" />
 	
 	<package name="default" extends="struts-default">
 		
