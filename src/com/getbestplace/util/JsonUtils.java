@@ -1,4 +1,4 @@
-package com.devmanuals.util;
+package com.getbestplace.util;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -8,8 +8,8 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import com.devmanuals.action.HighPriorityPlacesAction;
-import com.devmanuals.model.HighProrityPlaces;
+import com.getbestplace.action.HighPriorityPlacesAction;
+import com.getbestplace.model.HighProrityPlaces;
 
 public class JsonUtils {
 

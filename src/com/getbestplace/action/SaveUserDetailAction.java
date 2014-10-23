@@ -1,4 +1,4 @@
-package com.devmanuals.action;
+package com.getbestplace.action;
 
 
 import java.util.ArrayList;
@@ -12,8 +12,8 @@ import org.apache.struts2.interceptor.SessionAware;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-import com.devmanuals.model.User;
-import com.devmanuals.listener.HibernateListener;
+import com.getbestplace.model.User;
+import com.getbestplace.listener.HibernateListener;
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;

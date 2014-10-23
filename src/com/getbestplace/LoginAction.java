@@ -1,4 +1,4 @@
-package com.devmanuals;
+package com.getbestplace;
 
 import com.opensymphony.xwork2.ActionSupport;
 

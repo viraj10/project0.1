@@ -20,7 +20,7 @@
 	</welcome-file-list>
 	<listener>
     	<listener-class>
-	  		com.devmanuals.listener.HibernateListener
+	  		com.getbestplace.listener.HibernateListener
 		</listener-class>
   	</listener>
 

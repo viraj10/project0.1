@@ -1,4 +1,4 @@
-package com.devmanuals.action;
+package com.getbestplace.action;
 
 
 import java.util.Map;
@@ -12,10 +12,10 @@ import org.apache.struts2.interceptor.SessionAware;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-import com.devmanuals.model.Attribute;
-import com.devmanuals.model.Place;
-import com.devmanuals.model.User;
-import com.devmanuals.listener.HibernateListener;
+import com.getbestplace.model.Attribute;
+import com.getbestplace.model.Place;
+import com.getbestplace.model.User;
+import com.getbestplace.listener.HibernateListener;
 import com.opensymphony.xwork2.ActionSupport;
 
 import java.io.File;
@@ -29,7 +29,7 @@ import javax.servlet.ServletContext;
 import org.apache.struts2.util.ServletContextAware;
  
 
-import com.devmanuals.util.FilesUtil;
+import com.getbestplace.util.FilesUtil;
 
 public class PlaceDAO  extends ActionSupport  implements  SessionAware,ServletRequestAware,ServletContextAware{
 

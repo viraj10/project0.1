@@ -1,4 +1,4 @@
-package com.devmanuals.action;
+package com.getbestplace.action;
 
 import java.io.IOException;
 import java.util.Iterator;
@@ -15,12 +15,12 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-import com.devmanuals.model.Admin;
-import com.devmanuals.model.Place;
-import com.devmanuals.model.User;
-import com.devmanuals.listener.HibernateListener;
-import com.devmanuals.model.HighProrityPlaces;
-import com.devmanuals.util.JsonUtils;
+import com.getbestplace.model.Admin;
+import com.getbestplace.model.Place;
+import com.getbestplace.model.User;
+import com.getbestplace.listener.HibernateListener;
+import com.getbestplace.model.HighProrityPlaces;
+import com.getbestplace.util.JsonUtils;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class HighPriorityPlacesAction extends ActionSupport implements SessionAware,ServletResponseAware{

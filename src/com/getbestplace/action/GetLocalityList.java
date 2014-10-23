@@ -1,4 +1,4 @@
-package com.devmanuals.action;
+package com.getbestplace.action;
 
 import java.io.IOException;
 import java.util.List;
@@ -12,9 +12,9 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-import com.devmanuals.listener.HibernateListener;
-import com.devmanuals.model.Locality;
-import com.devmanuals.util.JsonUtils;
+import com.getbestplace.listener.HibernateListener;
+import com.getbestplace.model.Locality;
+import com.getbestplace.util.JsonUtils;
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
 

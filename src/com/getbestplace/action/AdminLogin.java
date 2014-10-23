@@ -1,4 +1,4 @@
-package com.devmanuals.action;
+package com.getbestplace.action;
 
 import java.util.List;
 import java.util.Map;
@@ -9,7 +9,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-import com.devmanuals.listener.HibernateListener;
+import com.getbestplace.listener.HibernateListener;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class AdminLogin extends ActionSupport implements SessionAware{

@@ -1,11 +1,11 @@
-package com.devmanuals.resultTypes;
+package com.getbestplace.resultTypes;
 
 
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts2.ServletActionContext;
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.Result;
-import com.devmanuals.CaptchaGenerator;
+import com.getbestplace.CaptchaGenerator;
  
 
 public class CustomImageBytesResult implements Result {

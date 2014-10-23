@@ -1,4 +1,4 @@
-package com.devmanuals.util;
+package com.getbestplace.util;
 
 import org.apache.commons.io.FileUtils;
 import java.io.File;

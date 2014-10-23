@@ -1,4 +1,4 @@
-package com.devmanuals.model;
+package com.getbestplace.model;
 
 
 

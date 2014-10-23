@@ -1,4 +1,4 @@
-package com.devmanuals.resultTypes;
+package com.getbestplace.resultTypes;
 
 import java.io.PrintWriter;
 

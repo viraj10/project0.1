@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.devmanuals;
+package com.getbestplace;
 
 /**
  * @author VIRAJ

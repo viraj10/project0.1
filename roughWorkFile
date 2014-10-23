@@ -144,7 +144,7 @@ Map<String, Object> sessionMap;
 	  
 	  
 	  
-	  <action name="checkLogin" class="com.devmanuals.action.LoginAction">
+	  <action name="checkLogin" class="com.getbestplace.action.LoginAction">
 			<exception-mapping exception="java.lang.Exception"  result="error" />
 			<result name="success">Welcome.jsp</result>
 			<result name="error">Login.jsp</result>
@@ -166,13 +166,13 @@ C3p0 change the order in hib.cfg.xml:
     <property name="hibernate.c3p0.idle_test_period">3000</property>
     
     <!-- Names the annotated entity class -->
-    <mapping class="com.devmanuals.model.User"/>
+    <mapping class="com.getbestplace.model.User"/>
 	
 
 File upload:
 
 struts.xml
-<action name="userImage" class="com.devmanuals.action.FileUploadAction">
+<action name="userImage" class="com.getbestplace.action.FileUploadAction">
 	    <interceptor-ref name="fileUpload">
          <param name="maximumSize">2097152</param>
          <param name="allowedTypes">
@@ -186,7 +186,7 @@ struts.xml
 	</action>
 	
 FileUploadAction.java	
-package com.devmanuals.action;
+package com.getbestplace.action;
 
 import java.io.File;
 

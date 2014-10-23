@@ -21,8 +21,8 @@
 		
 		<result-types>
 			<result-type name="imageResult"
-				class="com.devmanuals.resultTypes.CustomImageBytesResult" />
-			<result-type name="customJSON" class="com.devmanuals.resultTypes.JSONResult" />
+				class="com.getbestplace.resultTypes.CustomImageBytesResult" />
+			<result-type name="customJSON" class="com.getbestplace.resultTypes.JSONResult" />
 		</result-types>
 	
 		<global-results>
@@ -34,24 +34,24 @@
  			<exception-mapping exception="java.lang.Exception" result="error" />
 		</global-exception-mappings>
 	
-		<action name="login" class="com.devmanuals.LoginAction">
+		<action name="login" class="com.getbestplace.LoginAction">
 			<result name="success">Welcome.jsp</result>
 			<result name="error">login.html</result>
 		</action>
 		
-		<action name="getCaptcha" class="com.devmanuals.CaptchaGenerator">
+		<action name="getCaptcha" class="com.getbestplace.CaptchaGenerator">
 			<result name="success" type="imageResult">
 			</result>
 		</action>
 		
-		<action name="ajaxAction" class="com.devmanuals.action.CheckUserEmail">	
+		<action name="ajaxAction" class="com.getbestplace.action.CheckUserEmail">	
   		</action>
   		
-  		<action name="getLocality" class="com.devmanuals.action.GetLocalityList" method="getLocalityInCity">	
+  		<action name="getLocality" class="com.getbestplace.action.GetLocalityList" method="getLocalityInCity">	
   			<result type="customJSON">localities</result>
   		</action>
   		
-  		<action name="saveNewPlace" class="com.devmanuals.action.PlaceDAO" method="addPlace">
+  		<action name="saveNewPlace" class="com.getbestplace.action.PlaceDAO" method="addPlace">
   			<param name="filesPath">places</param>
   			<result name="success">Welcome.jsp</result>
 			<result name="login">Login.jsp</result>
@@ -62,13 +62,13 @@
             </interceptor-ref>
   		</action>
   		
-  		<action name="checkLogin" class="com.devmanuals.action.LoginAction">
+  		<action name="checkLogin" class="com.getbestplace.action.LoginAction">
 			<exception-mapping exception="java.lang.Exception"  result="error" />
 			<result name="success">Welcome.jsp</result>
 			<result name="error">Login.jsp</result>
 		</action>
 		
-		<action name="saveNewUser" class="com.devmanuals.action.SaveUserDetailAction" method="addUser">
+		<action name="saveNewUser" class="com.getbestplace.action.SaveUserDetailAction" method="addUser">
 			<exception-mapping exception="java.lang.Exception"  result="error" />
 			<result name="success">Welcome.jsp</result>
 			<result name="error">error.jsp</result>
@@ -76,24 +76,24 @@
 		</action>
 		
 		
-		<action name="adminLoginAction" class="com.devmanuals.action.AdminLogin">
+		<action name="adminLoginAction" class="com.getbestplace.action.AdminLogin">
 			<result name="success">HighProrityPlacesForAdmin.jsp</result>
 			<result name="error">getbestplaceadminlogin.jsp</result>
 		</action>
 		
-		<action name="addHighPriorityPlace" class="com.devmanuals.action.HighPriorityPlacesAction" method="addHighPriorityPlace">
+		<action name="addHighPriorityPlace" class="com.getbestplace.action.HighPriorityPlacesAction" method="addHighPriorityPlace">
 			<result name="success">Welcome.jsp</result>
 			<result name="login">getbestplaceadminlogin.jsp</result>
 			<result name="error">error.jsp</result>
 		</action>
 		
-		<action name="removeHighPriorityPlace" class="com.devmanuals.action.HighPriorityPlacesAction" method="removeHighPriorityPlace">
+		<action name="removeHighPriorityPlace" class="com.getbestplace.action.HighPriorityPlacesAction" method="removeHighPriorityPlace">
 			<result name="success">Welcome.jsp</result>
 			<result name="login">getbestplaceadminlogin.jsp</result>
 			<result name="error">error.jsp</result>
 		</action>
 		
-		<action name="getHighPriorityPlace" class="com.devmanuals.action.HighPriorityPlacesAction" method="getHighPriorityPlace">
+		<action name="getHighPriorityPlace" class="com.getbestplace.action.HighPriorityPlacesAction" method="getHighPriorityPlace">
 		</action>
 		
 	</package>
