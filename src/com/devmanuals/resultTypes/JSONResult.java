@@ -4,8 +4,6 @@ import java.io.PrintWriter;
 
 import org.apache.struts2.ServletActionContext;
 
-import com.devmanuals.action.GetLocalityList;
-import com.devmanuals.model.Locality;
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.Result;
 import com.opensymphony.xwork2.util.ValueStack;
@@ -16,6 +14,10 @@ import org.apache.log4j.Logger;
 
 public class JSONResult implements Result {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1623614711866536951L;
 	public static final String DEFAULT_PARAM = "classAlias";
 	String classAlias;
 	static final Logger LOGGER = Logger.getLogger(JSONResult.class);

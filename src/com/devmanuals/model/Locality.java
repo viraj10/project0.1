@@ -24,6 +24,9 @@ public class Locality implements Serializable{
 	@Column(name="locality")
 	String locality;
 	
+	public String toString(){
+		return this.locality;
+	}
 	
 	public Locality(){
 		

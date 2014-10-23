@@ -25,7 +25,7 @@
   <a class="carousel-control right" href="#myCarousel" data-slide="next">›</a>
 </div>
 
-	<form action="" method="post" style="margin-bottom:0">
+	<form action="" method="post" style="margin-bottom:0;overflow:hidden;">
 									
 		<h2 id="postCodeWrapper">
 			<div id="postCodeInner">
@@ -37,6 +37,19 @@
 			</div>
 		</h2>
 	</form>
+	
+	
+	<div class="row">
+		<div class="span2" style="border:1px solid black;"><p>1</p></div>
+
+		<div class="span2" style="border:1px solid black;"><p>2</p></div>
+
+		<div class="span2" style="border:1px solid black;"><p>3</p></div>
+		
+		<div class="span2" style="border:1px solid black;"><p>4</p></div>
+		
+		<div class="span2" style="border:1px solid black;"><p>5</p></div>
+	</div>	
 </div><!-- /container -->
 </div>
  <!-- Button to trigger modal -->
