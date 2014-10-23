@@ -25,9 +25,20 @@
 			<result-type name="customJSON" class="com.getbestplace.resultTypes.JSONResult" />
 		</result-types>
 	
+		<interceptors>
+			<interceptor name="loginInterceptor" class="com.getbestplace.interceptors.LoginInterceptor"/>
+			<interceptor-stack name="secureStack">
+				<interceptor-ref name="loginInterceptor"/>
+				<interceptor-ref name="defaultStack"/>
+			</interceptor-stack>
+		</interceptors>
+	
+		<default-interceptor-ref name="secureStack"/>
+		
 		<global-results>
      		<result name="login">Login.jsp</result>
  			<result name="error">error.jsp</result>
+ 			<result name="welcome">Welcome.jsp</result>
 		</global-results>
 		
 		<global-exception-mappings>
