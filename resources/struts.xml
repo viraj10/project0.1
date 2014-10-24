@@ -12,7 +12,7 @@
 	<constant name="struts.devMode" value="false" />
 	<constant name="struts.custom.i18n.resources"
 		value="ApplicationResources" />
-
+	<constant name="struts.action.extension" value=""/> 
 	<constant name="struts.multipart.saveDir" value="places" />
 	<constant name="struts.multipart.maxSize" value="9000000" />
 	
@@ -34,20 +34,45 @@
 		</interceptors>
 	
 		<default-interceptor-ref name="secureStack"/>
+		<default-action-ref name="welcome"/>
 		
 		<global-results>
-     		<result name="login">Login.jsp</result>
- 			<result name="error">error.jsp</result>
- 			<result name="welcome">Welcome.jsp</result>
+     		<result name="login">view/userview/login.jsp</result>
+ 			<result name="error">view/commonview/error.jsp</result>
+ 			<result name="welcome">view/commonview/welcome.jsp</result>
 		</global-results>
 		
 		<global-exception-mappings>
  			<exception-mapping exception="java.lang.Exception" result="error" />
 		</global-exception-mappings>
+		
+		<!--  this are all basically the actions to just render the jsp pages -->
+		<action name="welcome">
+			<result>view/commonview/welcome.jsp</result>
+		</action>
+		<action name="error">
+			<result>view/commonview/error.jsp</result>
+		</action>
+		<action name="adminlogin">
+			<result>view/adminview/getbestplaceadminlogin.jsp</result>
+		</action>
+		<action name="highprorityplaces">
+			<result>view/adminview/highprorityplacesforadmin.jsp</result>
+		</action>
+		<action name="registerplace">
+			<result>view/placeregview/placeregistration.jsp</result>
+		</action>
+		<action name="loginresgister" >
+			<result>view/userview/login.jsp</result>
+		</action>
+		<action name="display" >
+			<result>view/display.jsp</result>
+		</action>
+		<!--  end of jsp rendering actions -->
 	
 		<action name="login" class="com.getbestplace.LoginAction">
-			<result name="success">Welcome.jsp</result>
-			<result name="error">login.html</result>
+			<result name="success">view/commonview/welcome.jsp</result>
+			<result name="error">view/userview/login.jsp</result>
 		</action>
 		
 		<action name="getCaptcha" class="com.getbestplace.CaptchaGenerator">
@@ -64,9 +89,9 @@
   		
   		<action name="saveNewPlace" class="com.getbestplace.action.PlaceDAO" method="addPlace">
   			<param name="filesPath">places</param>
-  			<result name="success">Welcome.jsp</result>
-			<result name="login">Login.jsp</result>
-			<result name="input">placeregistration.jsp</result>
+  			<result name="success">view/commonview/welcome.jsp</result>
+			<result name="login">view/userview/login.jsp</result>
+			<result name="input">view/placeregview/placeregistration.jsp</result>
 			<interceptor-ref name="defaultStack">
                 <param name="fileUpload.maximumSize">10485760</param>
                 <param name="fileUpload.allowedTypes">text/plain,application/pdf,application/word,application/msword,application/vnd.ms-excel,image/png,image/gif,image/jpeg,image/jpg</param>
@@ -75,33 +100,33 @@
   		
   		<action name="checkLogin" class="com.getbestplace.action.LoginAction">
 			<exception-mapping exception="java.lang.Exception"  result="error" />
-			<result name="success">Welcome.jsp</result>
-			<result name="error">Login.jsp</result>
+			<result name="success">view/commonview/welcome.jsp</result>
+			<result name="error">view/userview/login.jsp</result>
 		</action>
 		
 		<action name="saveNewUser" class="com.getbestplace.action.SaveUserDetailAction" method="addUser">
 			<exception-mapping exception="java.lang.Exception"  result="error" />
-			<result name="success">Welcome.jsp</result>
-			<result name="error">error.jsp</result>
-			<result name="login">Login.jsp</result>
+			<result name="success">view/commonview/welcome.jsp</result>
+			<result name="error">view/commonview/error.jsp</result>
+			<result name="login">view/userview/login.jsp</result>
 		</action>
 		
 		
 		<action name="adminLoginAction" class="com.getbestplace.action.AdminLogin">
-			<result name="success">HighProrityPlacesForAdmin.jsp</result>
-			<result name="error">getbestplaceadminlogin.jsp</result>
+			<result name="success">view/adminview/highprorityplacesforadmin.jsp</result>
+			<result name="error">view/adminview/getbestplaceadminlogin.jsp</result>
 		</action>
 		
 		<action name="addHighPriorityPlace" class="com.getbestplace.action.HighPriorityPlacesAction" method="addHighPriorityPlace">
-			<result name="success">Welcome.jsp</result>
-			<result name="login">getbestplaceadminlogin.jsp</result>
-			<result name="error">error.jsp</result>
+			<result name="success">view/commonview/welcome.jsp</result>
+			<result name="login">view/adminview/getbestplaceadminlogin.jsp</result>
+			<result name="error">view/commonview/error.jsp</result>
 		</action>
 		
 		<action name="removeHighPriorityPlace" class="com.getbestplace.action.HighPriorityPlacesAction" method="removeHighPriorityPlace">
-			<result name="success">Welcome.jsp</result>
-			<result name="login">getbestplaceadminlogin.jsp</result>
-			<result name="error">error.jsp</result>
+			<result name="success">view/commonview/welcome.jsp</result>
+			<result name="login">view/adminview/getbestplaceadminlogin.jsp</result>
+			<result name="error">view/commonview/error.jsp</result>
 		</action>
 		
 		<action name="getHighPriorityPlace" class="com.getbestplace.action.HighPriorityPlacesAction" method="getHighPriorityPlace">

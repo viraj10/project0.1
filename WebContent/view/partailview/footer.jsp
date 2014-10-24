@@ -12,16 +12,16 @@
 		<li><a class="dribble qtip" href="https://plus.google.com/" title="Google plus" target="_blank"></a></li>
 	</ul>
 	<div id="footerMenu">
-		<a href="Welcome.jsp"> HOME</a> | 
+		<a href="welcome"> HOME</a> | 
 		<a href="#">TOP PLACES</a> | 
-		<a href="Login.jsp">LOGIN </a> | 	
-		<a href="placeregistration.jsp">REGISTER PACE </a> |  
-		<a href="Welcome.jsp"> ABOUT US</a>
+		<a href="loginresgister">LOGIN </a> | 	
+		<a href="registerplace">REGISTER PACE </a> |  
+		<a href="welcome"> ABOUT US</a>
 	</div>
 		
 		<div>
 		&copy; Copyright © 2014  The Superb Developers
-		<a href="#">Terms and condition</a><br/>
+		<a href="#">No Terms and condition</a><br/>
 		<small>Developed by <br>Exciting People.</small>
 		</div>
 		

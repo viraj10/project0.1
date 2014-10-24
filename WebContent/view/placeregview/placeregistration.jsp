@@ -1,9 +1,9 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<s:include value="header.jsp"/>
+<s:include value="/view/partailview/header.jsp"/>
 <body>
-<s:include value="bodyHeader.jsp"/>
+<s:include value="/view/partailview/bodyHeader.jsp"/>
 <div id="bodySection">
 <div class="container"><div class="row">
 <div class="span12">
@@ -18,7 +18,7 @@
 <h4 class="notice-title">Registration for your beautiful place</h4>
 <div class="notice">
 
-<form class="form-horizontal" id="registrationPlaceForm" action="saveNewPlace.action" method="post" enctype="multipart/form-data">
+<form class="form-horizontal" id="registrationPlaceForm" action="saveNewPlace" method="post" enctype="multipart/form-data">
 	   <div class="control-group">
 		<label class="control-label required" for="regPlaceName">Name</label>
 		<div class="controls">
@@ -240,7 +240,7 @@
 
 
 </div><!-- /wrapper -->
-<s:include value="footer.jsp"/>
+<s:include value="/view/partailview/footer.jsp"/>
 <script type="text/javascript">
 
 
@@ -312,7 +312,7 @@
         
         
         $.ajax({
-    		url:'getLocality.action',
+    		url:'getLocality',
     		type:'POST',
     		data:{citySelected : 'pune'}, 
     		success:function(jsonResponse) {   

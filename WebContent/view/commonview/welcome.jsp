@@ -1,9 +1,9 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<s:include value="header.jsp"/>
+<s:include value="/view/partailview/header.jsp"/>
 <body>
-<s:include value="bodyHeader.jsp"/>
+<s:include value="/view/partailview/bodyHeader.jsp"/>
 <div id="bodySection">
 <div class="container">
 
@@ -61,14 +61,14 @@
 
 
 </div><!-- /wrapper -->
-<s:include value="footer.jsp"/>
+<s:include value="/view/partailview/footer.jsp"/>
 <script type="text/javascript">
 
 
 $( document ).ready(function() {
 	
 	$.ajax({
-		url:'getHighPriorityPlace.action',
+		url:'getHighPriorityPlace',
 		type:'POST',
 		async:false, 
 		success:function(jsonResponse) {                			

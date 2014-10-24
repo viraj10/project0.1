@@ -1,9 +1,9 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<s:include value="header.jsp"/>
+<s:include value="/view/partailview/header.jsp"/>
 <body>
-<s:include value="bodyHeader.jsp"/>
+<s:include value="/view/partailview/bodyHeader.jsp"/>
 <div id="bodySection">
 <div class="container"><div class="row">
 <div class="span12">
@@ -16,7 +16,7 @@
 <h4 class="notice-title">Existing Member</h4>
 <div class="notice">
 <div class="alert alert-danger" id="result1" style="display:none"><span id="result"></span></div>
-<form name="loginfrm" class="form-horizontal" id="loginfrm" enctype="" action="checkLogin.action" method="post">
+<form name="loginfrm" class="form-horizontal" id="loginfrm" enctype="" action="checkLogin" method="post">
 		<div class="control-group">
 			<label class="control-label" for="userEmail">Email<span style="color: #c30">*</span></label>
 			<div class="controls">
@@ -50,7 +50,7 @@
 <h4 class="notice-title">Registration for New Member</h4>
 <div class="notice">
 
-<form class="form-horizontal" id="registrationForm" action="saveNewUser.action" method="post">
+<form class="form-horizontal" id="registrationForm" action="saveNewUser" method="post">
 	   <div class="control-group">
 		<label class="control-label required" for="regName">Name</label>
 		<div class="controls">
@@ -135,7 +135,7 @@
 
 
 </div><!-- /wrapper -->
-<s:include value="footer.jsp"/>
+<s:include value="/view/partailview/footer.jsp"/>
 <script type="text/javascript">
 
 
@@ -178,7 +178,7 @@
             	var emailIdEntered=$("#regInputEmail").val();
             	var existingemail;
             	
-            	$.ajax({url:'ajaxAction.action',
+            	$.ajax({url:'ajaxAction',
             			type:'POST',
             			async:false, 
             			data:{emailIdToCheck : emailIdEntered}, 
@@ -270,4 +270,3 @@
 
 })(jQuery, window, document);
 </script>
-  

@@ -170,8 +170,9 @@ public class CaptchaGenerator extends ActionSupport implements ServletRequestAwa
 	}
  
 	private File getImageFile(String imageId) {
-		String filePath = servletRequest.getSession().getServletContext().getRealPath("/");
-		File file = new File(filePath + "/Image/", imageId);
+		String filePath = servletRequest.getSession().getServletContext().getRealPath("/view/userview");
+		System.out.println("*o*"+filePath);
+		File file = new File(filePath, "captcha.png");//this and above path is suppose to go in prop file
 		System.out.println(file.toString());
 		return file;
 	}

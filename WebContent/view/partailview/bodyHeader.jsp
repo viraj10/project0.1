@@ -6,17 +6,17 @@
         <div class="container">
           <div class="nav-collapse collapse">
 		   <ul class="nav">
-				<li><a href="Welcome.jsp"> <i class="icon-home"></i> Home </a></li>
+				<li><a href="welcome"> <i class="icon-home"></i> Home </a></li>
 			</ul>
 			
             <ul class="nav pull-right">
 				<!--li><a href="#" style="padding:0 14px; "><span class="btn btn-warning">Menu</span></a></li-->
 				<c:choose>
 					<c:when test="${sessionScope.currentUser!=null && sessionScope.currentUser.userId>0}">
-						<li><a href="placeregistration.jsp">Register my place</a></li>
+						<li><a href="registerplace">Register my place</a></li>
 					</c:when>
 					<c:otherwise>
-						<li><a href="Login.jsp">Log in </a> </li>	
+						<li><a href="loginresgister">Log in/Register </a> </li>	
 					</c:otherwise>              
 				</c:choose>
 				<li><a href="#" style="padding:0 14px; " title="Know the most booked places here.">
