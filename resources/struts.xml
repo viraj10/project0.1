@@ -30,9 +30,9 @@
 				<interceptor-ref name="defaultStack"/>
 			</interceptor-stack>
 		</interceptors>
-	
-		<default-interceptor-ref name="secureStack"/>
 		
+		<default-interceptor-ref name="secureStack"/>
+		<default-action-ref name="welcome"/>
 		<global-results>
      		<result name="login">view/userview/login.jsp</result>
  			<result name="error">view/commonview/error.jsp</result>
