@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC
     "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
-    "http://struts.apache.org/dtds/struts-2.0.dtd">
+    "http://struts.apache.org/dtds/struts2.0.dtd">
 
 <struts>
 
@@ -12,10 +12,8 @@
 	<constant name="struts.devMode" value="false" />
 	<constant name="struts.custom.i18n.resources"
 		value="ApplicationResources" />
-	<constant name="struts.action.extension" value=""/> 
 	<constant name="struts.multipart.saveDir" value="places" />
 	<constant name="struts.multipart.maxSize" value="9000000" />
-	
 	<package name="default" extends="struts-default">
 		
 		
@@ -34,7 +32,6 @@
 		</interceptors>
 	
 		<default-interceptor-ref name="secureStack"/>
-		<default-action-ref name="welcome"/>
 		
 		<global-results>
      		<result name="login">view/userview/login.jsp</result>
@@ -46,7 +43,6 @@
  			<exception-mapping exception="java.lang.Exception" result="error" />
 		</global-exception-mappings>
 		
-		<!--  this are all basically the actions to just render the jsp pages -->
 		<action name="welcome">
 			<result>view/commonview/welcome.jsp</result>
 		</action>
@@ -68,8 +64,8 @@
 		<action name="display" >
 			<result>view/display.jsp</result>
 		</action>
-		<!--  end of jsp rendering actions -->
-	
+		
+		
 		<action name="login" class="com.getbestplace.LoginAction">
 			<result name="success">view/commonview/welcome.jsp</result>
 			<result name="error">view/userview/login.jsp</result>
@@ -134,3 +130,4 @@
 		
 	</package>
 </struts>
+

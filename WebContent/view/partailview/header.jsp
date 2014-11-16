@@ -7,10 +7,10 @@
   <head>
     <meta charset="utf-8">
     <title>GetBestPlace - Find places for any event.</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	 <meta name="keywords" content="book hall, party place,organize event">
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta name="keywords" content="book hall, party place,organize event,eat , marriage , conference"/>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
 	<link href="bootstrap/css/main.css" rel="stylesheet" type="text/css"/>
 	<link href="bootstrap/css/font-awesome.css" rel="stylesheet" type="text/css"/>
 	<link href="bootstrap/css/placeregistration.css" rel="stylesheet" type="text/css"/>
