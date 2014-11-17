@@ -135,6 +135,12 @@
 
 
 </div><!-- /wrapper -->
+
+<div class="progress-bar">
+	<div class="image-conatainer"><img src="Image/progress.gif"/></div>
+	<div>Please wait</div>
+</div>
+
 <s:include value="/view/partailview/footer.jsp"/>
 <script type="text/javascript">
 
@@ -255,7 +261,7 @@
                   
                 },
                 submitHandler: function(form) {
-                	
+                	$(".progress-bar").css("visibility","visible");
                 	form.submit();	
                     
                 }

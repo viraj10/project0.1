@@ -41,29 +41,7 @@
 		
 		<global-exception-mappings>
  			<exception-mapping exception="java.lang.Exception" result="error" />
-		</global-exception-mappings>
-		
-		<action name="welcome">
-			<result>view/commonview/welcome.jsp</result>
-		</action>
-		<action name="error">
-			<result>view/commonview/error.jsp</result>
-		</action>
-		<action name="adminlogin">
-			<result>view/adminview/getbestplaceadminlogin.jsp</result>
-		</action>
-		<action name="highprorityplaces">
-			<result>view/adminview/highprorityplacesforadmin.jsp</result>
-		</action>
-		<action name="registerplace">
-			<result>view/placeregview/placeregistration.jsp</result>
-		</action>
-		<action name="loginresgister" >
-			<result>view/userview/login.jsp</result>
-		</action>
-		<action name="display" >
-			<result>view/display.jsp</result>
-		</action>
+		</global-exception-mappings>		
 		
 		
 		<action name="login" class="com.getbestplace.LoginAction">
@@ -129,5 +107,6 @@
 		</action>
 		
 	</package>
+	<include file="jspViews.xml"/>		
 </struts>
 

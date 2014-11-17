@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+ 
+<struts>
+ 
+	<package name="jspViews"  extends="struts-default">
+		<action name="welcome">
+			<result>view/commonview/welcome.jsp</result>
+		</action>
+		<action name="error">
+			<result>view/commonview/error.jsp</result>
+		</action>
+		<action name="adminlogin">
+			<result>view/adminview/getbestplaceadminlogin.jsp</result>
+		</action>
+		<action name="highprorityplaces">
+			<result>view/adminview/highprorityplacesforadmin.jsp</result>
+		</action>
+		<action name="registerplace">
+			<result>view/placeregview/placeregistration.jsp</result>
+		</action>
+		<action name="loginresgister" >
+			<result>view/userview/login.jsp</result>
+		</action>
+		<action name="display" >
+			<result>view/display.jsp</result>
+		</action>
+	</package>
+ 
+</struts>
