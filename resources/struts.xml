@@ -108,5 +108,6 @@
 		
 	</package>
 	<include file="jspViews.xml"/>		
+	<include file="searchAndSort.xml"/>
 </struts>
 
