@@ -14,8 +14,8 @@ margin-left:10%
 
 .progress-bar{
 	position: fixed;
-	top: 50%;
-	right: 50%;
+	top: 40%;
+	right: 40%;
 	padding: 10px;
 	font-family: Arial;
 	visibility: hidden;
