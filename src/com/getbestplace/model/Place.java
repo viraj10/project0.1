@@ -12,21 +12,15 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
-
+import org.hibernate.search.annotations.*;
 @Entity
 @Table(name = "placedetails")
+@Indexed
 public class Place implements java.io.Serializable{
 	
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -780784688393144934L;
 
-	public Place()
-	{
-		
-	}
+	public Place(){}
 	
 	 @Id @GeneratedValue
 	 @Column(name = "PLACE_ID")
@@ -36,12 +30,14 @@ public class Place implements java.io.Serializable{
 	 private Long ownerId;
 	 
 	 @Column(name = "NAME")
+	 @Field(index=Index.YES,analyze=Analyze.YES,store=Store.NO)
 	 private String name;
 	 
 	 @Column(name = "ADDRESS")
 	 private String address;
 	 
 	 @Column(name = "LOCALITY")
+	 @Field(index=Index.YES,analyze=Analyze.YES,store=Store.NO)
 	 private String locality;
 	 
 	 @Column(name = "CITY")
@@ -130,5 +126,8 @@ public class Place implements java.io.Serializable{
 	}
 	
 	
+	public String toString(){
+		return this.name+"-"+this.locality;
+	}
 }
 

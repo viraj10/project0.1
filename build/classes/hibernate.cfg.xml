@@ -14,6 +14,10 @@
     <property name="format_sql">true</property>
     <property name="use_sql_comments">false</property>
     
+    <!--  using hibernate search for search and sort-->
+    <property name="hibernate.search.default.directory_provider">filesystem</property>
+    <property name="hibernate.search.default.indexBase">/var/lucene/indexes</property>
+    
     <!-- using hibernates c3p0 pool provider  -->
     <property name="hibernate.c3p0.min_size">10</property>
     <property name="hibernate.c3p0.max_size">50</property>
