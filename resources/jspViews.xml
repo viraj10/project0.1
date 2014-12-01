@@ -27,6 +27,9 @@
 		<action name="display" >
 			<result>view/display.jsp</result>
 		</action>
+		<action name="searchplace">
+			<result>view/placeview/searchmain.jsp</result>
+		</action>
 	</package>
  
 </struts>

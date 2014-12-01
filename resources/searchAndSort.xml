@@ -6,8 +6,13 @@
 <struts>
 	<package name="searchAndSort" namespace="/searchplaces" extends="struts-default">
 	
-		<action name="searchplace" class="com.getbestplace.action.SearchPlaceFirst">
+		<action name="sampleplace" class="com.getbestplace.action.search.SearchPlaceFirst">
 			<result name="success" type="redirect">/welcome?locality=${locality}</result>
+			<result name="error" type="redirect">/error>?locality=${locality}</result>
+		</action>
+		
+		<action name="searchplace" class="com.getbestplace.action.search.SearchFromIndex">
+			<result name="success" type="redirect">/searchplace?locality=${locality}</result>
 			<result name="error" type="redirect">/error>?locality=${locality}</result>
 		</action>
 	

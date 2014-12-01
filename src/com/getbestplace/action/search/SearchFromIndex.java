@@ -1,5 +1,6 @@
-package com.getbestplace.action;
+package com.getbestplace.action.search;
 
+import java.io.Serializable;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -15,16 +16,18 @@ import com.getbestplace.listener.HibernateListener;
 import com.getbestplace.model.Place;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class SearchPlaceFirst extends ActionSupport{
-	
-	private static final long serialVersionUID = 1110054598L;
-	static final Logger LOGGER = Logger.getLogger(SearchPlaceFirst.class);
+public class SearchFromIndex extends ActionSupport implements Serializable {
+
+	private static final long serialVersionUID = -533525479943709073L;
+
+	static final Logger LOGGER = Logger.getLogger(SearchFromIndex.class);
 	
 	private String locality;
+	private String city;
 	
 	@Override
 	public String execute(){
-		LOGGER.info("we are inside SearchPlaceFirst with locality="+locality);
+		LOGGER.info("we are inside SearchFromIndex with locality="+locality);
 		SessionFactory sessionFactory=(SessionFactory)ServletActionContext.getServletContext().getAttribute(HibernateListener.KEY_NAME);
 		Session session=sessionFactory.openSession();
 		try{
@@ -36,7 +39,7 @@ public class SearchPlaceFirst extends ActionSupport{
 				    .buildQueryBuilder().forEntity(Place.class).get();
 			org.apache.lucene.search.Query query = qb
 			  .keyword()
-			  .onField("locality")
+			  .onFields("locality")
 			  .matching(locality)
 			  .createQuery();
 			org.hibernate.Query hibQuery=  fullTextSession.createFullTextQuery(query, Place.class);
@@ -62,6 +65,14 @@ public class SearchPlaceFirst extends ActionSupport{
 	}
 	public void setLocality(String locality) {
 		this.locality = locality;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
 	}
 
 }

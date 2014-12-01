@@ -65,8 +65,8 @@ th.lst{text-align:center}
 .deliveryBlk .table td{line-height:1.1em; font-size:80%}
 .navbar-fixed-top, .navbar-fixed-bottom {position: fixed;margin: 0;}
 .priceCircle span{border:6px solid #669f1a; background:#669f1a; border-radius:50%;  box-shadow:0 0 2px #000}
-#postCodeWrapper{text-align:center}
-#postCodeWrapper .btn{line-height:2em;}
+#searchBoxWrapper{text-align:center}
+#searchBoxWrapper .btn{line-height:2em;}
 #postcode {font-size: 1em;line-height: 1.5em;height: auto;margin: 0;}
 .footer {text-align: center;}
 #cart .btn [class^="icon-"], .btn [class*=" icon-"] {line-height: 1.8em;}
@@ -115,7 +115,7 @@ em.brandClr{font-size:11px}
 #featuredProduct .simpleCart_shelfItem:hover .itemInfoSlide {}
 .itemInfoSlide { overflow:hidden;border-radius:2px;position: absolute;text-align: center; height: 100%; width: 100%; top:0; margin: 0; padding: 0;left: 0;font-size:21px;background: #d75e19;display: none;color: #fff;vertical-align: middle;}
 #postCodeInner {padding: 8px 18px;background: rgb(240, 102, 11);display: block;margin: 0 -9px -19px;border-radius: 0;}
-#postCodeInner{
+#postCodeInner {
 -webkit-box-shadow: 0px 1px 1px rgba(0,0,0,.15), 0px 2px 3px rgba(0,0,0,.50), 0px 3px 1px rgba(0,0,0,.05);
 -moz-box-shadow: 0px 1px 1px rgba(0,0,0,.15), 0px 2px 3px rgba(0,0,0,.50), 0px 3px 1px rgba(0,0,0,.05);
 box-shadow: 0px 1px 1px rgba(0,0,0,.15), 0px 2px 3px rgba(0,0,0,.50), 0px 3px 1px rgba(0,0,0,.05);
@@ -185,7 +185,7 @@ height: 36px;
 .navbar.navbar-fixed-top{display:none}
 .header .span4{text-align:center}
 #postCodeInner .btn{ display:block; margin-top:8px; float:none;}
-#postCodeWrapper .btn {line-height: 2em;width: 100%;}
+#searchBoxWrapper .btn {line-height: 2em;width: 100%;}
 .tr{text-align:center}
 body{padding:0}
 .carousel-caption{display:none}

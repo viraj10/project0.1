@@ -13,6 +13,20 @@ import javax.persistence.Table;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 import org.hibernate.search.annotations.*;
+
+//
+//import org.apache.solr.analysis.StandardTokenizerFactory;
+//import org.apache.solr.analysis.LowerCaseFilterFactory;
+//
+//@AnalyzerDef(name = "customanalyzer",
+//	tokenizer = @TokenizerDef(factory = StandardTokenizerFactory.class),
+//	filters = {
+//		@TokenFilterDef(factory = LowerCaseFilterFactory.class),
+//		@TokenFilterDef(factory = SnowballPorterFilterFactory.class, params = {
+//			@Parameter(name = "language", value = "English")
+//	})
+//})
+
 @Entity
 @Table(name = "placedetails")
 @Indexed
@@ -37,10 +51,11 @@ public class Place implements java.io.Serializable{
 	 private String address;
 	 
 	 @Column(name = "LOCALITY")
-	 @Field(index=Index.YES,analyze=Analyze.YES,store=Store.NO)
+	 @Field(index=Index.YES,analyze=Analyze.YES,store=Store.YES)
 	 private String locality;
 	 
 	 @Column(name = "CITY")
+	 @Field(index=Index.YES,analyze=Analyze.YES,store=Store.YES)
 	 private String city;
 	 
 	 @Column(name = "POSTALCODE")
