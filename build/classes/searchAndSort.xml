@@ -6,6 +6,11 @@
 <struts>
 	<package name="searchAndSort" namespace="/searchplaces" extends="struts-default">
 	
+		<global-exception-mappings>
+ 			<exception-mapping exception="java.lang.Exception" result="/error" />
+		</global-exception-mappings>		
+		
+	
 		<action name="sampleplace" class="com.getbestplace.action.search.SearchPlaceFirst">
 			<result name="success" type="redirect">/welcome?locality=${locality}</result>
 			<result name="error" type="redirect">/error>?locality=${locality}</result>

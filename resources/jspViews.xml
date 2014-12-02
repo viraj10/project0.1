@@ -6,6 +6,10 @@
 <struts>
  
 	<package name="jspViews"  extends="struts-default">
+		<global-exception-mappings>
+ 			<exception-mapping exception="java.lang.Exception" result="error" />
+		</global-exception-mappings>		
+		
 		<action name="welcome">
 			<result>view/commonview/welcome.jsp</result>
 		</action>

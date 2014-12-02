@@ -17,8 +17,28 @@
 			</div>
 		</h2>
 	</form>
-	
-	
+	<div class="row">
+		<div class="span3 ">
+			<div class="search-sort-box">
+				<label class="control-label" for="regPriceSlider">Price Range</label>
+			</div>
+			<div class="search-sort-box">
+				<label class="control-label" for="regPriceSlider">Place Type</label>
+			</div>
+			<div class="search-sort-box">
+				<label class="control-label" for="regPriceSlider">Capacity</label>	
+			</div>
+			<div class="search-sort-box">
+				<label class="control-label" for="regPriceSlider">Air Conditioned</label>	
+			</div>
+			<div class="search-sort-box">
+				<label class="control-label" for="regPriceSlider">Music</label>	
+			</div>			
+		</div>
+		<div class="span9">
+		
+		</div>
+	</div>
 		
 </div><!-- /container -->
 </div>
