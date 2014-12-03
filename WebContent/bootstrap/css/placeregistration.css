@@ -26,3 +26,27 @@ margin-left:10%
 .span5 .pull-right{
 	text-align: right;
 }
+/*css below for search place*/
+
+.slider-selection{
+	background-color: rgb(240, 102, 11);
+	background-image: linear-gradient(to bottom, rgb(240, 102, 11), rgb(240, 102, 11));
+}
+
+.search-sort-box {
+	border: 1px solid #b2b2b2;
+	margin-top: 10px;
+	padding: 10px;
+}
+
+/*css below for welcome page*/
+ #logo > img{
+	max-width: 60%;
+}
+
+.contact-phone{
+	text-align:right
+}
+.contact-phone > .txtRaling,.contact-phone > .txtRaling:hover{
+	font-size: 1.9em;
+}

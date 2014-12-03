@@ -13,8 +13,8 @@
     <link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
 	<link href="bootstrap/css/main.css" rel="stylesheet" type="text/css"/>
 	<link href="bootstrap/css/font-awesome.css" rel="stylesheet" type="text/css"/>
-	<link href="bootstrap/css/placeregistration.css" rel="stylesheet" type="text/css"/>
 	<link href="bootstrap/slider/css/slider.css" rel="stylesheet" type="text/css"/>	
+	<link href="bootstrap/css/placeregistration.css" rel="stylesheet" type="text/css"/>
 	<!--[if IE 7]>
 	  <link rel="stylesheet" href="themes/bootstrap/css/font-awesome-ie7.css">
 	<![endif]-->

@@ -61,6 +61,8 @@
 
 
 </div><!-- /wrapper -->
+
+</div><!-- /wrapper -->
 <s:include value="/view/partailview/footer.jsp"/>
 <script type="text/javascript">
 

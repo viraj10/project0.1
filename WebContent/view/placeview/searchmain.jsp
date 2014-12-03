@@ -20,22 +20,35 @@
 	<div class="row">
 		<div class="span3 ">
 			<div class="search-sort-box">
-				<label class="control-label" for="regPriceSlider">Price Range</label>
+				<label class="control-label" for="regPriceSlider">Price Range of place</label>
+				<input id="priceSlider" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="500" data-slider-step="10" data-slider-value="250"/>
 			</div>
 			<div class="search-sort-box">
-				<label class="control-label" for="regPriceSlider">Place Type</label>
+				<p class="control-label">Place Type</p>
+			  	<div class="checkbox">
+		          	<label><input type="checkbox" value="">Marriage Hall</label>
+		        	<label><input type="checkbox" value="">Conference Hall</label>
+		        	<label><input type="checkbox" value="">Party Place</label>
+		        	<label><input type="checkbox" value="">Hotel</label>
+		        	<label><input type="checkbox" value="">Open House</label>
+		        </div>
 			</div>
 			<div class="search-sort-box">
-				<label class="control-label" for="regPriceSlider">Capacity</label>	
+				<label class="control-label" for="regPriceSlider">Capacity of place</label>	
+				<input id="capacitySlider" data-slider-id='ex2Slider' type="text" data-slider-min="0" data-slider-max="5000" data-slider-step="100" data-slider-value="2000"/>
 			</div>
 			<div class="search-sort-box">
-				<label class="control-label" for="regPriceSlider">Air Conditioned</label>	
+				<p class="control-label">Air Conditioned</p>	
+				<div class="radio">
+					<label><input type="radio" name="optAC">AC</label>
+					<label><input type="radio" name="optAC">Non-AC</label>
+				</div>					  	  
 			</div>
 			<div class="search-sort-box">
-				<label class="control-label" for="regPriceSlider">Music</label>	
+				<p>Music must be allowed  :<input type="checkbox" name="music"/></p>
 			</div>			
 		</div>
-		<div class="span9">
+		<div class="span9 show-places">
 		
 		</div>
 	</div>
@@ -51,7 +64,19 @@
 
 $( document ).ready(function() {
 	
-	/*$.ajax({
+	$('#priceSlider').slider({
+		formatter: function(value) {
+			return 'Current value: ' + value;
+		}
+	});
+	$('#capacitySlider').slider({
+		formatter: function(value) {
+			return 'Current value: ' + value;
+		}
+	});
+	/*$("#priceSlider").data('slider').getValue()
+	$("#capacitySlider").data('slider').getValue()
+	$.ajax({
 		url:'getHighPriorityPlace',
 		type:'POST',
 		async:false, 

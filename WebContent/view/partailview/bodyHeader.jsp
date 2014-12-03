@@ -38,7 +38,7 @@
 	<!--div class="span4">
 		<h1><a id="menuBtn" href="menu.php"><img src="bootstrap/img/menu_btn.png" alt="20% off on order online"/></a></h1>
 	</div-->
-	<div class="span5 pull-right" style="text-align:right">
+	<div class="span5 pull-right contact-phone">
 		<a class="txtRaling" href="tel:8087781909"><i class="icon-phone"></i> 808-778-1909</a>
 	</div>	
 </div>	
