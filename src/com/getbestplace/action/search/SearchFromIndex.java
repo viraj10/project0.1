@@ -22,6 +22,8 @@ public class SearchFromIndex extends ActionSupport implements Serializable {
 
 	static final Logger LOGGER = Logger.getLogger(SearchFromIndex.class);
 	
+	
+	private List places;
 	private String locality;
 	private String city;
 	
@@ -45,6 +47,7 @@ public class SearchFromIndex extends ActionSupport implements Serializable {
 			org.hibernate.Query hibQuery=  fullTextSession.createFullTextQuery(query, Place.class);
 			
 			List result = hibQuery.list();
+			this.setPlaces(result);
 			
 			LOGGER.info(result);
 			
@@ -73,6 +76,15 @@ public class SearchFromIndex extends ActionSupport implements Serializable {
 
 	public void setCity(String city) {
 		this.city = city;
+	}
+
+	public List getPlaces() {
+		return places;
+	}
+
+	public void setPlaces(List places) {
+		LOGGER.info("l```````````````````````````````````````ength of places"+places.size());
+		this.places = places;
 	}
 
 }

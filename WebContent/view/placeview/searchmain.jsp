@@ -74,6 +74,19 @@ $( document ).ready(function() {
 			return 'Current value: ' + value;
 		}
 	});
+	
+	$.ajax({
+		url:'searchplaces/searchplace',
+		type:'POST', 
+		dataType : 'html',
+		data: {
+			locality : 'Rd'
+        },
+		success:function(htmlResponse) {                			
+			 $(".show-places").html(htmlResponse)
+			console.log(htmlResponse);
+		}
+	});
 	/*$("#priceSlider").data('slider').getValue()
 	$("#capacitySlider").data('slider').getValue()
 	$.ajax({
