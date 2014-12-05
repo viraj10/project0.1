@@ -9,6 +9,9 @@
 			<s:property value="name"/>
 			<s:property value="locality"/>
 			<s:property value="postalCode"/>
+			iterator value="attributes"
+				property value="attributeName"
+			iterator
 		</div>
 	</s:iterator>
 </div>

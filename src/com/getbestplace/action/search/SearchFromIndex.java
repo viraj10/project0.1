@@ -1,10 +1,12 @@
 package com.getbestplace.action.search;
 
 import java.io.Serializable;
+import java.util.Iterator;
 import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.apache.struts2.ServletActionContext;
+import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -47,6 +49,11 @@ public class SearchFromIndex extends ActionSupport implements Serializable {
 			org.hibernate.Query hibQuery=  fullTextSession.createFullTextQuery(query, Place.class);
 			
 			List result = hibQuery.list();
+			/*Iterator resultItr=result.iterator();
+			while(resultItr.hasNext()){
+				Place p=(Place)resultItr.next();
+				Hibernate.initialize(p.getAttributes());
+			}*/
 			this.setPlaces(result);
 			
 			LOGGER.info(result);
