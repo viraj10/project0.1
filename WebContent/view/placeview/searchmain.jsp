@@ -11,8 +11,8 @@
 		<h2 id="searchBoxWrapper">
 			<div id="postCodeInner" style="text-align: center;">
 				<input class="span3" id="city" name="city" type="text" placeholder="CITY" value="Pune" disabled/>
-				<input class="span3" id="location" name="location" type="text" placeholder="LOCATION"/>
-				<input class="span3" id="name" name="name" type="text" placeholder="NAME"/>
+				<s:textfield name="locality" id="locality" cssClass="span3" placeholder="LOCATION"/>
+				<s:textfield name="name" id="name" cssClass="span3" placeholder="NAME"/>
 				<button class="btn btn-large btn-success" type="submit" style="margin-bottom: 7px;">SEARCH</button>
 			</div>
 		</h2>
@@ -80,11 +80,11 @@ $( document ).ready(function() {
 		type:'POST', 
 		dataType : 'html',
 		data: {
-			locality : 'Rd'
+			locality : $("#locality").val(),
+			name: $("#name").val()
         },
 		success:function(htmlResponse) {                			
-			 $(".show-places").html(htmlResponse)
-			console.log(htmlResponse);
+			 $(".show-places").html(htmlResponse);
 		}
 	});
 	/*$("#priceSlider").data('slider').getValue()

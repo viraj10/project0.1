@@ -31,7 +31,7 @@
 		<action name="display" >
 			<result>view/display.jsp</result>
 		</action>
-		<action name="searchplace">
+		<action name="searchplace" class="com.getbestplace.action.search.SearchMainJspRender">
 			<result>view/placeview/searchmain.jsp</result>
 		</action>
 		<action name="placesfound">
