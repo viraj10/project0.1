@@ -2,6 +2,13 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <s:include value="/view/partailview/header.jsp"/>
+<style>
+.dropdown-menu > li > a{
+	font-size:15px !important;
+	font-weight:100 !important;
+}
+
+</style>
 <body>
 <s:include value="/view/partailview/bodyHeader.jsp"/>
 <div id="bodySection">
@@ -85,6 +92,7 @@ $( document ).ready(function() {
         },
 		success:function(htmlResponse) {                			
 			 $(".show-places").html(htmlResponse);
+			 getSelectList();
 		}
 	});
 	/*$("#priceSlider").data('slider').getValue()
@@ -100,6 +108,30 @@ $( document ).ready(function() {
 	});*/
 	
 });
+
+function getSelectList(){
+	$.ajax({
+		url:'getLocality',
+		type:'POST', 
+		data:{citySelected : 'pune'}, 
+		success:function(jsonResponse) { 
+			var response = jQuery.parseJSON(jsonResponse);
+			$( "#locality" ).typeahead({
+				source: function(query, process) {
+			        objects = [];
+			        map = {};
+			        var data = response.list.localities
+			        $.each(data, function(i, object) {
+			            map[object.locality] = object;
+			            objects.push(object.locality);
+			        });
+			        process(objects);
+			    },
+				items:5
+			});
+		}
+	});
+}
 
 (function($,W,D)
 {

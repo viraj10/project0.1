@@ -2,6 +2,13 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <s:include value="/view/partailview/header.jsp"/>
+<style>
+.dropdown-menu > li > a{
+	font-size:15px !important;
+	font-weight:100 !important;
+}
+
+</style>
 <body>
 <s:include value="/view/partailview/bodyHeader.jsp"/>
 <div id="bodySection">
@@ -17,8 +24,6 @@
   <div class="carousel-inner">
     <div class="item active"><p><img src="places/pune/beautifulplace/1.png" alt="bootstrappage"></p></div>
     <div class="item"><p><img src="places/pune/beautifulplace/2.png" alt="bootstrappage"></p></div>
-  	<div class="item"><p><img src="places/pune/beautifulplace/3.jpg" alt="bootstrappage"></p></div>
-  
   </div>
   <!-- Carousel nav -->
   <a class="carousel-control left" href="#myCarousel" data-slide="prev">‹</a>
@@ -29,7 +34,7 @@
 	<h2 id="searchBoxWrapper">
 		<div id="postCodeInner" style="text-align: center;">
 			<input class="span3" id="city" name="city" type="text" placeholder="CITY" value="Pune" disabled/>
-			<input class="span3" id="location" name="locality" type="text" placeholder="LOCATION"/>
+			<input class="span3" id="locality" name="locality" type="text" placeholder="LOCATION"/>
 			<input class="span3" id="name" name="name" type="text" placeholder="NAME"/>
 			<button class="btn btn-large btn-success" type="submit" style="margin-bottom: 7px;">SEARCH</button>
 		</div>
@@ -81,6 +86,27 @@ $( document ).ready(function() {
 		interval: 3000
 	});
 	
+	$.ajax({
+		url:'getLocality',
+		type:'POST', 
+		data:{citySelected : 'pune'}, 
+		success:function(jsonResponse) { 
+			var response = jQuery.parseJSON(jsonResponse);
+			$( "#locality" ).typeahead({
+				source: function(query, process) {
+			        objects = [];
+			        map = {};
+			        var data = response.list.localities
+			        $.each(data, function(i, object) {
+			            map[object.locality] = object;
+			            objects.push(object.locality);
+			        });
+			        process(objects);
+			    },
+				items:5
+			});
+		}
+	});
 });
 
 (function($,W,D)
