@@ -18,8 +18,10 @@
 		
 		<action name="searchplace" class="com.getbestplace.action.search.SearchFromIndex">
 			<result name="success">/view/placeview/placesfound.jsp</result>
-			<result name="error" type="redirect">/error>?locality=${locality}</result>
+			<result name="error" type="redirect">/error?locality=${locality}</result>
 		</action>
+		
+		
 	
 	</package>
 </struts>

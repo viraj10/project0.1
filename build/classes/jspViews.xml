@@ -34,6 +34,10 @@
 		<action name="searchplace" class="com.getbestplace.action.search.SearchMainJspRender">
 			<result>view/placeview/searchmain.jsp</result>
 		</action>
+		<action name="selectedplace" class="com.getbestplace.action.search.SelectedPlaceRender">
+			<result name="success">/view/placeview/selectedplace.jsp</result>
+			<result name="error" type="redirect">/error>?locality=${locality}</result>
+		</action>
 		<action name="placesfound">
 			<result>view/placeview/placesfound.jsp</result>
 		</action>

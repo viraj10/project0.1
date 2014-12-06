@@ -16,6 +16,7 @@ import org.hibernate.search.query.dsl.QueryBuilder;
 
 import com.getbestplace.listener.HibernateListener;
 import com.getbestplace.model.Place;
+import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class SearchFromIndex extends ActionSupport implements Serializable {
@@ -67,7 +68,7 @@ public class SearchFromIndex extends ActionSupport implements Serializable {
 		finally{
 			session.close();
 		}
-		return SUCCESS;
+		return Action.SUCCESS;
 	}
 	
 	public String getLocality() {
