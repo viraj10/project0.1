@@ -2,16 +2,15 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<div class="searched-places-conatiner">
+<div class="searched-places-contianer">
 	<s:iterator value="places" status="status">
-	Index: <s:property value="%{#status.index}" /> <br />
 		<div class="place-box">
-			<s:property value="name"/>
-			<s:property value="locality"/>
-			<s:property value="postalCode"/>
-			iterator value="attributes"
+			<span class="place-name-box float-left"><a href=""><s:property value="name"/></a></span>
+			<span class="place-locality-box"><a href=""><s:property value="locality"/><a></a></span>
+			<span class="place-phone-box float-right"><i class="icon-phone"></i>&nbsp;&nbsp;<s:property value="phone"/></span>
+			<!-- iterator value="attributes"
 				property value="attributeName"
-			iterator
+			iterator -->
 		</div>
 	</s:iterator>
 </div>

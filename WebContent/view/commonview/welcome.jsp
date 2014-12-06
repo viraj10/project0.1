@@ -25,18 +25,16 @@
   <a class="carousel-control right" href="#myCarousel" data-slide="next">›</a>
 </div>
 
-	<form action="" method="post" style="margin-bottom:0;overflow:hidden;">
-									
-		<h2 id="postCodeWrapper">
-			<div id="postCodeInner">
-				<span class="wTxt">Search Place: </span>
-				<input class="span3" id="city" name="city" type="text" placeholder="CITY"/>
-				<input class="span3" id="location" name="location" type="text" placeholder="LOCATION"/>
-				<input class="span3" id="name" name="name" type="text" placeholder="NAME"/>
-				<button class="btn btn-large btn-success" type="submit">SEARCH</button>
-			</div>
-		</h2>
-	</form>
+<form action="searchplace" method="get" style="margin-bottom:0;overflow:hidden;">									
+	<h2 id="searchBoxWrapper">
+		<div id="postCodeInner" style="text-align: center;">
+			<input class="span3" id="city" name="city" type="text" placeholder="CITY" value="Pune" disabled/>
+			<input class="span3" id="location" name="locality" type="text" placeholder="LOCATION"/>
+			<input class="span3" id="name" name="name" type="text" placeholder="NAME"/>
+			<button class="btn btn-large btn-success" type="submit" style="margin-bottom: 7px;">SEARCH</button>
+		</div>
+	</h2>
+</form>
 	
 	
 	<div class="row">

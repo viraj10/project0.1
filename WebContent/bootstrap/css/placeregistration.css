@@ -39,6 +39,33 @@ margin-left:10%
 	padding: 10px;
 }
 
+.place-box{
+	background: #F3F3F3;
+	color: #0087F5;
+	text-transform: uppercase;
+	font-weight: bold;
+	margin-bottom: 2%;
+	padding: 1%;
+	text-align: center;
+}
+
+.place-box > span{
+	display:inline-block;
+}
+
+.float-left{
+	float:left;
+}
+
+.float-right{
+	float:right;
+}
+
+.searched-places-contianer{
+	width:100%;
+	margin-top: 1%;
+}
+
 /*css below for welcome page*/
  #logo > img{
 	max-width: 60%;
