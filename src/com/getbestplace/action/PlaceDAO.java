@@ -283,19 +283,19 @@ public class PlaceDAO  extends ActionSupport  implements  SessionAware,ServletRe
 		Attribute attributePower=getAttribute("Power",regPlacePower,placeBean);
 		Attribute attributeMusic=getAttribute("Music",regPlaceMusic,placeBean);
 		
-		Attribute add1FilePath,add2FilePath,add3FilePath,add4FilePath,packageFilePath;
+		Attribute add1FilePath=null,add2FilePath=null,add3FilePath=null,add4FilePath=null,packageFilePath=null;
 		
 		String completeFilePath="";
 		LOGGER.info("File Name is:"+getIndexFileFileName());
 		LOGGER.info("File ContentType is:"+getIndexFileContentType());
 		LOGGER.info("add 1 Name is:"+getAdd1FileFileName());
-		LOGGER.info("add 1 ContentType is:"+getAdd1FileFileName());
+		LOGGER.info("add 1 ContentType is:"+getAdd1FileContentType());
 		LOGGER.info("add 2 Name is:"+getAdd2FileFileName());
-		LOGGER.info("add 2 ContentType is:"+getAdd2FileFileName());
+		LOGGER.info("add 2 ContentType is:"+getAdd2FileContentType());
 		LOGGER.info("add 3 Name is:"+getAdd3FileFileName());
-		LOGGER.info("add 3 ContentType is:"+getAdd3FileFileName());
+		LOGGER.info("add 3 ContentType is:"+getAdd3FileContentType());
 		LOGGER.info("add 4 Name is:"+getAdd4FileFileName());
-		LOGGER.info("add 4 ContentType is:"+getAdd4FileFileName());
+		LOGGER.info("add 4 ContentType is:"+getAdd4FileContentType());
 		LOGGER.info("package Name is:"+getPackageFileFileName());
 		LOGGER.info("package ContentType is:"+getPackageFileContentType());
 		LOGGER.info("Files Directory is:"+servletRequest.getContextPath());
@@ -337,8 +337,17 @@ public class PlaceDAO  extends ActionSupport  implements  SessionAware,ServletRe
 		
 		session.save(placeBean);
 		
-		session.save(attributeParking);
 		session.save(attributeIndexFileLoc);
+		
+		//add1FilePath,add2FilePath,add3FilePath,add4FilePath,packageFilePath
+		if(add1FilePath!=null){session.save(add1FilePath);}
+		if(add2FilePath!=null){session.save(add2FilePath);}
+		if(add3FilePath!=null){session.save(add3FilePath);}
+		if(add4FilePath!=null){session.save(add4FilePath);}
+		if(packageFilePath!=null){session.save(packageFilePath);}
+		
+		session.save(attributeParking);
+		
 		session.save(attributeRestRooms);
 		session.save(attributeBathRooms);
 		
@@ -389,100 +398,100 @@ public class PlaceDAO  extends ActionSupport  implements  SessionAware,ServletRe
 	
 	
 	
-	long  regPlacePhone ,regPlacePostcode ;
+	Long  regPlacePhone ,regPlacePostcode ;
 
-	long regPlaceMinPrice,regPlaceMaxPrice;
-	long regPlaceCapacity ,regPlaceDinning ,regPlaceArea ,regPlaceWater ,regPlaceParking ,regPlaceRestRooms, regPlaceBathrooms; 
+	Long regPlaceMinPrice,regPlaceMaxPrice;
+	Long regPlaceCapacity ,regPlaceDinning ,regPlaceArea ,regPlaceWater ,regPlaceParking ,regPlaceRestRooms, regPlaceBathrooms; 
 	String regPlaceMarriage,	regPlaceConference,	regPlacepartyHall,	regPlaceHotel,	regPlaceOpenHouse ,regPlaceAC;	
 	String regPlacePower ,regPlaceMusic,regPlaceVegetarian;
 	String regPlaceName , regPlaceAddress , regPlaceLocality, regPlacecity,regPlaceMap;
 	
 
-	public long getRegPlacePhone() {
+	public Long getRegPlacePhone() {
 		return regPlacePhone;
 	}
 
-	public long getRegPlaceMinPrice() {
+	public Long getRegPlaceMinPrice() {
 		return regPlaceMinPrice;
 	}
 
-	public void setRegPlaceMinPrice(long regPlaceMinPrice) {
+	public void setRegPlaceMinPrice(Long regPlaceMinPrice) {
 		this.regPlaceMinPrice = regPlaceMinPrice;
 	}
 
-	public long getRegPlaceMaxPrice() {
+	public Long getRegPlaceMaxPrice() {
 		return regPlaceMaxPrice;
 	}
 
-	public void setRegPlaceMaxPrice(long regPlaceMaxPrice) {
+	public void setRegPlaceMaxPrice(Long regPlaceMaxPrice) {
 		this.regPlaceMaxPrice = regPlaceMaxPrice;
 	}
 
-	public void setRegPlacePhone(long regPlacePhone) {
+	public void setRegPlacePhone(Long regPlacePhone) {
 		this.regPlacePhone = regPlacePhone;
 	}
 
-	public long getRegPlacePostcode() {
+	public Long getRegPlacePostcode() {
 		return regPlacePostcode;
 	}
 
-	public void setRegPlacePostcode(long regPlacePostcode) {
+	public void setRegPlacePostcode(Long regPlacePostcode) {
 		this.regPlacePostcode = regPlacePostcode;
 	}
 
-	public long getRegPlaceCapacity() {
+	public Long getRegPlaceCapacity() {
 		return regPlaceCapacity;
 	}
 
-	public void setRegPlaceCapacity(long regPlaceCapacity) {
+	public void setRegPlaceCapacity(Long regPlaceCapacity) {
 		this.regPlaceCapacity = regPlaceCapacity;
 	}
 
-	public long getRegPlaceDinning() {
+	public Long getRegPlaceDinning() {
 		return regPlaceDinning;
 	}
 
-	public void setRegPlaceDinning(long regPlaceDinning) {
+	public void setRegPlaceDinning(Long regPlaceDinning) {
 		this.regPlaceDinning = regPlaceDinning;
 	}
 
-	public long getRegPlaceArea() {
+	public Long getRegPlaceArea() {
 		return regPlaceArea;
 	}
 
-	public void setRegPlaceArea(long regPlaceArea) {
+	public void setRegPlaceArea(Long regPlaceArea) {
 		this.regPlaceArea = regPlaceArea;
 	}
 
-	public long getRegPlaceWater() {
+	public Long getRegPlaceWater() {
 		return regPlaceWater;
 	}
 
-	public void setRegPlaceWater(long regPlaceWater) {
+	public void setRegPlaceWater(Long regPlaceWater) {
 		this.regPlaceWater = regPlaceWater;
 	}
 
-	public long getRegPlaceParking() {
+	public Long getRegPlaceParking() {
 		return regPlaceParking;
 	}
 
-	public void setRegPlaceParking(long regPlaceParking) {
+	public void setRegPlaceParking(Long regPlaceParking) {
 		this.regPlaceParking = regPlaceParking;
 	}
 
-	public long getRegPlaceRestRooms() {
+	public Long getRegPlaceRestRooms() {
 		return regPlaceRestRooms;
 	}
 
-	public void setRegPlaceRestRooms(long regPlaceRestRooms) {
+	public void setRegPlaceRestRooms(Long regPlaceRestRooms) {
 		this.regPlaceRestRooms = regPlaceRestRooms;
 	}
 
-	public long getRegPlaceBathrooms() {
+	public Long getRegPlaceBathrooms() {
 		return regPlaceBathrooms;
 	}
 
-	public void setRegPlaceBathrooms(long regPlaceBathrooms) {
+	public void setRegPlaceBathrooms(Long regPlaceBathrooms) {
 		this.regPlaceBathrooms = regPlaceBathrooms;
 	}
 
