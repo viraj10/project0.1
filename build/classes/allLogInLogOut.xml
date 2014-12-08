@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+ 
+<struts>
+ 
+	<package name="allLogInLogOut" extends="struts-default">
+	
+		<global-exception-mappings>
+ 			<exception-mapping exception="java.lang.Exception" result="error" />
+		</global-exception-mappings>
+				
+		<action name="checkLogin" class="com.getbestplace.action.LoginAction">
+			<exception-mapping exception="java.lang.Exception"  result="error" />
+			<result name="success">view/commonview/welcome.jsp</result>
+			<result name="error">view/userview/login.jsp</result>
+		</action>
+		
+		<action name="logoutuser" class="com.getbestplace.action.LogOutUser">
+			<exception-mapping exception="java.lang.Exception"  result="error" />
+			<result name="success">view/commonview/welcome.jsp</result>
+			<result name="error">view/userview/login.jsp</result>
+		</action>
+			
+		<action name="adminLoginAction" class="com.getbestplace.action.AdminLogin">
+			<result name="success">view/adminview/highprorityplacesforadmin.jsp</result>
+			<result name="error">view/adminview/getbestplaceadminlogin.jsp</result>
+		</action>
+		
+	</package>
+ 
+</struts>

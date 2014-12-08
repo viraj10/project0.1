@@ -72,29 +72,12 @@
             </interceptor-ref>
   		</action>
   		
-  		<action name="checkLogin" class="com.getbestplace.action.LoginAction">
-			<exception-mapping exception="java.lang.Exception"  result="error" />
-			<result name="success">view/commonview/welcome.jsp</result>
-			<result name="error">view/userview/login.jsp</result>
-		</action>
-		
-		<action name="logoutuser" class="com.getbestplace.action.LogOutUser">
-			<exception-mapping exception="java.lang.Exception"  result="error" />
-			<result name="success">view/commonview/welcome.jsp</result>
-			<result name="error">view/userview/login.jsp</result>
-		</action>
-		
+  		
 		<action name="saveNewUser" class="com.getbestplace.action.SaveUserDetailAction" method="addUser">
 			<exception-mapping exception="java.lang.Exception"  result="error" />
 			<result name="success">view/commonview/welcome.jsp</result>
 			<result name="error">view/commonview/error.jsp</result>
 			<result name="login">view/userview/login.jsp</result>
-		</action>
-		
-		
-		<action name="adminLoginAction" class="com.getbestplace.action.AdminLogin">
-			<result name="success">view/adminview/highprorityplacesforadmin.jsp</result>
-			<result name="error">view/adminview/getbestplaceadminlogin.jsp</result>
 		</action>
 		
 		<action name="addHighPriorityPlace" class="com.getbestplace.action.HighPriorityPlacesAction" method="addHighPriorityPlace">
@@ -115,5 +98,6 @@
 	</package>
 	<include file="jspViews.xml"/>		
 	<include file="searchAndSort.xml"/>
+	<include file="allLogInLogOut.xml"/>
 </struts>
 
