@@ -9,6 +9,7 @@
 }
 .selected-place-images{
 	text-align:center;
+	margin: 2% auto;
 }
 .selected-place-images img{
 	width:75px;
@@ -24,6 +25,7 @@
 </style>
 <body>
 <s:include value="/view/partailview/bodyHeader.jsp"/>
+<s:bean name="com.getbestplace.util.AttributeNameComparator" var="attributeNameComparator" />
 <div id="bodySection">
 	<div class="container">
 		<div class="row">
@@ -31,7 +33,7 @@
 				<h2 class="selected-place-name"><s:property value="place.name"/></h2>
 				<div class="selected-place-images row">
 					<div class="big-image row">
-						<img src="http://localhost:8080/StrutsHelloWorld/places/pune/Aundh/test5/Sign.jpg" id="big-image-tag"/>
+						<img src="" id="big-image-tag"/>
 					</div>
 					<s:iterator value="place.attributes">
 						<s:if test="%{attributeName=='Index'}">
@@ -51,15 +53,75 @@
 						</s:if>
 					</s:iterator>
 				</div>
-				<div><s:property value="place.address"/></div>
-				<s:iterator value="place.attributes">
-					<div>
-					<s:property value="attributeName"/>
-					<s:property value="stringValue"/>
-					<s:property value="doubleValue"/>
-					<s:property value="intValue"/>
-					</div>
-				</s:iterator>		
+				<div class="row">
+					<div class="span3"><span>Address of this place is </span><b><s:property value="place.address"/></b>.</div>
+					<div class="span3"><span>Locality is </span><b><s:property value="place.locality"/></b> in city <b><s:property value="place.city"/></b>.</div>
+					<div class="span3"><span>Postal code: </span><b><s:property value="place.postalCode"/></b>.</div>
+					<div class="span3"><span>Contact Number: </span><b><s:property value="place.phone"/></b>.</div>
+				</div>
+				<h3>Other Information about this place.</h3>
+				<div class="row">
+				<s:sort comparator="#attributeNameComparator" source="place.attributes">
+					<s:iterator><s:property value="attributeName"/>
+						<div class="span3">
+							<s:if test="%{attributeName=='AC'}">
+								This place air conditioned:- <s:property value="stringValue"/>.
+							</s:if>
+							<s:if test="%{attributeName=='Area'}">
+								Area of this place:- <s:property value="intValue"/> sq ft.
+							</s:if>
+							<s:if test="%{attributeName=='BathRooms'}">
+								Inbuilt bathrooms:- <s:property value="intValue"/>.
+							</s:if>
+							<s:if test="%{attributeName=='Capacity'}">
+								Capacity of this place:- <s:property value="intValue"/>.
+							</s:if>
+							<s:if test="%{attributeName=='Conference'}">
+								This place has conferences hall:- <s:property value="stringValue"/>.
+							</s:if>
+							<s:if test="%{attributeName=='Dinning'}">
+								One time dining capacity:- <s:property value="intValue"/>.
+							</s:if>
+							<s:if test="%{attributeName=='Marriage'}">
+								This place is a marriage hall:- <s:property value="stringValue"/>.
+							</s:if>
+							<s:if test="%{attributeName=='MaximumPrice'}">
+								Maximum rate of place:- <s:property value="intValue"/>K INR.
+							</s:if>
+							<s:if test="%{attributeName=='MinimumPrice'}">
+								Minimum rate of place:- <s:property value="intValue"/>K INR.
+							</s:if>
+							<s:if test="%{attributeName=='Music'}">
+								Is music allowed:- <s:property value="stringValue"/>.
+							</s:if>
+							<s:if test="%{attributeName=='OpenHouse'}">
+								Is this place with out roof:- <s:property value="stringValue"/>.
+							</s:if>
+							<s:if test="%{attributeName=='Parking'}">
+								How many can park here:- <s:property value="intValue"/>.
+							</s:if>
+							<s:if test="%{attributeName=='Party'}">
+								This place is can hold party:- <s:property value="stringValue"/>.
+							</s:if>
+							<s:if test="%{attributeName=='Power'}">
+								Is there a inbuilt power back up:- <s:property value="stringValue"/>.
+							</s:if>
+							<s:if test="%{attributeName=='RestRooms'}">
+								Inbuilt restrooms:- <s:property value="intValue"/>.
+							</s:if>
+							<s:if test="%{attributeName=='Water'}">
+								Water storage limit:- <s:property value="intValue"/>.
+							</s:if>
+							<s:if test="%{attributeName=='map'}">
+								Map link:- <a><s:property value="stringValue"/></a>.
+							</s:if>
+							<s:if test="%{attributeName=='vegetarian'}">
+								Only vegetarians are allowed? <s:property value="stringValue"/>.
+							</s:if>													
+						</div>
+					</s:iterator>
+				</s:sort>		
+				</div>
 			</div>
 		</div>		
 	</div><!-- /container -->
@@ -71,8 +133,16 @@
 <script type="text/javascript">
 
 
-$( document ).ready(function() {
-
+$( document ).ready(function() {	
+	function setBigImgSrc(path){
+		$('#big-image-tag').attr('src',path);
+	}
+	
+	var indexImg = $('#index-Image').attr('src');
+	setBigImgSrc(indexImg);
+	$( ".place-image" ).click(function() {
+		setBigImgSrc( $(this).attr('src'));
+	});
 });
 
 (function($,W,D)

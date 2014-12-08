@@ -13,6 +13,7 @@
 				<!--li><a href="#" style="padding:0 14px; "><span class="btn btn-warning">Menu</span></a></li-->
 				<c:choose>
 					<c:when test="${sessionScope.currentUser!=null && sessionScope.currentUser.userId>0}">
+						<li><a href="logoutuser">Log Out </a> </li>	
 						<li><a href="registerplace">Register my place</a></li>
 					</c:when>
 					<c:otherwise>

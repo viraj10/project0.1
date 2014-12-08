@@ -78,6 +78,12 @@
 			<result name="error">view/userview/login.jsp</result>
 		</action>
 		
+		<action name="logoutuser" class="com.getbestplace.action.LogOutUser">
+			<exception-mapping exception="java.lang.Exception"  result="error" />
+			<result name="success">view/commonview/welcome.jsp</result>
+			<result name="error">view/userview/login.jsp</result>
+		</action>
+		
 		<action name="saveNewUser" class="com.getbestplace.action.SaveUserDetailAction" method="addUser">
 			<exception-mapping exception="java.lang.Exception"  result="error" />
 			<result name="success">view/commonview/welcome.jsp</result>

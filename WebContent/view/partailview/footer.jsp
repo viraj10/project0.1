@@ -14,8 +14,15 @@
 	<div id="footerMenu">
 		<a href="welcome"> HOME</a> | 
 		<a href="#">TOP PLACES</a> | 
-		<a href="loginresgister">LOGIN </a> | 	
-		<a href="registerplace">REGISTER PACE </a> |  
+		<c:choose>
+			<c:when test="${sessionScope.currentUser!=null && sessionScope.currentUser.userId>0}">
+				<a href="logoutuser">LOGOUT </a> | 
+				<a href="registerplace">REGISTER PLACE </a> |  
+			</c:when>
+			<c:otherwise>
+				<a href="loginresgister">LOGIN </a> | 
+			</c:otherwise>
+		</c:choose>
 		<a href="welcome"> ABOUT US</a>
 	</div>
 		
