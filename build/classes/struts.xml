@@ -5,17 +5,13 @@
 
 <struts>
 
-	
-
-	<constant name="struts.enable.DynamicMethodInvocation"
-		value="false" />
+	<constant name="struts.enable.DynamicMethodInvocation"	value="false" />
 	<constant name="struts.devMode" value="false" />
 	<constant name="struts.custom.i18n.resources"
 		value="ApplicationResources" />
 	<constant name="struts.multipart.saveDir" value="places" />
 	<constant name="struts.multipart.maxSize" value="9000000" />
 	<package name="default" extends="struts-default">
-		
 		
 		<result-types>
 			<result-type name="imageResult"
@@ -43,12 +39,6 @@
  			<exception-mapping exception="java.lang.Exception" result="error" />
 		</global-exception-mappings>		
 		
-		
-		<action name="login" class="com.getbestplace.LoginAction">
-			<result name="success">view/commonview/welcome.jsp</result>
-			<result name="error">view/userview/login.jsp</result>
-		</action>
-		
 		<action name="getCaptcha" class="com.getbestplace.CaptchaGenerator">
 			<result name="success" type="imageResult">
 			</result>
@@ -71,7 +61,6 @@
                 <param name="fileUpload.allowedTypes">text/plain,application/pdf,application/word,application/msword,application/vnd.ms-excel,image/png,image/gif,image/jpeg,image/jpg</param>
             </interceptor-ref>
   		</action>
-  		
   		
 		<action name="saveNewUser" class="com.getbestplace.action.SaveUserDetailAction" method="addUser">
 			<exception-mapping exception="java.lang.Exception"  result="error" />
@@ -100,4 +89,3 @@
 	<include file="searchAndSort.xml"/>
 	<include file="allLogInLogOut.xml"/>
 </struts>
-
