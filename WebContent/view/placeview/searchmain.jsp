@@ -18,7 +18,7 @@
 		<h2 id="searchBoxWrapper">
 			<div id="postCodeInner" style="text-align: center;">
 				<input class="span3" id="city" name="city" type="text" placeholder="CITY" value="Pune" disabled/>
-				<s:textfield name="locality" id="locality" cssClass="span3" placeholder="LOCATION"/>
+				<s:textfield name="locality" id="locality" cssClass="span3" placeholder="LOCATION" autocomplete="off"/>
 				<s:textfield name="name" id="name" cssClass="span3" placeholder="NAME"/>
 				<button class="btn btn-large btn-success" type="submit" style="margin-bottom: 7px;">SEARCH</button>
 			</div>

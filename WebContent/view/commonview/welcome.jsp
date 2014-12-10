@@ -34,7 +34,7 @@
 	<h2 id="searchBoxWrapper">
 		<div id="postCodeInner" style="text-align: center;">
 			<input class="span3" id="city" name="city" type="text" placeholder="CITY" value="Pune" disabled/>
-			<input class="span3" id="locality" name="locality" type="text" placeholder="LOCATION"/>
+			<input class="span3" id="locality" name="locality" type="text" placeholder="LOCATION" autocomplete="off"/>
 			<input class="span3" id="name" name="name" type="text" placeholder="NAME"/>
 			<button class="btn btn-large btn-success" type="submit" style="margin-bottom: 7px;">SEARCH</button>
 		</div>
