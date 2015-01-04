@@ -1,0 +1,14 @@
+Control Panel > Network and Internet > View network status and tasks > Change adapter settings > WI-FI right click > properties
+
+Select the Networking tab. Under This connection uses the following items, select Internet Protocol Version 4 (TCP/IPv4) or Internet Protocol Version 6 (TCP/IPv6) and then click Properties.
+Click Advanced and select the DNS tab. If there are any DNS server IP addresses listed there, write them down for future reference, and remove them from this window.
+Click OK.
+Select Use the following DNS server addresses. If there are any IP addresses listed in the Preferred DNS server or Alternate DNS server, write them down for future reference.
+Replace those addresses with the IP addresses of the Google DNS servers:
+For IPv4: 8.8.8.8 and/or 8.8.4.4.
+For IPv6: 2001:4860:4860::8888 and/or 2001:4860:4860::8844
+Restart the connection you selected in step 3.
+Test that your setup is working correctly; see Testing your new settings below.
+Repeat the procedure for additional network connections you want to change.
+
+https://developers.google.com/speed/public-dns/docs/using
